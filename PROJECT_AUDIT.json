@@ -1,0 +1,29 @@
+{
+  "project": "CỔNG TRA CỨU ĐỊA DANH XÃ PHƯỜNG NGHỆ AN",
+  "places": 130,
+  "logo": "public/assets/nata-dia-danh-logo.png",
+  "adminEmail": "tinnhanhonline247@gmail.com",
+  "hotline": "0914 58 75 75",
+  "tech": [
+    "React",
+    "Vite",
+    "Leaflet",
+    "Supabase",
+    "Vercel"
+  ],
+  "pages": [
+    "/",
+    "/dia-danh/:slug",
+    "/admin-login",
+    "/admin"
+  ],
+  "maps": [
+    "2D",
+    "3D",
+    "Quy hoạch"
+  ],
+  "supabaseFiles": [
+    "supabase/schema.sql",
+    "supabase/seed_places.sql"
+  ]
+}
