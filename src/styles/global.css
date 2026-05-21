@@ -668,3 +668,99 @@ mark{background:transparent;color:var(--yellow)}
     white-space: nowrap !important;
   }
 }
+
+/* === TEXT SPACING + TITLE SIZE FIX - 2026-05-21 ===
+   Giãn 2 dòng tiêu đề header, rút gọn hero title, giảm size tiêu đề các mục.
+*/
+
+.brand strong {
+  line-height: 1.18 !important;
+}
+
+.brand strong span + span {
+  margin-top: 3px !important;
+}
+
+.hero h1 {
+  max-width: 680px !important;
+}
+
+.feature-section > h2 {
+  font-size: 21px !important;
+  margin-bottom: 12px !important;
+}
+
+.section-title h2,
+.directory-title h2,
+.feedback-head h2 {
+  font-size: 20px !important;
+  line-height: 1.18 !important;
+}
+
+.mini-title {
+  font-size: 16.5px !important;
+  line-height: 1.2 !important;
+}
+
+.map-summary-copy .mini-title {
+  white-space: nowrap !important;
+}
+
+@media (max-width: 900px) {
+  .brand strong {
+    line-height: 1.18 !important;
+  }
+
+  .brand strong span + span {
+    margin-top: 3px !important;
+  }
+
+  .hero h1 {
+    font-size: 25px !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .feature-section > h2 {
+    font-size: 20px !important;
+  }
+
+  .section-title h2,
+  .directory-title h2,
+  .feedback-head h2 {
+    font-size: 19px !important;
+  }
+
+  .mini-title {
+    font-size: 15.5px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand strong {
+    line-height: 1.2 !important;
+  }
+
+  .brand strong span + span {
+    margin-top: 3px !important;
+  }
+
+  .hero h1 {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  .feature-section > h2 {
+    font-size: 19px !important;
+  }
+
+  .section-title h2,
+  .directory-title h2,
+  .feedback-head h2 {
+    font-size: 18px !important;
+  }
+
+  .mini-title {
+    font-size: 15px !important;
+  }
+}

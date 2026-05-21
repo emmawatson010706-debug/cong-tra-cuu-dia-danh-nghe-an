@@ -105,7 +105,7 @@ ${messageText}`,
           <section className="hero hero-modern">
             <div className="hero-copy">
               <span className="eyebrow"><ShieldCheck size={17}/> NATA - Cổng tra cứu bản đồ hành chính mới</span>
-              <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark> theo bản đồ hành chính mới</h1>
+              <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
               <p>Cổng tra cứu giúp người dân nhanh chóng tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
             </div>
             <div className="hero-portrait" aria-label="Hình ảnh Bác Hồ tại Nghệ An">
