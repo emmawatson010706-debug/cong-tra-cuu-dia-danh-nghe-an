@@ -369,3 +369,172 @@ mark{background:transparent;color:var(--yellow)}
   text-align:justify;
   text-justify:inter-word;
 }
+
+/* === QUICK MOBILE UI FIXES - 2026-05-21 ===
+   Sửa theo yêu cầu:
+   1. Header mobile cân đối hơn, không quá nhỏ.
+   2. Badge "NATA - Cổng tra cứu bản đồ hành chính mới" nằm 1 dòng.
+   3. Bỏ mũi tên ngang ở mục Tính năng nổi bật.
+   4. "Bản đồ hành chính Nghệ An" nằm 1 dòng.
+   5. Giảm size tiêu đề các mục trang chủ.
+*/
+
+.site-header {
+  min-height: 74px;
+}
+
+.brand strong span {
+  display: block;
+  white-space: nowrap;
+}
+
+.eyebrow {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+}
+
+.eyebrow svg {
+  flex: 0 0 auto;
+}
+
+.feature-card i {
+  display: none !important;
+}
+
+.feature-section > h2 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.section-title h2,
+.directory-title h2,
+.feedback-head h2 {
+  font-size: 22px;
+  letter-spacing: -0.035em;
+}
+
+.mini-title {
+  font-size: 18px;
+  white-space: nowrap;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    min-height: 72px;
+    padding: 10px 12px;
+    border-radius: 20px;
+  }
+
+  .brand {
+    gap: 9px;
+    max-width: calc(100% - 126px);
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand strong {
+    font-size: 15.8px;
+    line-height: 1.08;
+  }
+
+  .admin-btn {
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    width: 100%;
+    max-width: 100%;
+    font-size: 12.5px;
+    padding: 8px 10px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .mini-title {
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
+  .feature-section > h2 {
+    font-size: 22px;
+  }
+
+  .section-title h2,
+  .directory-title h2,
+  .feedback-head h2 {
+    font-size: 21px;
+  }
+
+  .feature-card {
+    padding-bottom: 14px;
+    min-height: 166px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    min-height: 68px;
+    padding: 9px 8px;
+  }
+
+  .brand {
+    max-width: calc(100% - 102px);
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 47px;
+    height: 47px;
+  }
+
+  .brand strong {
+    font-size: 14px;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+  }
+
+  .admin-btn,
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .eyebrow {
+    font-size: 11.6px;
+    padding: 7px 9px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .mini-title {
+    font-size: 16px;
+  }
+
+  .feature-section > h2 {
+    font-size: 21px;
+  }
+
+  .section-title h2,
+  .directory-title h2,
+  .feedback-head h2 {
+    font-size: 20px;
+  }
+}
