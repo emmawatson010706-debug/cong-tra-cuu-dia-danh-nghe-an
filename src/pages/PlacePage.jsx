@@ -2,28 +2,56 @@ import { Link, useParams } from 'react-router-dom';
 import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
 import places from '../data/places.json';
-import { ExternalLink, MapPinned, Users, Ruler, BarChart3, Building2, ShieldCheck, Files } from 'lucide-react';
-
-
-function highlightNgheAn(text) {
-  return String(text).split(/(Nghệ An)/g).map((part, index) =>
-    part === 'Nghệ An' ? <span key={index} className="nghe-an-highlight">Nghệ An</span> : part
-  );
-}
+import { ExternalLink, MapPinned, Users, Ruler, BarChart3, Building2, ShieldCheck } from 'lucide-react';
 
 function fmtNumber(v) {
   if (v === null || v === undefined || v === '') return 'Đang cập nhật';
   return Number(v).toLocaleString('vi-VN');
 }
 
+function districtLabel(value) {
+  const name = String(value || '').trim();
+  if (!name) return 'địa phương cũ';
+  if (name === 'TP Vinh' || name === 'Vinh') return 'thành phố Vinh cũ';
+  if (/^(Thành phố|thành phố|Huyện|huyện|Thị xã|thị xã|TX)/.test(name)) return `${name} cũ`;
+  const townLike = ['Cửa Lò', 'Hoàng Mai', 'Thái Hòa'];
+  if (townLike.includes(name)) return `thị xã ${name} cũ`;
+  return `huyện ${name} cũ`;
+}
+
+function typeLabel(type) {
+  return type === 'phường' ? 'phường' : 'xã';
+}
+
+function isUnchangedPlace(place) {
+  const units = place.oldUnits || [];
+  if (units.length !== 1) return false;
+  const clean = (value) => String(value || '').toLowerCase()
+    .replace(/^xã\s+|^phường\s+|^thị trấn\s+/i, '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').trim();
+  return clean(units[0]) === clean(place.name);
+}
+
+function formationSentence(place) {
+  const units = place.oldUnits || [];
+  if (!units.length) {
+    return `Thông tin các đơn vị hành chính cũ cấu thành ${place.name} đang được tiếp tục đối chiếu theo Nghị quyết 1678/NQ-UBTVQH15 và website thông tin điện tử địa phương.`;
+  }
+  if (isUnchangedPlace(place)) {
+    return `${place.name} là đơn vị hành chính không thực hiện sắp xếp theo Điều 1 Nghị quyết 1678/NQ-UBTVQH15; địa danh này tiếp tục được sử dụng trong hệ thống đơn vị hành chính cấp xã của tỉnh Nghệ An.`;
+  }
+  const list = units.length === 1 ? units[0] : `${units.slice(0, -1).join(', ')} và ${units[units.length - 1]}`;
+  return `${place.name} được hình thành trên cơ sở sắp xếp toàn bộ diện tích tự nhiên, quy mô dân số của các đơn vị hành chính cũ gồm: ${list}.`;
+}
+
 export default function PlacePage() {
   const { slug } = useParams();
-  const place = places.find((p) => p.slug === slug);
+  const place = places.find(p => p.slug === slug);
 
   if (!place) {
     return (
       <Layout>
-        <div className="container section-card" style={{ marginTop: 24, marginBottom: 24 }}>
+        <div className="container section-card">
           <h1>Không tìm thấy địa danh</h1>
           <Link to="/">Về trang chủ</Link>
         </div>
@@ -34,68 +62,43 @@ export default function PlacePage() {
   return (
     <Layout>
       <div className="container place-page">
-        <nav className="breadcrumb">
-          <Link to="/">Trang chủ</Link> / <span>Địa danh</span> / <strong>{place.name}</strong>
-        </nav>
-
-        <section className="place-hero place-portal-hero">
-          <span className="eyebrow">Hồ sơ địa danh xã/phường</span>
+        <nav className="breadcrumb"><Link to="/">Trang chủ</Link> / <span>Địa danh</span> / <strong>{place.name}</strong></nav>
+        <section className="place-hero">
+          <span className="eyebrow">Hồ sơ địa danh và bản đồ tra cứu</span>
           <h1>{place.name}</h1>
-          <p>
-            {place.type === 'phường' ? 'Phường' : 'Xã'} thuộc không gian {place.oldDistrict} cũ. Trang này giúp tra cứu nhanh
-            bản đồ, thông tin nền và các đơn vị cũ liên quan theo hệ thống địa danh mới của tỉnh <span className="nghe-an-highlight">Nghệ An</span>.
-          </p>
-          <div className="place-meta-chips">
-            <span>{place.type === 'phường' ? 'Phường' : 'Xã'} mới</span>
-            <span>{place.oldDistrict} cũ</span>
-            <span>{place.oldUnits?.length || 0} đơn vị cũ liên quan</span>
-          </div>
+          <p>{place.name} là đơn vị hành chính cấp {typeLabel(place.type)} của tỉnh Nghệ An, thuộc địa bàn {districtLabel(place.oldDistrict)} trước khi sắp xếp đơn vị hành chính cấp xã năm 2025.</p>
         </section>
 
-        <section className="stats-grid stats-grid-portal">
-          <div className="stat-card"><Ruler /><span>Diện tích</span><strong>{place.areaKm2 ? `${fmtNumber(place.areaKm2)} km²` : 'Đang cập nhật'}</strong></div>
-          <div className="stat-card"><Users /><span>Dân số</span><strong>{fmtNumber(place.population)} người</strong></div>
-          <div className="stat-card"><BarChart3 /><span>Mật độ</span><strong>{place.density ? `${fmtNumber(Math.round(place.density))} người/km²` : 'Đang cập nhật'}</strong></div>
-          <div className="stat-card"><Building2 /><span>Không gian cũ</span><strong>{place.oldDistrict}</strong></div>
+        <section className="stats-grid">
+          <div className="stat-card"><Ruler/><span>Diện tích</span><strong>{place.areaKm2 ? `${fmtNumber(place.areaKm2)} km²` : 'Đang cập nhật'}</strong></div>
+          <div className="stat-card"><Users/><span>Dân số</span><strong>{fmtNumber(place.population)} người</strong></div>
+          <div className="stat-card"><BarChart3/><span>Mật độ</span><strong>{place.density ? `${fmtNumber(Math.round(place.density))} người/km²` : 'Đang cập nhật'}</strong></div>
+          <div className="stat-card"><Building2/><span>Đơn vị cũ liên quan</span><strong>{place.oldUnits?.length || 0} đơn vị</strong></div>
         </section>
 
-        <MapPanel selectedSlug={place.slug} compact focusOnly title={`Bản đồ ${place.name}`} />
+        <MapPanel selectedSlug={place.slug} compact title="Bản đồ địa danh theo ranh giới GIS" />
 
-        <div className="place-body-grid">
-          <section className="article-card intro-article">
-            <div className="section-title compact-title">
-              <div>
-                <span className="title-icon">⌂</span>
-                <h2>Giới thiệu khái quát</h2>
-              </div>
-            </div>
-            {place.article.split('\n\n').map((para, i) => <p key={i}>{highlightNgheAn(para)}</p>)}
-          </section>
-
-          <aside className="source-card side-facts-card">
-            <h2>Thông tin tra cứu nhanh</h2>
-            <div className="mini-fact-list">
-              <div><MapPinned size={18} /><span>Vị trí</span><strong>{place.oldDistrict} cũ, <span className="nghe-an-highlight">Nghệ An</span></strong></div>
-              <div><Files size={18} /><span>Đơn vị cũ</span><strong>{place.oldUnits?.join(', ') || 'Đang cập nhật'}</strong></div>
-              <div><ShieldCheck size={18} /><span>Nguồn</span><strong>Website địa phương và nguồn pháp lý nền</strong></div>
-            </div>
-            <a href={place.officialUrl} target="_blank" rel="noreferrer">
-              Truy cập website địa phương <ExternalLink size={16} />
-            </a>
-            <p className="legal">Nguồn pháp lý nền: Nghị quyết 1678/NQ-UBTVQH15 về sắp xếp đơn vị hành chính cấp xã của tỉnh <span className="nghe-an-highlight">Nghệ An</span> năm 2025.</p>
-          </aside>
-        </div>
-
-        <section className="origin-card section-card">
-          <div className="section-title compact-title">
-            <div>
-              <span className="title-icon"><Building2 size={18} /></span>
-              <h2>Các đơn vị cũ liên quan</h2>
-            </div>
+        <section className="article-card">
+          <div className="section-title">
+            <div><span className="title-icon">⌂</span><h2>Giới thiệu về {place.name}</h2></div>
           </div>
-          <div className="origin-chips">
-            {(place.oldUnits || []).map((unit) => <span key={unit}>{unit}</span>)}
-          </div>
+          <p>{place.name} là đơn vị hành chính cấp {typeLabel(place.type)} của tỉnh Nghệ An, thuộc địa bàn {districtLabel(place.oldDistrict)} trước khi sắp xếp đơn vị hành chính cấp xã năm 2025.</p>
+          <p>{formationSentence(place)}</p>
+          <p>Trang hồ sơ địa danh này hỗ trợ người dân tra cứu tên gọi hành chính mới, đối chiếu với đơn vị hành chính cũ, xem vị trí trên bản đồ và tiếp cận các nguồn thông tin chính thống liên quan đến địa phương. Nội dung được biên tập theo hướng ngắn gọn, dễ đọc và phục vụ cộng đồng.</p>
+        </section>
+
+        <section className="info-list">
+          <div><MapPinned/><span>Thuộc</span><strong>{districtLabel(place.oldDistrict)}, tỉnh Nghệ An</strong></div>
+          <div><Ruler/><span>Bản đồ</span><strong>Xem ranh giới, quy hoạch tham khảo và lớp dữ liệu</strong></div>
+          <div><Users/><span>Hình thành từ</span><strong>{place.oldUnits?.join(', ') || 'Đang đối chiếu theo Nghị quyết 1678/NQ-UBTVQH15'}</strong></div>
+          <div><ShieldCheck/><span>Nguồn đối chiếu</span><strong>Nghị quyết 1678/NQ-UBTVQH15 và website thông tin điện tử địa phương</strong></div>
+        </section>
+
+        <section className="source-card">
+          <h2>Nguồn tham khảo</h2>
+          <p>Thông tin hành chính nền được đối chiếu theo Nghị quyết 1678/NQ-UBTVQH15 và website thông tin điện tử chính thức của địa phương khi có dữ liệu phù hợp.</p>
+          <a href={place.officialUrl} target="_blank" rel="noreferrer">{place.officialUrl}<ExternalLink size={16}/></a>
+          <p className="legal">Nguồn pháp lý nền: Nghị quyết 1678/NQ-UBTVQH15 về sắp xếp đơn vị hành chính cấp xã của tỉnh Nghệ An năm 2025.</p>
         </section>
       </div>
     </Layout>
