@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
+import WeatherPanel from '../components/WeatherPanel.jsx';
 import PlaceCard, { getRegionLabel } from '../components/PlaceCard.jsx';
 import places from '../data/places.json';
 import { ArrowRight, Building2, FileText, Layers3, Map, MapPinned, MessageSquare, Search, Send, ShieldCheck, Shuffle, UsersRound } from 'lucide-react';
@@ -23,10 +24,11 @@ const regionFilters = [
 
 const features = [
   { icon: Search, title: 'Tra cứu nhanh', text: 'Tìm kiếm địa danh xã/phường mới, huyện cũ, địa danh dễ dàng và chính xác.' },
-  { icon: Map, title: 'Bản đồ trực quan', text: 'Xem bản đồ 2D, 3D và quy hoạch trực quan, dễ dùng, thân thiện.' },
+  { icon: Map, title: 'Bản đồ trực quan', text: 'Xem bản đồ 2D, 3D và nguồn quy hoạch tham khảo theo hướng an toàn.' },
   { icon: Shuffle, title: 'Đối chiếu đơn vị cũ - mới', text: 'Tra cứu mối quan hệ giữa đơn vị hành chính cũ và mới sau sắp xếp.' },
   { icon: FileText, title: 'Hồ sơ địa danh', text: 'Khám phá thông tin chi tiết, nguồn dữ liệu và tài liệu về từng địa phương.' }
 ];
+
 
 export default function App() {
   const [q, setQ] = useState('');
@@ -72,9 +74,7 @@ export default function App() {
       sender_name: senderName,
       sender_phone: isEmail ? null : contact,
       sender_email: isEmail ? contact : null,
-      message: `Địa phương góp ý: ${placeText}
-
-${messageText}`,
+      message: `Địa phương góp ý: ${placeText}\n\n${messageText}`,
       status: 'pending'
     };
 
@@ -120,22 +120,23 @@ ${messageText}`,
           </form>
 
           <section className="map-summary-card" id="ban-do">
-            <div className="map-summary-copy">
-              <div className="mini-title"><MapPinned size={20}/> Bản đồ hành chính Nghệ An</div>
-              <div className="map-stat-row">
-                <span><Building2 size={24}/><strong>130</strong><small>xã/phường mới</small></span>
-                <span><Layers3 size={24}/><strong>3</strong><small>lớp bản đồ</small></span>
-              </div>
-              <button type="button" className="outline-cta" onClick={() => document.getElementById('map-live')?.scrollIntoView({behavior:'smooth'})}>Xem chi tiết bản đồ <ArrowRight size={17}/></button>
-              <div className="fake-tabs" aria-label="Các lớp bản đồ"><b>2D</b><span>3D</span><span>Quy hoạch</span></div>
-            </div>
-            <div className="map-summary-visual"><img src="/assets/nghe-an-3d-map.svg" alt="Bản đồ mô hình 3D Nghệ An" /></div>
+  <div className="map-summary-copy">
+    <div className="mini-title"><MapPinned size={20}/> Bản đồ hành chính Nghệ An</div>
+    <p className="map-summary-text">Bản đồ là trung tâm tra cứu của cổng địa danh, giúp người dân xem nhanh vị trí, ranh giới và mở hồ sơ từng xã/phường mới.</p>
+  </div>
+  <div className="map-summary-visual"><img src="/assets/nghe-an-3d-map.svg" alt="Bản đồ mô hình 3D Nghệ An" /></div>
+</section>
+
+          <section className="quick-stats quick-stats-compact" aria-label="Thông tin nhanh">
+            <article><Building2/><strong>130</strong><span>xã/phường mới</span><small>Tra cứu theo địa danh mới và đơn vị cũ</small></article>
+            <article><Layers3/><strong>2D · 3D</strong><span>lớp bản đồ</span><small>Quy hoạch được tách riêng để tránh nhầm nguồn</small></article>
           </section>
 
-          <section className="quick-stats" aria-label="Thông tin nhanh">
-            <article><Building2/><strong>130</strong><span>xã/phường mới</span><small>Trên toàn tỉnh Nghệ An</small></article>
-            <article><Layers3/><strong>3</strong><span>lớp bản đồ</span><small>2D · 3D · Quy hoạch</small></article>
-          </section>
+          <div id="map-live">
+            <MapPanel title="Bản đồ hành chính Nghệ An" />
+          </div>
+
+          <WeatherPanel />
 
           <section className="feature-section" id="huong-dan">
             <h2>Tính năng nổi bật</h2>
@@ -150,10 +151,6 @@ ${messageText}`,
               ))}
             </div>
           </section>
-
-          <div id="map-live">
-            <MapPanel title="Bản đồ hành chính Nghệ An" />
-          </div>
 
           <section id="places" className="directory directory-modern">
             <div className="section-title directory-title">

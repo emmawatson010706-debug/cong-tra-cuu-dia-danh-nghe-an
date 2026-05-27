@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import './styles/global.css';
+import './styles/mobile-step3.css';
+import './styles/planning-reference.css';
 import App from './pages/App.jsx';
 import PlacePage from './pages/PlacePage.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';

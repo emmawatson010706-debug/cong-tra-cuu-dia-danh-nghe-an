@@ -1,0 +1,10 @@
+.planning-reference-card{background:linear-gradient(135deg,#fffdf3,#ffffff);border-color:rgba(245,158,11,.22)}
+.planning-reference-card .title-icon{background:#f59e0b;color:#fff;font-size:13px}
+.planning-reference-card p{font-size:15px;line-height:1.7;color:#475569;text-align:left}
+.planning-actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.planning-actions a{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 14px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-weight:900;text-decoration:none}
+.planning-warning{background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:12px 14px;color:#9a3412!important;font-weight:800}
+.map-tabs-two{grid-template-columns:repeat(2,1fr)!important}
+.map-label-chip{pointer-events:none!important}
+.map-label-chip span{display:inline-flex;align-items:center;justify-content:center;max-width:120px;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(15,118,110,.24);box-shadow:0 6px 14px rgba(15,23,42,.12);color:#06433d;font-size:11px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width: 600px){.planning-actions{display:grid}.planning-actions a{justify-content:center}.planning-reference-card{margin-top:14px}.planning-reference-card .section-title{margin-bottom:10px}}

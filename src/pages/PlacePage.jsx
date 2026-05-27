@@ -1,8 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
 import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
+import WeatherPanel from '../components/WeatherPanel.jsx';
 import places from '../data/places.json';
-import { ExternalLink, MapPinned, Users, Ruler, BarChart3, Building2, ShieldCheck } from 'lucide-react';
+import { AlertTriangle, ExternalLink, MapPinned, Users, Ruler, BarChart3, Building2, ShieldCheck } from 'lucide-react';
+
+const PLANNING_DECISION_URL = 'https://congbao.chinhphu.vn/van-ban/quyet-dinh-so-1059-qd-ttg-40137.htm';
+const PLANNING_REFERENCE_URL = 'https://share.google/JOTTNmARLRkh0XqH5';
 
 function fmtNumber(v) {
   if (v === null || v === undefined || v === '') return 'Đang cập nhật';
@@ -78,6 +82,21 @@ export default function PlacePage() {
 
         <MapPanel selectedSlug={place.slug} compact title="Bản đồ địa danh theo ranh giới GIS" />
 
+        <WeatherPanel placeName={place.name} latitude={place.lat} longitude={place.lng} />
+
+        <section className="planning-reference-card" id="quy-hoach-tham-khao">
+          <div className="planning-icon"><AlertTriangle size={24}/></div>
+          <div className="planning-content">
+            <p className="planning-kicker">Quy hoạch tham khảo</p>
+            <h2>Tra cứu quy hoạch theo hướng an toàn</h2>
+            <p>Dữ liệu quy hoạch cần được đối chiếu với nguồn chính thức của cơ quan nhà nước có thẩm quyền. Website chỉ hỗ trợ dẫn nguồn tra cứu, không thay thế văn bản pháp lý hoặc bản đồ quy hoạch chính thức.</p>
+            <div className="planning-actions">
+              <a href={PLANNING_DECISION_URL} target="_blank" rel="noreferrer">Quyết định 1059/QĐ-TTg <ExternalLink size={15}/></a>
+              <a href={PLANNING_REFERENCE_URL} target="_blank" rel="noreferrer">Mở bản đồ QH tham khảo <ExternalLink size={15}/></a>
+            </div>
+          </div>
+        </section>
+
         <section className="article-card">
           <div className="section-title">
             <div><span className="title-icon">⌂</span><h2>Giới thiệu về {place.name}</h2></div>
@@ -89,7 +108,7 @@ export default function PlacePage() {
 
         <section className="info-list">
           <div><MapPinned/><span>Thuộc</span><strong>{districtLabel(place.oldDistrict)}, tỉnh Nghệ An</strong></div>
-          <div><Ruler/><span>Bản đồ</span><strong>Xem ranh giới, quy hoạch tham khảo và lớp dữ liệu</strong></div>
+          <div><Ruler/><span>Bản đồ</span><strong>Xem ranh giới, vị trí và lớp dữ liệu địa danh</strong></div>
           <div><Users/><span>Hình thành từ</span><strong>{place.oldUnits?.join(', ') || 'Đang đối chiếu theo Nghị quyết 1678/NQ-UBTVQH15'}</strong></div>
           <div><ShieldCheck/><span>Nguồn đối chiếu</span><strong>Nghị quyết 1678/NQ-UBTVQH15 và website thông tin điện tử địa phương</strong></div>
         </section>
