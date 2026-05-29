@@ -790,3 +790,309 @@ main,
 .map-card.map-fullscreen .map-title h2 {
   color: #06433d !important;
 }
+/* === FIX LOGO, CARD TEXT, FOOTER BUTTONS ON DARK GREEN THEME === */
+
+/* 1. Logo giữ nguyên màu gốc, không bị ảnh hưởng bởi nền tối */
+.brand img,
+.footer-brand img {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Header logo cân đối hơn */
+.site-header .brand img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain !important;
+}
+
+/* Footer logo */
+.footer-brand img {
+  width: 58px !important;
+  height: 58px !important;
+  object-fit: contain !important;
+}
+
+/* 2. Sửa chữ trong danh sách xã/phường bị chìm */
+.place-card,
+.place-grid a,
+.place-grid article {
+  background: rgba(255, 255, 255, .075) !important;
+  border: 1px solid rgba(255, 255, 255, .14) !important;
+  color: #f4fffb !important;
+}
+
+.place-card h3,
+.place-grid h3,
+.place-card strong,
+.place-grid strong {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.place-card p,
+.place-card span,
+.place-grid p,
+.place-grid span {
+  color: rgba(244, 255, 251, .78) !important;
+  opacity: 1 !important;
+}
+
+.place-card svg,
+.place-grid svg {
+  color: #5ff5e5 !important;
+  opacity: 1 !important;
+}
+
+/* Ô icon bên trái trong danh sách xã/phường */
+.place-card .place-icon,
+.place-grid .place-icon,
+.place-card > span:first-child,
+.place-grid article > span:first-child {
+  background: rgba(95, 245, 229, .14) !important;
+  color: #5ff5e5 !important;
+}
+
+/* Nút/mũi tên bên phải trong place card không được trắng lóa */
+.place-card .arrow,
+.place-grid .arrow,
+.place-card i,
+.place-grid i {
+  background: rgba(95, 245, 229, .14) !important;
+  color: #5ff5e5 !important;
+}
+
+/* 3. Sửa footer nav đang trắng trên trắng */
+.footer-nav a {
+  background: rgba(255, 255, 255, .075) !important;
+  border: 1px solid rgba(255, 255, 255, .14) !important;
+  color: #f4fffb !important;
+  opacity: 1 !important;
+}
+
+.footer-nav a svg {
+  color: #5ff5e5 !important;
+  opacity: 1 !important;
+}
+
+.footer-nav a:hover {
+  background: rgba(15, 155, 142, .22) !important;
+  color: #ffffff !important;
+}
+
+/* 4. Sửa form góp ý: chữ nhập và placeholder dễ đọc hơn */
+.feedback-form input,
+.feedback-form textarea {
+  background: rgba(255, 255, 255, .08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+}
+
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: rgba(244, 255, 251, .68) !important;
+  opacity: 1 !important;
+}
+
+/* 5. Sửa tiêu đề và chữ trong khối góp ý */
+.feedback-head h2,
+.feedback-card h2 {
+  color: #ffffff !important;
+}
+
+.feedback-head p,
+.feedback-card p {
+  color: rgba(244, 255, 251, .78) !important;
+}
+
+/* 6. Sửa các card nền tối nhưng chữ bị chìm */
+.directory-modern h2,
+.directory-modern h3,
+.directory-modern strong,
+.feature-card h3,
+.feedback-card strong,
+.footer-brand strong {
+  color: #ffffff !important;
+}
+
+.directory-modern p,
+.directory-modern span,
+.feature-card p,
+.footer-brand p,
+.copyright {
+  color: rgba(244, 255, 251, .76) !important;
+}
+
+/* 7. Nút xem toàn bộ giữ nổi bật */
+.more-btn {
+  background: linear-gradient(135deg, #13b8a6, #087f73) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+}
+
+.more-btn svg {
+  color: #ffffff !important;
+}
+/* === FORCE WHITE TEXT ON DARK GREEN THEME === */
+
+/* Chữ chính toàn trang */
+body,
+main,
+.home-shell,
+.place-page,
+.hero-copy-card,
+.feature-section,
+.directory-modern,
+.feedback-card,
+.footer,
+.place-hero,
+.article-card,
+.source-card,
+.info-list,
+.stats-grid,
+.planning-reference-card {
+  color: #f4fffb !important;
+}
+
+/* Tất cả tiêu đề chính */
+h1,
+h2,
+h3,
+h4,
+.section-title h2,
+.directory-title h2,
+.feedback-head h2,
+.feature-section > h2,
+.feature-card h3,
+.place-card h3,
+.place-hero h1,
+.article-card h2,
+.source-card h2,
+.footer-brand strong,
+.brand strong,
+.map-title h2,
+.stat-card strong,
+.info-list strong {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Chữ nội dung */
+p,
+span,
+small,
+label,
+li,
+.hero-copy-card p,
+.feature-card p,
+.directory-title p,
+.feedback-head p,
+.feedback-form p,
+.place-card p,
+.place-card span,
+.place-hero p,
+.article-card p,
+.source-card p,
+.footer-brand p,
+.copyright,
+.info-list span,
+.stat-card span,
+.stat-card small {
+  color: rgba(244, 255, 251, .82) !important;
+  opacity: 1 !important;
+}
+
+/* Tên xã/phường trong danh sách phải trắng rõ */
+.place-card h3,
+.place-card strong,
+.place-grid h3,
+.place-grid strong,
+.place-grid a h3 {
+  color: #ffffff !important;
+}
+
+/* Dòng huyện cũ / vùng trong danh sách */
+.place-card p,
+.place-card span,
+.place-grid p,
+.place-grid span {
+  color: rgba(244, 255, 251, .78) !important;
+}
+
+/* Link và nút */
+a,
+button,
+.more-btn,
+.filter-pills button,
+.footer-nav a,
+.mobile-menu a {
+  color: #ffffff !important;
+}
+
+/* Nút lọc chưa chọn */
+.filter-pills button:not(.active) {
+  color: rgba(244, 255, 251, .82) !important;
+}
+
+/* Ô input, textarea */
+input,
+textarea,
+.search-card input,
+.directory-tools input,
+.feedback-form input,
+.feedback-form textarea {
+  color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+.search-card input::placeholder,
+.directory-tools input::placeholder,
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: rgba(244, 255, 251, .62) !important;
+  opacity: 1 !important;
+}
+
+/* Icon */
+svg,
+.feature-card svg,
+.place-card svg,
+.footer-nav svg,
+.feedback-head svg {
+  color: #5ff5e5 !important;
+  opacity: 1 !important;
+}
+
+/* Chữ vàng Nghệ An vẫn giữ vàng */
+mark,
+.brand mark,
+.footer-brand mark {
+  color: #ffd43b !important;
+}
+
+/* Footer nav không bị trắng nền */
+.footer-nav a {
+  background: rgba(255, 255, 255, .07) !important;
+  border: 1px solid rgba(255, 255, 255, .14) !important;
+  color: #ffffff !important;
+}
+
+/* Counter 130 kết quả */
+.counter {
+  color: #ffffff !important;
+  background: rgba(15, 155, 142, .32) !important;
+}
+
+/* Form góp ý */
+.feedback-form p {
+  color: rgba(244, 255, 251, .82) !important;
+}
+
+.feedback-status {
+  color: #ffffff !important;
+}
