@@ -1414,3 +1414,25 @@ mark,
   opacity: 1 !important;
   text-shadow: none !important;
 }
+/* === HOME SEARCH BUTTON - DEEP RED HIGHLIGHT === */
+
+.hero-search.search-card button,
+.search-card button[type="submit"] {
+  background: linear-gradient(135deg, #b42318, #7a1c16) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 220, 210, .28) !important;
+  box-shadow: 0 14px 28px rgba(122, 28, 22, .35) !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .18) !important;
+}
+
+.hero-search.search-card button:hover,
+.search-card button[type="submit"]:hover {
+  background: linear-gradient(135deg, #c9342a, #8d211a) !important;
+  color: #ffffff !important;
+}
+
+.hero-search.search-card button:active,
+.search-card button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 8px 18px rgba(122, 28, 22, .30) !important;
+}
