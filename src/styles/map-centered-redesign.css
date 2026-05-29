@@ -2311,3 +2311,117 @@ mark,
   color: rgba(244,255,251,.86) !important;
   border-color: rgba(255,255,255,.12) !important;
 }
+/* === FORCE ADMIN DARK THEME ON MOBILE === */
+
+@media (max-width: 900px) {
+  body:has(.admin-login),
+  body:has(.admin-page),
+  body:has(.admin-dashboard),
+  main:has(.admin-login),
+  main:has(.admin-page),
+  main:has(.admin-dashboard) {
+    background:
+      radial-gradient(circle at 20% 0%, rgba(15,155,142,.30), transparent 38%),
+      linear-gradient(180deg, #003c32 0%, #002f28 52%, #021b18 100%) !important;
+    color: #f4fffb !important;
+  }
+
+  .admin-login,
+  .admin-page,
+  .admin-dashboard,
+  .admin-shell,
+  .admin-main,
+  .admin-content,
+  .admin-card,
+  .admin-panel,
+  .admin-section,
+  .admin-login > *,
+  .admin-page > *,
+  .admin-dashboard > * {
+    background:
+      linear-gradient(180deg, rgba(18,31,30,.98), rgba(7,58,50,.96)) !important;
+    color: #f4fffb !important;
+    border-color: rgba(255,255,255,.14) !important;
+  }
+
+  .admin-login .section-card,
+  .admin-login form,
+  .admin-login form *,
+  .admin-page .section-card,
+  .admin-dashboard .section-card {
+    background:
+      linear-gradient(180deg, rgba(18,31,30,.98), rgba(7,58,50,.96)) !important;
+    color: #f4fffb !important;
+  }
+
+  .admin-login h1,
+  .admin-login h2,
+  .admin-login h3,
+  .admin-login p,
+  .admin-login label,
+  .admin-login span,
+  .admin-login small,
+  .admin-page h1,
+  .admin-page h2,
+  .admin-page h3,
+  .admin-page p,
+  .admin-page label,
+  .admin-page span,
+  .admin-page small,
+  .admin-dashboard h1,
+  .admin-dashboard h2,
+  .admin-dashboard h3,
+  .admin-dashboard p,
+  .admin-dashboard label,
+  .admin-dashboard span,
+  .admin-dashboard small {
+    color: #f4fffb !important;
+    -webkit-text-fill-color: #f4fffb !important;
+    opacity: 1 !important;
+  }
+
+  .admin-login input,
+  .admin-login textarea,
+  .admin-login select,
+  .admin-page input,
+  .admin-page textarea,
+  .admin-page select,
+  .admin-dashboard input,
+  .admin-dashboard textarea,
+  .admin-dashboard select {
+    background: rgba(255,255,255,.08) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+  }
+
+  .admin-login input::placeholder,
+  .admin-login textarea::placeholder,
+  .admin-page input::placeholder,
+  .admin-page textarea::placeholder,
+  .admin-dashboard input::placeholder,
+  .admin-dashboard textarea::placeholder {
+    color: rgba(244,255,251,.58) !important;
+    -webkit-text-fill-color: rgba(244,255,251,.58) !important;
+    opacity: 1 !important;
+  }
+
+  .admin-login button,
+  .admin-page button,
+  .admin-dashboard button {
+    background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  .admin-login img,
+  .admin-page img,
+  .admin-dashboard img {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+  }
+}
