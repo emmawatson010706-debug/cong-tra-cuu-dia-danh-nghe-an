@@ -3,7 +3,7 @@ import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
 import PlaceCard, { getRegionLabel } from '../components/PlaceCard.jsx';
 import places from '../data/places.json';
-import { ArrowRight, FileText, Map, Search, Send, Shuffle, UsersRound } from 'lucide-react';
+import { ArrowRight, FileText, Map, Search, Send, Shuffle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 
 function norm(v) {
@@ -105,8 +105,14 @@ export default function App() {
           </section>
 
           <section className="hero-copy-card">
-            <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
-            <p>Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
+            <h1 className="home-main-title">
+  <span>TRA CỨU ĐỊA DANH</span>
+  <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
+</h1>
+            <p>
+              Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ,
+              xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.
+            </p>
           </section>
 
           <form className="hero-search search-card" onSubmit={(e) => { e.preventDefault(); document.getElementById('places')?.scrollIntoView({behavior:'smooth'}); }}>
@@ -155,12 +161,9 @@ export default function App() {
           </section>
 
           <section className="feedback-card" id="gop-y">
-            <div className="feedback-head">
-              <div><UsersRound size={30}/></div>
-              <div>
-                <h2>Góp ý bổ sung dữ liệu địa phương</h2>
-                <p>Mỗi ý kiến của bạn giúp dữ liệu địa phương ngày càng đầy đủ, chính xác và hữu ích hơn.</p>
-              </div>
+            <div className="feedback-head feedback-head-centered">
+              <h2>Góp ý bổ sung dữ liệu địa phương</h2>
+              <p>Mỗi ý kiến của bạn giúp dữ liệu địa phương ngày càng đầy đủ, chính xác và hữu ích hơn.</p>
             </div>
             <form className="feedback-form" onSubmit={submitFeedback}>
               <input name="name" placeholder="Họ và tên" />
@@ -170,7 +173,7 @@ export default function App() {
                 {places.map(place => <option key={place.id} value={place.name} />)}
               </datalist>
               <textarea name="message" placeholder="Nội dung góp ý" rows="4" maxLength="1000"></textarea>
-              <p>Thông tin sẽ được Admin kiểm duyệt trước khi cập nhật.</p>
+              <p className="feedback-note">Thông tin sẽ được Admin kiểm duyệt trước khi cập nhật.</p>
               {feedbackStatus.message && <div className={`feedback-status ${feedbackStatus.type}`}>{feedbackStatus.message}</div>}
               <button type="submit" disabled={isSubmitting}><Send size={18}/> {isSubmitting ? 'Đang gửi...' : 'Gửi góp ý'}</button>
             </form>

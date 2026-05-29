@@ -1679,3 +1679,324 @@ mark,
 .admin-panel a {
   color: #087f73 !important;
 }
+/* === FINAL TEXT ALIGNMENT FIX: HOME TITLE, DIRECTORY, FEEDBACK === */
+
+/* 1. Tiêu đề chính trang chủ: viết hoa, 2 dòng, căn giữa */
+.home-main-title,
+.hero-copy-card h1.home-main-title {
+  display: grid !important;
+  gap: 4px !important;
+  text-align: center !important;
+  justify-items: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 760px !important;
+  color: #ffffff !important;
+  font-weight: 950 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: uppercase !important;
+}
+
+.home-main-title span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+}
+
+.home-main-title mark {
+  color: #ffd43b !important;
+}
+
+/* Mobile: giữ đúng 2 dòng cân đối */
+@media (max-width: 520px) {
+  .home-main-title,
+  .hero-copy-card h1.home-main-title {
+    font-size: 27px !important;
+    line-height: 1.1 !important;
+    max-width: 100% !important;
+  }
+
+  .home-main-title span {
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-main-title,
+  .hero-copy-card h1.home-main-title {
+    font-size: 24px !important;
+    letter-spacing: -0.05em !important;
+  }
+}
+
+/* 2. Nội dung mô tả dưới tiêu đề: căn giữa khung, cân lề hai bên */
+.hero-copy-card p {
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  text-justify: inter-word !important;
+  color: rgba(244, 255, 251, .84) !important;
+  line-height: 1.68 !important;
+}
+
+/* 3. Danh mục: tiêu đề và mô tả nằm giữa, không xuống dòng */
+.directory-title {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  text-align: center !important;
+  gap: 10px !important;
+}
+
+.directory-title > div {
+  display: grid !important;
+  justify-items: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.directory-title h2 {
+  width: 100% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 auto !important;
+}
+
+.directory-title p {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  margin: 0 auto !important;
+  color: rgba(244, 255, 251, .78) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+.directory-title .counter,
+.counter {
+  justify-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: max-content !important;
+  color: #ffffff !important;
+  background: rgba(15, 155, 142, .34) !important;
+  border: 1px solid rgba(95, 245, 229, .22) !important;
+}
+
+@media (max-width: 420px) {
+  .directory-title h2 {
+    font-size: 17px !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .directory-title p {
+    font-size: 11.7px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+/* 4. Mục góp ý: bỏ icon, tiêu đề 1 dòng, căn giữa */
+.feedback-head-centered,
+.feedback-head.feedback-head-centered {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.feedback-head-centered h2,
+.feedback-head.feedback-head-centered h2 {
+  width: 100% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  margin: 0 auto !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.feedback-head-centered p,
+.feedback-head.feedback-head-centered p {
+  max-width: 680px !important;
+  margin: 0 auto !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  text-justify: inter-word !important;
+  color: rgba(244, 255, 251, .80) !important;
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+}
+
+/* Xóa tác động của icon cũ nếu CSS cũ còn áp vào feedback-head */
+.feedback-head-centered > div:first-child {
+  display: none !important;
+}
+
+@media (max-width: 420px) {
+  .feedback-head-centered h2,
+  .feedback-head.feedback-head-centered h2 {
+    font-size: 17px !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .feedback-head-centered p,
+  .feedback-head.feedback-head-centered p {
+    font-size: 12.6px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* 5. Dòng kiểm duyệt: 1 dòng, căn giữa */
+.feedback-note,
+.feedback-form .feedback-note {
+  width: 100% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  margin: 0 auto !important;
+  color: rgba(244, 255, 251, .82) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+@media (max-width: 420px) {
+  .feedback-note,
+  .feedback-form .feedback-note {
+    font-size: 11.6px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+/* === FIX HOME MAIN TITLE CENTERING === */
+
+.hero-copy-card {
+  text-align: center !important;
+  padding: 22px 18px !important;
+}
+
+.hero-copy-card .home-main-title,
+.home-main-title {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 3px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto 12px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  justify-items: center !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+.home-main-title span {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  white-space: normal !important;
+  color: #ffffff !important;
+  font-size: 23px !important;
+  line-height: 1.08 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: uppercase !important;
+}
+
+.home-main-title mark {
+  color: #ffd43b !important;
+}
+
+/* Nội dung mô tả dưới tiêu đề: cân giữa và không lệch lề */
+.hero-copy-card p {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 2px !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  color: rgba(244,255,251,.86) !important;
+  font-size: 13px !important;
+  line-height: 1.58 !important;
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .home-main-title span {
+    font-size: 21px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .hero-copy-card {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-main-title span {
+    font-size: 19px !important;
+  }
+}
+/* === HOME MAIN TITLE - 2 LINES BALANCED === */
+
+.hero-copy-card .home-main-title,
+.home-main-title {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 4px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto 12px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+
+.home-main-title span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  font-size: 22px !important;
+  line-height: 1.08 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.home-main-title mark {
+  color: #ffd43b !important;
+}
+
+@media (max-width: 420px) {
+  .home-main-title span {
+    font-size: 20px !important;
+    letter-spacing: -0.055em !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-main-title span {
+    font-size: 18px !important;
+    letter-spacing: -0.06em !important;
+  }
+}
