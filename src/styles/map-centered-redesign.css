@@ -1365,3 +1365,52 @@ mark,
 .map-popup-card * {
   opacity: 1 !important;
 }
+/* === FIX MAP LABEL CHIP CONTRAST === */
+
+/* Nhãn địa danh dạng viên thuốc nằm trong bản đồ 3D */
+.map-label-chip {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.map-label-chip span,
+.leaflet-marker-icon.map-label-chip span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 116px !important;
+  max-width: 170px !important;
+  min-height: 30px !important;
+  padding: 6px 12px !important;
+
+  background: rgba(255, 255, 255, .96) !important;
+  color: #06433d !important;
+  -webkit-text-fill-color: #06433d !important;
+
+  border: 1px solid rgba(8, 127, 115, .22) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .22) !important;
+
+  font-size: 13px !important;
+  font-weight: 950 !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Chặn theme toàn cục ép màu trắng vào label bản đồ */
+.leaflet-container .map-label-chip,
+.leaflet-container .map-label-chip *,
+.leaflet-marker-icon.map-label-chip,
+.leaflet-marker-icon.map-label-chip * {
+  color: #06433d !important;
+  -webkit-text-fill-color: #06433d !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
