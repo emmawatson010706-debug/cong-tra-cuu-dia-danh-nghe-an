@@ -120,15 +120,25 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
 
   return (
     <section className={`map-card ${homeOnly ? 'home-map-card' : ''} ${fullscreen ? 'map-fullscreen' : ''}`}>
-      <div className="section-title map-title">
-        <div>
-          <span className="title-icon">▣</span>
-          <h2>{title}</h2>
-        </div>
-        <button className="ghost-btn map-fullscreen-btn" onClick={() => setFullscreen(!fullscreen)}>
-          {fullscreen ? <X size={16}/> : <Maximize2 size={16}/>} {fullscreen ? 'Đóng' : 'Toàn màn hình'}
-        </button>
-      </div>
+      <div className={`section-title map-title ${!title ? 'map-title-compact' : ''}`}>
+  {title ? (
+    <div>
+      <span className="title-icon">▣</span>
+      <h2>{title}</h2>
+    </div>
+  ) : (
+    <div className="map-title-spacer" aria-hidden="true" />
+  )}
+
+  <button
+    className="ghost-btn map-fullscreen-btn"
+    type="button"
+    onClick={() => setFullscreen(!fullscreen)}
+  >
+    {fullscreen ? <X size={16}/> : <Maximize2 size={16}/>}
+    {fullscreen ? 'Đóng' : 'Toàn màn hình'}
+  </button>
+</div>
       {modes.length > 1 && (
         <div className="map-tabs map-tabs-two">
           {modes.map(m => <button key={m} className={mode===m ? 'active' : ''} onClick={() => setMode(m)}>{m}</button>)}

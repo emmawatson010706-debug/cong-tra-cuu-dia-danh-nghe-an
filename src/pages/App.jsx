@@ -3,7 +3,7 @@ import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
 import PlaceCard, { getRegionLabel } from '../components/PlaceCard.jsx';
 import places from '../data/places.json';
-import { ArrowRight, FileText, Map, Search, Send, ShieldCheck, Shuffle, UsersRound } from 'lucide-react';
+import { ArrowRight, FileText, Map, Search, Send, Shuffle, UsersRound } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 
 function norm(v) {
@@ -105,7 +105,6 @@ export default function App() {
           </section>
 
           <section className="hero-copy-card">
-            <span className="eyebrow"><ShieldCheck size={17}/> Cổng tra cứu bản đồ hành chính mới</span>
             <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
             <p>Cổng tra cứu giúp người dân nhanh chóng tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
           </section>
@@ -117,7 +116,7 @@ export default function App() {
           </form>
 
           <div id="ban-do" className="home-map-focus">
-            <MapPanel title="Bản đồ hành chính Nghệ An" homeOnly />
+            <MapPanel title="" homeOnly />
           </div>
 
           <section className="feature-section" id="huong-dan">
