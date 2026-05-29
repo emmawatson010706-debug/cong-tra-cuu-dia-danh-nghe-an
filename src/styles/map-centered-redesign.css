@@ -2000,3 +2000,108 @@ mark,
     letter-spacing: -0.06em !important;
   }
 }
+/* === HERO COPY CARD WITH NGHE AN 3D MAP BACKGROUND === */
+
+.hero-copy-card {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  min-height: 176px !important;
+  padding: 24px 18px !important;
+  border-radius: 22px !important;
+  background:
+    linear-gradient(180deg, rgba(3, 28, 25, .82), rgba(3, 49, 42, .78)),
+    url('/assets/nghe-an-map-3d-bg.webp') center center / contain no-repeat !important;
+  border: 1px solid rgba(95, 245, 229, .16) !important;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, .26) !important;
+}
+
+.hero-copy-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -2 !important;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(15, 155, 142, .18), transparent 46%),
+    url('/assets/nghe-an-map-3d-bg.webp') center center / 92% auto no-repeat !important;
+  opacity: .34 !important;
+  filter: saturate(1.08) contrast(1.06) brightness(.88) !important;
+  transform: scale(1.02) !important;
+}
+
+.hero-copy-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background:
+    linear-gradient(180deg, rgba(2, 22, 20, .66), rgba(3, 43, 37, .72)),
+    radial-gradient(circle at 50% 45%, rgba(0, 0, 0, .08), rgba(0, 0, 0, .42) 72%) !important;
+}
+
+.hero-copy-card .home-main-title,
+.hero-copy-card p {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.hero-copy-card .home-main-title {
+  margin: 0 auto 12px !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  justify-items: center !important;
+}
+
+.hero-copy-card .home-main-title span {
+  text-align: center !important;
+  color: #ffffff !important;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, .56) !important;
+}
+
+.hero-copy-card .home-main-title mark {
+  color: #ffd43b !important;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, .62) !important;
+}
+
+.hero-copy-card p {
+  max-width: 680px !important;
+  margin: 0 auto !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  color: rgba(244, 255, 251, .92) !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .54) !important;
+}
+
+@media (max-width: 520px) {
+  .hero-copy-card {
+    min-height: 162px !important;
+    padding: 22px 16px !important;
+    background:
+      linear-gradient(180deg, rgba(3, 28, 25, .84), rgba(3, 49, 42, .80)),
+      url('/assets/nghe-an-map-3d-bg.webp') center center / 94% auto no-repeat !important;
+  }
+
+  .hero-copy-card::before {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(15, 155, 142, .18), transparent 46%),
+      url('/assets/nghe-an-map-3d-bg.webp') center center / 96% auto no-repeat !important;
+    opacity: .32 !important;
+  }
+
+  .hero-copy-card p {
+    font-size: 12.8px !important;
+    line-height: 1.58 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-copy-card {
+    min-height: 156px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .hero-copy-card p {
+    font-size: 12px !important;
+  }
+}
