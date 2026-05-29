@@ -1174,3 +1174,65 @@ mark,
   color: #94a3b8 !important;
   opacity: 1 !important;
 }
+/* === FORCE FIX LEAFLET + / - ZOOM BUTTONS === */
+
+.leaflet-container .leaflet-control-zoom,
+.leaflet-container .leaflet-bar {
+  border: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .28) !important;
+}
+
+.leaflet-container .leaflet-control-zoom a,
+.leaflet-container .leaflet-control-zoom a:link,
+.leaflet-container .leaflet-control-zoom a:visited,
+.leaflet-container .leaflet-bar a,
+.leaflet-container .leaflet-bar a:link,
+.leaflet-container .leaflet-bar a:visited {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  display: block !important;
+
+  background: #ffffff !important;
+  color: #052e2b !important;
+  -webkit-text-fill-color: #052e2b !important;
+
+  font-size: 26px !important;
+  font-weight: 950 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid rgba(5, 46, 43, .16) !important;
+  opacity: 1 !important;
+}
+
+.leaflet-container .leaflet-control-zoom a:last-child,
+.leaflet-container .leaflet-bar a:last-child {
+  border-bottom: 0 !important;
+}
+
+.leaflet-container .leaflet-control-zoom a:hover,
+.leaflet-container .leaflet-bar a:hover {
+  background: #dffcf5 !important;
+  color: #087f73 !important;
+  -webkit-text-fill-color: #087f73 !important;
+}
+
+.leaflet-container .leaflet-control-zoom-in,
+.leaflet-container .leaflet-control-zoom-out {
+  color: #052e2b !important;
+  -webkit-text-fill-color: #052e2b !important;
+}
+
+/* Nếu theme toàn cục ép span/svg, vẫn bắt dấu + - rõ */
+.leaflet-container .leaflet-control-zoom-in::first-letter,
+.leaflet-container .leaflet-control-zoom-out::first-letter {
+  color: #052e2b !important;
+  -webkit-text-fill-color: #052e2b !important;
+}
