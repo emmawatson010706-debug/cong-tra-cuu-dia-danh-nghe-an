@@ -546,3 +546,247 @@ body{
     gap: 9px !important;
   }
 }
+/* === DARK GREEN THEME - nền xanh đen, chữ trắng === */
+
+:root {
+  --page-dark: #002f28;
+  --page-dark-2: #014539;
+  --card-dark: #13201f;
+  --card-dark-2: #0b3f35;
+  --text-light: #f4fffb;
+  --text-soft: rgba(244, 255, 251, .76);
+  --text-muted-dark: rgba(244, 255, 251, .62);
+  --line-dark: rgba(255, 255, 255, .12);
+}
+
+/* Nền tổng thể */
+body {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(15, 155, 142, .32), transparent 34%),
+    linear-gradient(180deg, #003c32 0%, #002f28 42%, #021b18 100%) !important;
+  color: var(--text-light) !important;
+}
+
+main,
+.home-shell,
+.place-page {
+  background: transparent !important;
+}
+
+/* Header */
+.site-header {
+  background: rgba(18, 31, 30, .96) !important;
+  border-color: var(--line-dark) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .28) !important;
+}
+
+.brand strong {
+  color: var(--text-light) !important;
+}
+
+.menu-btn {
+  background: rgba(255, 255, 255, .06) !important;
+  color: var(--text-light) !important;
+  border-color: var(--line-dark) !important;
+}
+
+/* Hero */
+.hero-copy-card,
+.hero-modern,
+.search-card,
+.map-card,
+.feature-card,
+.directory-modern,
+.feedback-card,
+.article-card,
+.source-card,
+.section-card,
+.stats-grid .stat-card,
+.info-list > div,
+.planning-reference-card {
+  background: linear-gradient(180deg, rgba(19, 32, 31, .98), rgba(8, 55, 48, .96)) !important;
+  border-color: var(--line-dark) !important;
+  color: var(--text-light) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .24) !important;
+}
+
+/* Chữ tiêu đề */
+.hero-copy-card h1,
+.feature-section > h2,
+.section-title h2,
+.directory-title h2,
+.feedback-head h2,
+.article-card h2,
+.source-card h2,
+.place-hero h1,
+.place-hero h2,
+.map-title h2,
+.mini-title,
+.feature-card h3,
+.place-card h3,
+.stat-card strong,
+.info-list strong {
+  color: var(--text-light) !important;
+}
+
+/* Chữ nội dung */
+.hero-copy-card p,
+.feature-card p,
+.directory-title p,
+.feedback-head p,
+.feedback-form p,
+.article-card p,
+.source-card p,
+.place-hero p,
+.info-list span,
+.stat-card span,
+.stat-card small,
+.place-card p,
+.place-card span,
+.map-summary-text {
+  color: var(--text-soft) !important;
+}
+
+/* Ô tìm kiếm */
+.search-card {
+  background: rgba(18, 31, 30, .98) !important;
+}
+
+.search-card input,
+.directory-tools input,
+.feedback-form input,
+.feedback-form textarea {
+  background: rgba(255, 255, 255, .07) !important;
+  border-color: var(--line-dark) !important;
+  color: var(--text-light) !important;
+}
+
+.search-card input::placeholder,
+.directory-tools input::placeholder,
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: rgba(244, 255, 251, .58) !important;
+}
+
+/* Nút chính */
+.search-card button,
+.more-btn,
+.feedback-form button {
+  background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .25) !important;
+}
+
+/* Tính năng nổi bật: 4 ô xanh đen */
+.feature-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.feature-card {
+  min-height: auto !important;
+  padding: 14px 12px !important;
+  border-radius: 18px !important;
+}
+
+.feature-card > span {
+  background: rgba(15, 155, 142, .16) !important;
+  color: #5ff5e5 !important;
+}
+
+/* Danh mục */
+.directory-modern {
+  padding: 18px !important;
+}
+
+.directory-title h2 {
+  white-space: nowrap !important;
+  font-size: 20px !important;
+}
+
+.counter {
+  background: rgba(15, 155, 142, .18) !important;
+  color: #79fff1 !important;
+}
+
+.filter-pills button {
+  background: rgba(255, 255, 255, .06) !important;
+  color: var(--text-soft) !important;
+  border-color: var(--line-dark) !important;
+}
+
+.filter-pills button.active {
+  background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+  color: #ffffff !important;
+}
+
+/* PlaceCard nếu đang nền sáng */
+.place-card {
+  background: rgba(255, 255, 255, .055) !important;
+  border-color: var(--line-dark) !important;
+  color: var(--text-light) !important;
+}
+
+.place-card:hover {
+  background: rgba(15, 155, 142, .16) !important;
+}
+
+/* Trang con */
+.breadcrumb,
+.breadcrumb a,
+.breadcrumb span,
+.breadcrumb strong {
+  color: var(--text-soft) !important;
+}
+
+.place-hero {
+  background: linear-gradient(180deg, rgba(19, 32, 31, .98), rgba(8, 55, 48, .96)) !important;
+  border-color: var(--line-dark) !important;
+  color: var(--text-light) !important;
+}
+
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+/* Góp ý */
+.feedback-head {
+  align-items: center !important;
+}
+
+.feedback-head > div:first-child {
+  background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+  color: #ffffff !important;
+}
+
+/* Footer */
+.footer {
+  background: rgba(18, 31, 30, .96) !important;
+  border-color: var(--line-dark) !important;
+  color: var(--text-light) !important;
+}
+
+.footer-brand strong,
+.footer-brand p,
+.footer-nav a,
+.copyright {
+  color: var(--text-soft) !important;
+}
+
+/* Bản đồ vẫn giữ sáng để dễ đọc */
+.leaflet-box {
+  background: #dbeafe !important;
+}
+
+/* Toàn màn hình bản đồ */
+.map-card.map-fullscreen {
+  background: #ffffff !important;
+  color: #14324a !important;
+}
+
+.map-card.map-fullscreen .map-title h2 {
+  color: #06433d !important;
+}
