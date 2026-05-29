@@ -2425,3 +2425,178 @@ mark,
     mix-blend-mode: normal !important;
   }
 }
+/* === ADMIN LOGIN PAGE DARK THEME - FIX ĐÚNG CLASS GỐC === */
+
+.admin-login-page {
+  min-height: 100dvh !important;
+  padding: 24px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(15, 155, 142, .28), transparent 38%),
+    linear-gradient(180deg, #003c32 0%, #002f28 50%, #021b18 100%) !important;
+  color: #f4fffb !important;
+}
+
+.admin-login-card {
+  width: min(520px, 100%) !important;
+  min-height: auto !important;
+  padding: 28px 22px !important;
+  border-radius: 26px !important;
+  background: linear-gradient(180deg, rgba(18, 31, 30, .98), rgba(7, 58, 50, .96)) !important;
+  border: 1px solid rgba(255, 255, 255, .16) !important;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .34) !important;
+  color: #f4fffb !important;
+}
+
+/* Logo admin */
+.admin-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  margin-bottom: 22px !important;
+  color: #ffffff !important;
+}
+
+.admin-logo img {
+  width: 66px !important;
+  height: 66px !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  padding: 5px !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.admin-logo span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 950 !important;
+  line-height: 1.25 !important;
+}
+
+/* Tiêu đề và mô tả */
+.admin-login-card h1 {
+  margin: 0 0 14px !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 34px !important;
+  line-height: 1.12 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.admin-login-card p {
+  margin: 0 0 20px !important;
+  color: rgba(244, 255, 251, .80) !important;
+  -webkit-text-fill-color: rgba(244, 255, 251, .80) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  font-weight: 650 !important;
+}
+
+/* Form */
+.admin-login-card form {
+  display: grid !important;
+  gap: 14px !important;
+  background: transparent !important;
+  color: #f4fffb !important;
+}
+
+.admin-login-card label {
+  display: grid !important;
+  gap: 8px !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
+
+.admin-login-card input {
+  width: 100% !important;
+  min-height: 52px !important;
+  border-radius: 18px !important;
+  padding: 0 15px !important;
+  background: rgba(255, 255, 255, .09) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, .18) !important;
+  outline: 0 !important;
+  font-size: 15px !important;
+  font-weight: 750 !important;
+}
+
+.admin-login-card input::placeholder {
+  color: rgba(244, 255, 251, .58) !important;
+  -webkit-text-fill-color: rgba(244, 255, 251, .58) !important;
+  opacity: 1 !important;
+}
+
+/* Nút đăng nhập */
+.admin-login-card button {
+  min-height: 56px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 950 !important;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, .28) !important;
+}
+
+/* Lỗi đăng nhập */
+.admin-login-card .form-error {
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  background: rgba(220, 38, 38, .16) !important;
+  border: 1px solid rgba(248, 113, 113, .36) !important;
+  color: #fecaca !important;
+  -webkit-text-fill-color: #fecaca !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+}
+
+/* Dòng email admin cuối */
+.admin-login-card .muted {
+  margin-top: 20px !important;
+  color: rgba(244, 255, 251, .72) !important;
+  -webkit-text-fill-color: rgba(244, 255, 251, .72) !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .admin-login-page {
+    align-items: flex-start !important;
+    padding: 22px 12px !important;
+  }
+
+  .admin-login-card {
+    padding: 24px 18px !important;
+    border-radius: 24px !important;
+  }
+
+  .admin-logo img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .admin-logo span {
+    font-size: 15px !important;
+  }
+
+  .admin-login-card h1 {
+    font-size: 30px !important;
+  }
+
+  .admin-login-card p {
+    font-size: 14px !important;
+  }
+}
