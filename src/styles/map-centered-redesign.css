@@ -2105,3 +2105,65 @@ mark,
     font-size: 12px !important;
   }
 }
+/* === HERO MAP BACKGROUND - MAKE MAP MORE VISIBLE === */
+
+.hero-copy-card {
+  min-height: 190px !important;
+  background:
+    linear-gradient(180deg, rgba(2, 24, 22, .56), rgba(3, 43, 37, .58)),
+    url('/assets/nghe-an-map-3d-bg.webp') center center / 96% auto no-repeat !important;
+}
+
+.hero-copy-card::before {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(15, 155, 142, .10), transparent 54%),
+    url('/assets/nghe-an-map-3d-bg.webp') center center / 98% auto no-repeat !important;
+  opacity: .78 !important;
+  filter: saturate(1.18) contrast(1.12) brightness(1.05) !important;
+  transform: scale(1.01) !important;
+}
+
+.hero-copy-card::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .22), rgba(0, 30, 26, .34)),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, .04), rgba(0, 0, 0, .28) 78%) !important;
+}
+
+/* Tăng độ nổi chữ để bản đồ rõ hơn nhưng chữ vẫn đọc được */
+.hero-copy-card .home-main-title span,
+.hero-copy-card .home-main-title mark {
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, .88),
+    0 0 16px rgba(0, 0, 0, .62) !important;
+}
+
+.hero-copy-card p {
+  color: rgba(255, 255, 255, .96) !important;
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, .82),
+    0 0 14px rgba(0, 0, 0, .58) !important;
+}
+
+/* Mobile: giữ toàn bộ bản đồ nhìn rõ trong khung */
+@media (max-width: 520px) {
+  .hero-copy-card {
+    min-height: 178px !important;
+    background:
+      linear-gradient(180deg, rgba(2, 24, 22, .52), rgba(3, 43, 37, .56)),
+      url('/assets/nghe-an-map-3d-bg.webp') center center / 98% auto no-repeat !important;
+  }
+
+  .hero-copy-card::before {
+    background:
+      radial-gradient(circle at 50% 48%, rgba(15, 155, 142, .08), transparent 54%),
+      url('/assets/nghe-an-map-3d-bg.webp') center center / 100% auto no-repeat !important;
+    opacity: .82 !important;
+    filter: saturate(1.2) contrast(1.14) brightness(1.08) !important;
+  }
+
+  .hero-copy-card::after {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, .20), rgba(0, 30, 26, .30)),
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, .04), rgba(0, 0, 0, .24) 78%) !important;
+  }
+}
