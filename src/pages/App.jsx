@@ -106,7 +106,7 @@ export default function App() {
 
           <section className="hero-copy-card">
             <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
-            <p>Cổng tra cứu giúp người dân nhanh chóng tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
+            <p>Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
           </section>
 
           <form className="hero-search search-card" onSubmit={(e) => { e.preventDefault(); document.getElementById('places')?.scrollIntoView({behavior:'smooth'}); }}>
@@ -136,8 +136,8 @@ export default function App() {
           <section id="places" className="directory directory-modern">
             <div className="section-title directory-title">
               <div>
-                <h2>Danh mục 130 xã, phường mới</h2>
-                <p>Chạm vào từng địa phương để mở hồ sơ và trang chi tiết.</p>
+                <h2>Tổng hợp danh mục xã phường mới</h2>
+                <p>Chạm vào từng địa phương để mở trang chi tiết.</p>
               </div>
               <span className="counter">{filtered.length} kết quả</span>
             </div>
@@ -170,7 +170,7 @@ export default function App() {
                 {places.map(place => <option key={place.id} value={place.name} />)}
               </datalist>
               <textarea name="message" placeholder="Nội dung góp ý" rows="4" maxLength="1000"></textarea>
-              <p>Thông tin bạn gửi sẽ được quản trị viên kiểm duyệt trước khi cập nhật.</p>
+              <p>Thông tin sẽ được Admin kiểm duyệt trước khi cập nhật.</p>
               {feedbackStatus.message && <div className={`feedback-status ${feedbackStatus.type}`}>{feedbackStatus.message}</div>}
               <button type="submit" disabled={isSubmitting}><Send size={18}/> {isSubmitting ? 'Đang gửi...' : 'Gửi góp ý'}</button>
             </form>

@@ -1436,3 +1436,246 @@ mark,
   transform: translateY(1px);
   box-shadow: 0 8px 18px rgba(122, 28, 22, .30) !important;
 }
+/* === HERO TITLE CENTER + DIRECTORY CENTER + ADMIN CONTRAST FIX === */
+
+/* 1. Căn giữa tiêu đề chính dưới ảnh Bác Hồ */
+.hero-copy-card {
+  text-align: center !important;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+}
+
+.hero-copy-card h1 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 780px !important;
+  color: #ffffff !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.hero-copy-card h1 mark {
+  color: #ffd43b !important;
+}
+
+/* Nội dung diễn giải cân đều 2 bên, lề trái/phải cân đối */
+.hero-copy-card p {
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: justify !important;
+  text-align-last: center !important;
+  text-justify: inter-word !important;
+  color: rgba(244, 255, 251, .84) !important;
+  line-height: 1.68 !important;
+}
+
+/* 2. Mục tổng hợp danh mục xã phường mới nằm giữa khung */
+.directory-title {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  text-align: center !important;
+  gap: 10px !important;
+}
+
+.directory-title > div {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.directory-title h2 {
+  width: 100% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 auto !important;
+}
+
+.directory-title p {
+  text-align: center !important;
+  max-width: 560px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  color: rgba(244, 255, 251, .78) !important;
+}
+
+/* Nút 130 kết quả nằm chính giữa */
+.directory-title .counter,
+.counter {
+  justify-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: max-content !important;
+  color: #ffffff !important;
+  background: rgba(15, 155, 142, .34) !important;
+  border: 1px solid rgba(95, 245, 229, .22) !important;
+}
+
+/* Mobile: nếu quá hẹp thì giảm nhẹ chữ để vẫn 1 dòng */
+@media (max-width: 420px) {
+  .directory-title h2 {
+    font-size: 17px !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .hero-copy-card h1 {
+    font-size: 31px !important;
+  }
+
+  .hero-copy-card p {
+    text-align: justify !important;
+    text-align-last: center !important;
+  }
+}
+
+/* 3. Sửa trang quản trị: nền và chữ không được trắng trùng nhau */
+.admin-page,
+.admin-dashboard,
+.admin-shell,
+.admin-main,
+.admin-login,
+.admin-card,
+.admin-panel,
+.admin-content,
+.admin-section,
+.admin-table-wrap {
+  background: #ffffff !important;
+  color: #14324a !important;
+}
+
+/* Chữ trong trang quản trị */
+.admin-page *,
+.admin-dashboard *,
+.admin-shell *,
+.admin-main *,
+.admin-login *,
+.admin-card *,
+.admin-panel *,
+.admin-content *,
+.admin-section *,
+.admin-table-wrap * {
+  color: inherit;
+}
+
+/* Tiêu đề trang quản trị */
+.admin-page h1,
+.admin-page h2,
+.admin-page h3,
+.admin-dashboard h1,
+.admin-dashboard h2,
+.admin-dashboard h3,
+.admin-login h1,
+.admin-login h2,
+.admin-card h1,
+.admin-card h2,
+.admin-panel h1,
+.admin-panel h2 {
+  color: #06433d !important;
+}
+
+/* Nội dung phụ trang quản trị */
+.admin-page p,
+.admin-page span,
+.admin-page small,
+.admin-dashboard p,
+.admin-dashboard span,
+.admin-dashboard small,
+.admin-login p,
+.admin-login span,
+.admin-login small,
+.admin-card p,
+.admin-card span,
+.admin-card small,
+.admin-panel p,
+.admin-panel span,
+.admin-panel small {
+  color: #475569 !important;
+}
+
+/* Ô nhập trang quản trị */
+.admin-page input,
+.admin-page textarea,
+.admin-page select,
+.admin-dashboard input,
+.admin-dashboard textarea,
+.admin-dashboard select,
+.admin-login input,
+.admin-login textarea,
+.admin-login select,
+.admin-card input,
+.admin-card textarea,
+.admin-card select,
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select {
+  background: #ffffff !important;
+  color: #14324a !important;
+  -webkit-text-fill-color: #14324a !important;
+  border: 1px solid rgba(8, 127, 115, .18) !important;
+}
+
+.admin-page input::placeholder,
+.admin-page textarea::placeholder,
+.admin-dashboard input::placeholder,
+.admin-dashboard textarea::placeholder,
+.admin-login input::placeholder,
+.admin-login textarea::placeholder,
+.admin-card input::placeholder,
+.admin-card textarea::placeholder,
+.admin-panel input::placeholder,
+.admin-panel textarea::placeholder {
+  color: #7a8b98 !important;
+  -webkit-text-fill-color: #7a8b98 !important;
+  opacity: 1 !important;
+}
+
+/* Bảng quản trị */
+.admin-page table,
+.admin-dashboard table,
+.admin-table-wrap table {
+  background: #ffffff !important;
+  color: #14324a !important;
+}
+
+.admin-page th,
+.admin-dashboard th,
+.admin-table-wrap th {
+  background: #eafff8 !important;
+  color: #06433d !important;
+}
+
+.admin-page td,
+.admin-dashboard td,
+.admin-table-wrap td {
+  background: #ffffff !important;
+  color: #14324a !important;
+  border-color: rgba(8, 127, 115, .12) !important;
+}
+
+/* Nút quản trị */
+.admin-page button,
+.admin-dashboard button,
+.admin-login button,
+.admin-card button,
+.admin-panel button {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #087f73, #06433d) !important;
+  border: 0 !important;
+}
+
+.admin-page a,
+.admin-dashboard a,
+.admin-login a,
+.admin-card a,
+.admin-panel a {
+  color: #087f73 !important;
+}
