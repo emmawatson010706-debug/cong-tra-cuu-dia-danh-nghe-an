@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import './styles/global.css';
 import './styles/mobile-step3.css';
 import './styles/planning-reference.css';
+import './styles/map-centered-redesign.css';
 import App from './pages/App.jsx';
 import PlacePage from './pages/PlacePage.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';

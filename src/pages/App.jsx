@@ -1,10 +1,9 @@
 import { useMemo, useState } from 'react';
 import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
-import WeatherPanel from '../components/WeatherPanel.jsx';
 import PlaceCard, { getRegionLabel } from '../components/PlaceCard.jsx';
 import places from '../data/places.json';
-import { ArrowRight, Building2, FileText, Layers3, Map, MapPinned, MessageSquare, Search, Send, ShieldCheck, Shuffle, UsersRound } from 'lucide-react';
+import { ArrowRight, FileText, Map, Search, Send, ShieldCheck, Shuffle, UsersRound } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 
 function norm(v) {
@@ -23,12 +22,11 @@ const regionFilters = [
 ];
 
 const features = [
-  { icon: Search, title: 'Tra cứu nhanh', text: 'Tìm kiếm địa danh xã/phường mới, huyện cũ, địa danh dễ dàng và chính xác.' },
-  { icon: Map, title: 'Bản đồ trực quan', text: 'Xem bản đồ 2D, 3D và nguồn quy hoạch tham khảo theo hướng an toàn.' },
-  { icon: Shuffle, title: 'Đối chiếu đơn vị cũ - mới', text: 'Tra cứu mối quan hệ giữa đơn vị hành chính cũ và mới sau sắp xếp.' },
-  { icon: FileText, title: 'Hồ sơ địa danh', text: 'Khám phá thông tin chi tiết, nguồn dữ liệu và tài liệu về từng địa phương.' }
+  { icon: Search, title: 'Tra cứu nhanh', text: 'Tìm kiếm địa danh xã/phường mới, huyện cũ và đơn vị cũ sau sắp xếp.' },
+  { icon: Map, title: 'Bản đồ trung tâm', text: 'Xem bản đồ hành chính thật, mở hồ sơ từng xã/phường ngay trên bản đồ.' },
+  { icon: Shuffle, title: 'Đối chiếu cũ - mới', text: 'Tra cứu mối quan hệ giữa đơn vị hành chính cũ và xã/phường mới.' },
+  { icon: FileText, title: 'Hồ sơ địa danh', text: 'Tổng hợp giới thiệu, nguồn đối chiếu và thông tin nền của từng địa phương.' }
 ];
-
 
 export default function App() {
   const [q, setQ] = useState('');
@@ -102,15 +100,14 @@ export default function App() {
     <Layout>
       <section className="home-shell" id="tra-cuu">
         <div className="container">
-          <section className="hero hero-modern">
-            <div className="hero-copy">
-              <span className="eyebrow"><ShieldCheck size={17}/> NATA - Cổng tra cứu bản đồ hành chính mới</span>
-              <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
-              <p>Cổng tra cứu giúp người dân nhanh chóng tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
-            </div>
-            <div className="hero-portrait" aria-label="Hình ảnh Bác Hồ tại Nghệ An">
-              <img src="/assets/bac-ho-nghe-an-hero.webp" alt="Hình ảnh tượng Bác Hồ tại Nghệ An" />
-            </div>
+          <section className="hero hero-modern hero-image-banner">
+            <img src="/assets/nghe-an-hero-community.png" alt="Cổng tra cứu địa danh xã phường Nghệ An" />
+          </section>
+
+          <section className="hero-copy-card">
+            <span className="eyebrow"><ShieldCheck size={17}/> Cổng tra cứu bản đồ hành chính mới</span>
+            <h1>Tra cứu địa danh xã, phường mới tại <mark>Nghệ An</mark></h1>
+            <p>Cổng tra cứu giúp người dân nhanh chóng tìm đúng xã/phường mới, đối chiếu với đơn vị cũ, xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.</p>
           </section>
 
           <form className="hero-search search-card" onSubmit={(e) => { e.preventDefault(); document.getElementById('places')?.scrollIntoView({behavior:'smooth'}); }}>
@@ -119,24 +116,9 @@ export default function App() {
             <button type="submit">Tra cứu</button>
           </form>
 
-          <section className="map-summary-card" id="ban-do">
-  <div className="map-summary-copy">
-    <div className="mini-title"><MapPinned size={20}/> Bản đồ hành chính Nghệ An</div>
-    <p className="map-summary-text">Bản đồ là trung tâm tra cứu của cổng địa danh, giúp người dân xem nhanh vị trí, ranh giới và mở hồ sơ từng xã/phường mới.</p>
-  </div>
-  <div className="map-summary-visual"><img src="/assets/nghe-an-3d-map.svg" alt="Bản đồ mô hình 3D Nghệ An" /></div>
-</section>
-
-          <section className="quick-stats quick-stats-compact" aria-label="Thông tin nhanh">
-            <article><Building2/><strong>130</strong><span>xã/phường mới</span><small>Tra cứu theo địa danh mới và đơn vị cũ</small></article>
-            <article><Layers3/><strong>2D · 3D</strong><span>lớp bản đồ</span><small>Quy hoạch được tách riêng để tránh nhầm nguồn</small></article>
-          </section>
-
-          <div id="map-live">
-            <MapPanel title="Bản đồ hành chính Nghệ An" />
+          <div id="ban-do" className="home-map-focus">
+            <MapPanel title="Bản đồ hành chính Nghệ An" homeOnly />
           </div>
-
-          <WeatherPanel />
 
           <section className="feature-section" id="huong-dan">
             <h2>Tính năng nổi bật</h2>

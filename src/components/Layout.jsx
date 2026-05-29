@@ -44,6 +44,7 @@ export function Footer() {
           <div>
             <strong>Cổng tra cứu địa danh xã phường <mark>Nghệ An</mark></strong>
             <p>Kho dữ liệu địa danh chính thống – Minh bạch – Chính xác – Vì cộng đồng.</p>
+            <p className="footer-contact">Liên hệ Admin: <a href="tel:0914587575">0914 58 75 75</a></p>
           </div>
         </div>
         <nav className="footer-nav" aria-label="Điều hướng cuối trang">

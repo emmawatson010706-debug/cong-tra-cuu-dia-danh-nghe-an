@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Layout from '../components/Layout.jsx';
 import MapPanel from '../components/MapPanel.jsx';
-import WeatherPanel from '../components/WeatherPanel.jsx';
 import places from '../data/places.json';
 import { AlertTriangle, ExternalLink, MapPinned, Users, Ruler, BarChart3, Building2, ShieldCheck } from 'lucide-react';
 
@@ -81,8 +80,6 @@ export default function PlacePage() {
         </section>
 
         <MapPanel selectedSlug={place.slug} compact title="Bản đồ địa danh theo ranh giới GIS" />
-
-        <WeatherPanel placeName={place.name} latitude={place.lat} longitude={place.lng} />
 
         <section className="planning-reference-card" id="quy-hoach-tham-khao">
           <div className="planning-icon"><AlertTriangle size={24}/></div>

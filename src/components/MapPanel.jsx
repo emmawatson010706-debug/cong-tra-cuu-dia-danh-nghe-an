@@ -34,7 +34,7 @@ function getLabelIcon(name) {
   });
 }
 
-export default function MapPanel({ selectedSlug, compact=false, title='Bản đồ toàn tỉnh Nghệ An' }) {
+export default function MapPanel({ selectedSlug, compact=false, title='Bản đồ toàn tỉnh Nghệ An', homeOnly=false }) {
   const mapEl = useRef(null);
   const map = useRef(null);
   const geoLayer = useRef(null);
@@ -44,6 +44,7 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
   const [geojson, setGeojson] = useState(null);
   const [active, setActive] = useState(null);
   const [fullscreen, setFullscreen] = useState(false);
+  const modes = homeOnly ? ['2D'] : ['2D','3D'];
 
   useEffect(() => {
     fetch('/data/nghe-an-wards-2025.mobile.geojson')
@@ -60,6 +61,10 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
 
   useEffect(() => {
     if (!map.current) return;
+    if (homeOnly && mode !== '2D') {
+      setMode('2D');
+      return;
+    }
     if (tileLayer.current) map.current.removeLayer(tileLayer.current);
     tileLayer.current = L.tileLayer(modeTiles[mode].url, {
       attribution: modeTiles[mode].attribution,
@@ -69,7 +74,7 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
       mapEl.current.classList.toggle('map-tilt', mode === '3D');
       mapEl.current.classList.remove('map-planning');
     }
-  }, [mode]);
+  }, [mode, homeOnly]);
 
   useEffect(() => {
     if (!map.current || !geojson) return;
@@ -88,14 +93,15 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
       }
     }).addTo(map.current);
 
-    if (mode === '3D') {
-      const markers = [];
-      geojson.features.forEach((feature) => {
-        const p = feature.properties || {};
-        const center = L.geoJSON(feature).getBounds().getCenter();
-        markers.push(L.marker(center, { icon: getLabelIcon(p.display_name || p.new_unit_name) }));
-      });
-      labelLayer.current = L.layerGroup(markers).addTo(map.current);
+    if (mode === '3D' && selectedSlug) {
+      const selectedFeatureForLabel = geojson.features.find(f => f.properties?.slug === selectedSlug);
+      if (selectedFeatureForLabel) {
+        const p = selectedFeatureForLabel.properties || {};
+        const center = L.geoJSON(selectedFeatureForLabel).getBounds().getCenter();
+        labelLayer.current = L.layerGroup([
+          L.marker(center, { icon: getLabelIcon(p.display_name || p.new_unit_name) })
+        ]).addTo(map.current);
+      }
     }
 
     const selectedFeature = selectedSlug ? geojson.features.find(f => f.properties?.slug === selectedSlug) : null;
@@ -113,7 +119,7 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
   }, [fullscreen]);
 
   return (
-    <section className={`map-card ${fullscreen ? 'map-fullscreen' : ''}`}>
+    <section className={`map-card ${homeOnly ? 'home-map-card' : ''} ${fullscreen ? 'map-fullscreen' : ''}`}>
       <div className="section-title map-title">
         <div>
           <span className="title-icon">▣</span>
@@ -123,9 +129,11 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
           {fullscreen ? <X size={16}/> : <Maximize2 size={16}/>} {fullscreen ? 'Đóng' : 'Toàn màn hình'}
         </button>
       </div>
-      <div className="map-tabs map-tabs-two">
-        {['2D','3D'].map(m => <button key={m} className={mode===m ? 'active' : ''} onClick={() => setMode(m)}>{m}</button>)}
-      </div>
+      {modes.length > 1 && (
+        <div className="map-tabs map-tabs-two">
+          {modes.map(m => <button key={m} className={mode===m ? 'active' : ''} onClick={() => setMode(m)}>{m}</button>)}
+        </div>
+      )}
       <div ref={mapEl} className={`leaflet-box ${compact ? 'compact' : ''}`}></div>
       {active && (
         <div className="map-popup-card">
