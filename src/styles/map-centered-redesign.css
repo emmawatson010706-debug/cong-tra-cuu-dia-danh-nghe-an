@@ -1236,3 +1236,132 @@ mark,
   color: #052e2b !important;
   -webkit-text-fill-color: #052e2b !important;
 }
+/* === FINAL CONTRAST FIX FOR MAP TABS, LEAFLET POPUP, LIGHT AREAS === */
+
+/* 1. Tab 2D/3D: nền sáng thì chữ phải đậm */
+.map-tabs {
+  background: #ffffff !important;
+  border: 1px solid rgba(8, 127, 115, .22) !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+}
+
+.map-tabs button {
+  background: #ffffff !important;
+  color: #06433d !important;
+  -webkit-text-fill-color: #06433d !important;
+  opacity: 1 !important;
+  font-weight: 950 !important;
+  text-shadow: none !important;
+}
+
+.map-tabs button.active {
+  background: linear-gradient(135deg, #0f9b8e, #087f73) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.map-tabs button:not(.active):hover {
+  background: #eafff8 !important;
+  color: #087f73 !important;
+  -webkit-text-fill-color: #087f73 !important;
+}
+
+/* 2. Popup thông tin trong bản đồ: nền trắng thì chữ phải xanh đậm */
+.map-popup-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(8, 127, 115, .18) !important;
+  color: #06433d !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .22) !important;
+}
+
+.map-popup-card strong,
+.map-popup-card h3,
+.map-popup-card b {
+  color: #06433d !important;
+  -webkit-text-fill-color: #06433d !important;
+  opacity: 1 !important;
+}
+
+.map-popup-card span,
+.map-popup-card p,
+.map-popup-card small {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+  opacity: 1 !important;
+}
+
+.map-popup-card a {
+  color: #087f73 !important;
+  -webkit-text-fill-color: #087f73 !important;
+  opacity: 1 !important;
+  font-weight: 950 !important;
+}
+
+/* 3. Leaflet popup mặc định nếu có dùng */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  color: #06433d !important;
+}
+
+.leaflet-popup-content,
+.leaflet-popup-content * {
+  color: #06433d !important;
+  -webkit-text-fill-color: #06433d !important;
+  opacity: 1 !important;
+}
+
+/* 4. Leaflet controls: zoom + - luôn rõ */
+.leaflet-container .leaflet-control-zoom,
+.leaflet-container .leaflet-bar {
+  background: #ffffff !important;
+  border: 1px solid rgba(8, 127, 115, .22) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .24) !important;
+}
+
+.leaflet-container .leaflet-control-zoom a,
+.leaflet-container .leaflet-bar a {
+  background: #ffffff !important;
+  color: #052e2b !important;
+  -webkit-text-fill-color: #052e2b !important;
+  opacity: 1 !important;
+  font-size: 25px !important;
+  font-weight: 950 !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.leaflet-container .leaflet-control-zoom a:hover,
+.leaflet-container .leaflet-bar a:hover {
+  background: #eafff8 !important;
+  color: #087f73 !important;
+  -webkit-text-fill-color: #087f73 !important;
+}
+
+/* 5. Attribution bản đồ: nền sáng thì chữ phải đọc được */
+.leaflet-control-attribution,
+.leaflet-control-attribution a {
+  background: rgba(255, 255, 255, .92) !important;
+  color: #334155 !important;
+  -webkit-text-fill-color: #334155 !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+
+/* 6. Chặn theme toàn cục làm trắng chữ ở các vùng nền trắng */
+.leaflet-container,
+.leaflet-container * {
+  text-shadow: none !important;
+}
+
+.leaflet-container .leaflet-control,
+.leaflet-container .leaflet-control *,
+.map-tabs,
+.map-tabs *,
+.map-popup-card,
+.map-popup-card * {
+  opacity: 1 !important;
+}
