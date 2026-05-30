@@ -1,8 +1,7 @@
 ﻿// Dữ liệu lịch sử sắp xếp hành chính Nghệ An giai đoạn 2023-2025.
 // Thay thế toàn bộ file src/data/adminHistory2024.js bằng file này.
 
-export const ADMIN_HISTORY_SOURCE_2024 =
-  "Nghị quyết về việc sắp xếp đơn vị hành chính cấp huyện, cấp xã của tỉnh Nghệ An giai đoạn 2023-2025, hiệu lực từ ngày 01/12/2024";
+export const ADMIN_HISTORY_SOURCE_2024 ="Nghị quyết số 1243/NQ-UBTVQH15 về việc sắp xếp đơn vị hành chính cấp huyện, cấp xã của tỉnh Nghệ An giai đoạn 2023-2025, ban hành ngày 24/10/2024, có hiệu lực từ ngày 01/12/2024";
 
 export const adminHistory2024 = [
   {
@@ -791,4 +790,5 @@ export function getAdministrativeTimeline(place = {}) {
 
   return stages;
 }
+
 

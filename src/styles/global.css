@@ -1471,3 +1471,22 @@ mark{background:transparent;color:var(--yellow)}
     color: #9ff4e8 !important;
   }
 }
+/* Căn lề 2 bên nội dung chữ trong mục Quá trình sắp xếp hành chính */
+.admin-history-step__body p,
+.admin-history-step__body small {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+}
+
+.admin-history-step__body p {
+  hyphens: auto;
+}
+
+/* Tránh tiêu đề bị kéo giãn khó đọc */
+.admin-history-step__body h3,
+.admin-history-card h2,
+.admin-history-card__eyebrow,
+.admin-history-card__badge,
+.admin-history-step__year {
+  text-align: left !important;
+}
