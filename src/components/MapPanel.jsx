@@ -1,6 +1,40 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { Maximize2, X } from 'lucide-react';
+
+
+const createIslandLabelIcon = (label, type = 'island') =>
+  L.divIcon({
+    className: `vn-map-label vn-map-label--${type}`,
+    html: `<span>${label}</span>`,
+    iconSize: type === 'sea' ? [130, 28] : [150, 44],
+    iconAnchor: type === 'sea' ? [65, 14] : [75, 22],
+  });
+
+const addVietnamSeaLabels = (mapInstance, labelsLayerRef) => {
+  if (!mapInstance || labelsLayerRef.current) return;
+
+  const group = L.layerGroup([
+    L.marker([16.55, 112.25], {
+      icon: createIslandLabelIcon('qu\u1ea7n \u0111\u1ea3o Ho\u00e0ng Sa'),
+      interactive: false,
+      keyboard: false,
+    }),
+    L.marker([9.75, 114.15], {
+      icon: createIslandLabelIcon('qu\u1ea7n \u0111\u1ea3o Tr\u01b0\u1eddng Sa'),
+      interactive: false,
+      keyboard: false,
+    }),
+    L.marker([13.2, 112.6], {
+      icon: createIslandLabelIcon('BI\u1ec2N \u0110\u00d4NG', 'sea'),
+      interactive: false,
+      keyboard: false,
+    }),
+  ]);
+
+  group.addTo(mapInstance);
+  labelsLayerRef.current = group;
+};
 
 const modeTiles = {
   '2D': {
@@ -39,6 +73,7 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
   const map = useRef(null);
   const geoLayer = useRef(null);
   const tileLayer = useRef(null);
+  const islandLabelsLayer = useRef(null);
   const labelLayer = useRef(null);
   const [mode, setMode] = useState('2D');
   const [geojson, setGeojson] = useState(null);
@@ -57,6 +92,7 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
     if (!mapEl.current || map.current) return;
     map.current = L.map(mapEl.current, { zoomControl: true, preferCanvas: true }).setView([19.1, 104.9], 8);
     tileLayer.current = L.tileLayer(modeTiles['2D'].url, { attribution: modeTiles['2D'].attribution, maxZoom: 18 }).addTo(map.current);
+    addVietnamSeaLabels(map.current, islandLabelsLayer);
   }, []);
 
   useEffect(() => {
@@ -156,3 +192,5 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
     </section>
   );
 }
+
+
