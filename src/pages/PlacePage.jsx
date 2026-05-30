@@ -157,10 +157,41 @@ function formationSentence(place) {
   return `${place.name} được hình thành trên cơ sở sắp xếp toàn bộ diện tích tự nhiên, quy mô dân số của các đơn vị hành chính cũ gồm: ${list}.`;
 }
 
+function slugToName(value = '') {
+  return String(value)
+    .replace(/^xa-/, '')
+    .replace(/^phuong-/, '')
+    .replace(/^thi-tran-/, '')
+    .replace(/-/g, ' ')
+    .trim();
+}
+
+function findPlaceByFlexibleSlug(slug) {
+  const rawSlug = String(slug || '').trim();
+
+  return places.find((p) => {
+    const placeSlug = String(p.slug || '').trim();
+
+    if (placeSlug === rawSlug) return true;
+    if (placeSlug === `xa-${rawSlug}`) return true;
+    if (placeSlug === `phuong-${rawSlug}`) return true;
+    if (placeSlug === `thi-tran-${rawSlug}`) return true;
+
+    const rawName = norm(slugToName(rawSlug));
+    const placeName = norm(
+      String(p.name || '')
+        .replace(/^Xã\s+/i, '')
+        .replace(/^Phường\s+/i, '')
+        .replace(/^Thị trấn\s+/i, '')
+    );
+
+    return rawName && placeName && rawName === placeName;
+  });
+}
 export default function PlacePage() {
   const { slug } = useParams();
-  const basePlace = places.find((p) => p.slug === slug);
-  const place = mergePlaceData(basePlace, slug);
+  const basePlace = findPlaceByFlexibleSlug(slug);
+  const place = mergePlaceData(basePlace, basePlace?.slug || slug);
 
   if (!place) {
     return (
