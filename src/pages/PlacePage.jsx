@@ -120,6 +120,14 @@ function mergePlaceData(basePlace, slug) {
     density,
     oldUnits: mergedUnits,
     formerUnits: mergedUnits,
+
+    // Slug chuẩn để điều hướng trang con.
+    slug: basePlace.slug,
+
+    // Slug riêng cho bản đồ GIS/GeoJSON.
+    // Ưu tiên slug trong places.json vì bản đồ cũ thường dùng slug của nguồn này.
+    mapSlug: statsPlace?.slug || basePlace.slug,
+
     officialUrl: basePlace.officialUrl || basePlace.website || statsPlace?.officialUrl || statsPlace?.website || ''
   };
 }
@@ -188,6 +196,7 @@ function findPlaceByFlexibleSlug(slug) {
     return rawName && placeName && rawName === placeName;
   });
 }
+
 export default function PlacePage() {
   const { slug } = useParams();
   const basePlace = findPlaceByFlexibleSlug(slug);
@@ -249,7 +258,7 @@ export default function PlacePage() {
           </div>
         </section>
 
-        <MapPanel selectedSlug={place.slug} compact title="Bản đồ địa danh theo ranh giới GIS" />
+        <MapPanel selectedSlug={place.mapSlug || place.slug} compact title="Bản đồ địa danh theo ranh giới GIS" />
 
         <AdministrativeTimeline place={place} />
 
