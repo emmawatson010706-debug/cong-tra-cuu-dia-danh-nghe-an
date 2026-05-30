@@ -1338,3 +1338,136 @@ mark{background:transparent;color:var(--yellow)}
     font-size: 12px !important;
   }
 }
+/* FIX MÀU NỀN TRANG CON + KHỐI QUÁ TRÌNH SẮP XẾP HÀNH CHÍNH */
+.place-page,
+.page-shell,
+.detail-page {
+  background:
+    radial-gradient(circle at top left, rgba(0, 139, 117, 0.22), transparent 34%),
+    linear-gradient(180deg, #003f34 0%, #002f28 42%, #001f1c 100%) !important;
+  color: #d9fff6 !important;
+}
+
+/* Khối timeline phải giữ nền tối như trang chủ, không được chuyển trắng */
+.admin-history-card {
+  background:
+    linear-gradient(180deg, rgba(8, 43, 37, 0.96), rgba(4, 35, 31, 0.98)) !important;
+  border: 1px solid rgba(102, 255, 232, 0.12) !important;
+  color: #d9fff6 !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Toàn bộ chữ trong timeline */
+.admin-history-card,
+.admin-history-card * {
+  color: #d9fff6 !important;
+  font-family: inherit !important;
+}
+
+/* Tiêu đề phụ */
+.admin-history-card__eyebrow {
+  color: #9ff4e8 !important;
+}
+
+/* Tiêu đề chính */
+.admin-history-card h2 {
+  color: #ffffff !important;
+}
+
+/* Badge 2024-2025 */
+.admin-history-card__badge {
+  background: rgba(255, 211, 45, 0.16) !important;
+  color: #d9fff6 !important;
+}
+
+/* Thân timeline */
+.admin-history-step__body {
+  background: rgba(13, 26, 24, 0.92) !important;
+  border: 1px solid rgba(120, 255, 237, 0.08) !important;
+  color: #d9fff6 !important;
+}
+
+/* Tiêu đề trong từng mốc */
+.admin-history-step__body h3 {
+  color: #ffffff !important;
+}
+
+/* Nội dung mô tả */
+.admin-history-step__body p {
+  color: #b9fff3 !important;
+}
+
+/* Nguồn đối chiếu */
+.admin-history-step__body small {
+  color: #9ff4e8 !important;
+}
+
+/* Cột năm */
+.admin-history-step__year {
+  color: #ffffff !important;
+}
+
+/* Mốc 2024 */
+.admin-history-step:not(.admin-history-step--current) .admin-history-step__year {
+  background: #007c68 !important;
+}
+
+/* Mốc 2025 */
+.admin-history-step--current .admin-history-step__year {
+  background: #d7a100 !important;
+  color: #05352e !important;
+}
+
+/* Các card dưới trang con cũng giữ nền tối */
+.planning-reference-card,
+.article-card,
+.info-list,
+.source-card,
+.section-card {
+  background: rgba(5, 34, 30, 0.94) !important;
+  color: #d9fff6 !important;
+  border-color: rgba(102, 255, 232, 0.12) !important;
+}
+
+.planning-reference-card *,
+.article-card *,
+.info-list *,
+.source-card *,
+.section-card * {
+  color: inherit;
+}
+
+/* Mobile fix mạnh hơn */
+@media (max-width: 640px) {
+  body {
+    background: #002f28 !important;
+  }
+
+  .place-page {
+    background:
+      radial-gradient(circle at top, rgba(0, 139, 117, 0.22), transparent 36%),
+      linear-gradient(180deg, #003f34 0%, #002f28 46%, #001f1c 100%) !important;
+  }
+
+  .admin-history-card {
+    background: rgba(4, 36, 31, 0.98) !important;
+    color: #d9fff6 !important;
+  }
+
+  .admin-history-step__body {
+    background: rgba(11, 25, 23, 0.96) !important;
+    color: #d9fff6 !important;
+  }
+
+  .admin-history-step__body h3 {
+    color: #ffffff !important;
+  }
+
+  .admin-history-step__body p {
+    color: #b9fff3 !important;
+  }
+
+  .admin-history-step__body small {
+    color: #9ff4e8 !important;
+  }
+}
