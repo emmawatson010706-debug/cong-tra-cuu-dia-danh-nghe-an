@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap');
 
 :root{
   --teal:#087f73;
@@ -955,5 +955,386 @@ mark{background:transparent;color:var(--yellow)}
 
   .submission-top strong {
     font-size: 16px;
+  }
+}
+
+/* HOANG-SA-TRUONG-SA-SAFE-PATCH
+   Chá»‰ thÃªm nhÃ£n hiá»ƒn thá»‹ trÃªn báº£n Ä‘á»“; khÃ´ng thay Ä‘á»•i báº£n Ä‘á»“ ná»n, dá»¯ liá»‡u, chá»©c nÄƒng. */
+.map-stage {
+  position: relative;
+}
+
+.sovereignty-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.sovereignty-label,
+.sovereignty-sea-label {
+  position: absolute;
+  text-align: center;
+  font-weight: 900;
+  line-height: 1.12;
+  text-shadow:
+    0 2px 0 rgba(255,255,255,.95),
+    0 -1px 0 rgba(255,255,255,.95),
+    1px 0 0 rgba(255,255,255,.95),
+    -1px 0 0 rgba(255,255,255,.95),
+    0 4px 10px rgba(0,0,0,.18);
+  user-select: none;
+}
+
+.sovereignty-label {
+  color: #d61f1f;
+  letter-spacing: .01em;
+  min-width: 108px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.18);
+}
+
+.sovereignty-label span,
+.sovereignty-label strong {
+  display: block;
+}
+
+.sovereignty-label span {
+  font-size: clamp(10px, 2.2vw, 13px);
+  text-transform: lowercase;
+}
+
+.sovereignty-label strong {
+  font-size: clamp(13px, 3vw, 18px);
+}
+
+.sovereignty-label--hoang-sa {
+  right: 9%;
+  top: 23%;
+}
+
+.sovereignty-label--truong-sa {
+  right: 11%;
+  top: 62%;
+}
+
+.sovereignty-sea-label {
+  right: 30%;
+  top: 48%;
+  color: #0d6fb8;
+  font-size: clamp(14px, 3.2vw, 22px);
+  letter-spacing: .08em;
+}
+
+.map-card--fullscreen .sovereignty-label--hoang-sa {
+  right: 15%;
+  top: 21%;
+}
+
+.map-card--fullscreen .sovereignty-label--truong-sa {
+  right: 17%;
+  top: 62%;
+}
+
+.map-card--fullscreen .sovereignty-sea-label {
+  right: 31%;
+  top: 47%;
+}
+
+@media (max-width: 800px) {
+  .sovereignty-label {
+    min-width: 76px;
+    padding: 4px 5px;
+  }
+  .sovereignty-label--hoang-sa {
+    right: 5%;
+    top: 19%;
+  }
+  .sovereignty-label--truong-sa {
+    right: 6%;
+    top: 64%;
+  }
+  .sovereignty-sea-label {
+    right: 20%;
+    top: 47%;
+  }
+}
+
+/* Vietnamese sovereignty labels on Leaflet map: HoÃ ng Sa, TrÆ°á»ng Sa, Biá»ƒn ÄÃ´ng */
+.vn-map-label {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+.vn-map-label span {
+  display: inline-block;
+  color: #d21f1f;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 1.18;
+  text-align: center;
+  letter-spacing: -0.01em;
+  white-space: normal;
+  text-shadow:
+    0 1px 0 #ffffff,
+    1px 0 0 #ffffff,
+    0 -1px 0 #ffffff,
+    -1px 0 0 #ffffff,
+    0 2px 7px rgba(255, 255, 255, 0.95);
+}
+
+.vn-map-label--sea span {
+  color: #126ac8;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 520px) {
+  .vn-map-label span {
+    font-size: 12px;
+  }
+
+  .vn-map-label--sea span {
+    font-size: 13px;
+  }
+}
+
+
+/* Administrative history timeline */
+.admin-history-card {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid rgba(13, 106, 91, 0.13);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 252, 248, 0.92));
+  box-shadow: 0 14px 40px rgba(20, 79, 70, 0.08);
+}
+
+.admin-history-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.admin-history-card__eyebrow {
+  margin: 0 0 4px;
+  color: #087666;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.admin-history-card h2 {
+  margin: 0;
+}
+
+.admin-history-card__badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 204, 50, 0.16);
+  color: #946400;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.admin-history-timeline {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.admin-history-step {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.admin-history-step__year {
+  display: grid;
+  place-items: center;
+  min-height: 58px;
+  border-radius: 18px;
+  background: #087666;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(8, 118, 102, 0.18);
+}
+
+.admin-history-step__body {
+  padding: 13px 14px;
+  border: 1px solid rgba(13, 106, 91, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.admin-history-step__body h3 {
+  margin: 0 0 6px;
+}
+
+.admin-history-step__body p {
+  margin: 0;
+}
+
+.admin-history-step__body small {
+  display: block;
+  margin-top: 8px;
+  color: #60716d;
+  font-weight: 700;
+}
+
+.admin-history-step--current .admin-history-step__year {
+  background: #f5b301;
+  color: #153f39;
+}
+
+.admin-history-step--muted .admin-history-step__year {
+  background: #aab8b4;
+}
+
+@media (max-width: 520px) {
+  .admin-history-card {
+    padding: 15px;
+    border-radius: 22px;
+  }
+
+  .admin-history-step {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .admin-history-step__year {
+    min-height: 50px;
+    border-radius: 16px;
+  }
+}
+/* Giữ size chữ khối quá trình sắp xếp hành chính đồng bộ với giao diện trang con */
+.admin-history-card {
+  font-size: inherit;
+}
+
+.admin-history-card__eyebrow {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.admin-history-card h2 {
+  font-size: clamp(1.35rem, 4.8vw, 2rem);
+  line-height: 1.15;
+}
+
+.admin-history-step__body h3 {
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.admin-history-step__body p {
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.admin-history-step__body small {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.admin-history-step__year {
+  font-size: 1rem;
+}
+/* Đồng bộ font và size chữ khối Quá trình sắp xếp hành chính với giao diện chung */
+.admin-history-card,
+.admin-history-card * {
+  font-family: inherit !important;
+}
+
+.admin-history-card {
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+}
+
+.admin-history-card__eyebrow {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+}
+
+.admin-history-card h2 {
+  font-size: 22px !important;
+  line-height: 1.18 !important;
+  font-weight: 800 !important;
+}
+
+.admin-history-card__badge {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+}
+
+.admin-history-step__year {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+}
+
+.admin-history-step__body h3 {
+  font-size: 18px !important;
+  line-height: 1.22 !important;
+  font-weight: 800 !important;
+  margin: 0 0 8px !important;
+}
+
+.admin-history-step__body p {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  margin: 0 0 10px !important;
+}
+
+.admin-history-step__body small {
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+}
+
+/* Mobile: đưa size chữ về gần trang chủ, gọn và dễ đọc */
+@media (max-width: 640px) {
+  .admin-history-card {
+    font-size: 13.5px !important;
+  }
+
+  .admin-history-card__eyebrow {
+    font-size: 12.5px !important;
+  }
+
+  .admin-history-card h2 {
+    font-size: 20px !important;
+  }
+
+  .admin-history-card__badge {
+    font-size: 12.5px !important;
+  }
+
+  .admin-history-step__year {
+    font-size: 13px !important;
+  }
+
+  .admin-history-step__body h3 {
+    font-size: 15.5px !important;
+  }
+
+  .admin-history-step__body p {
+    font-size: 13.5px !important;
+    line-height: 1.48 !important;
+  }
+
+  .admin-history-step__body small {
+    font-size: 12px !important;
   }
 }

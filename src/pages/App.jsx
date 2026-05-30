@@ -5,6 +5,7 @@ import PlaceCard, { getRegionLabel } from '../components/PlaceCard.jsx';
 import places from '../data/places.json';
 import { ArrowRight, FileText, Map, Search, Send, Shuffle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
+import { PlaceDetailPage } from './PlaceDetailPage.jsx';
 
 function norm(v) {
   return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().trim();
@@ -29,6 +30,11 @@ const features = [
 ];
 
 export default function App() {
+  const pathname = window.location.pathname;
+  const placeSlug = pathname.startsWith('/dia-danh/')
+    ? pathname.replace('/dia-danh/', '').replace(/\/$/, '')
+    : null;
+
   const [q, setQ] = useState('');
   const [filter, setFilter] = useState('all');
   const [showAll, setShowAll] = useState(false);
@@ -96,6 +102,10 @@ export default function App() {
     }
   };
 
+  if (placeSlug) {
+    return <PlaceDetailPage slug={placeSlug} />;
+  }
+
   return (
     <Layout>
       <section className="home-shell" id="tra-cuu">
@@ -106,9 +116,9 @@ export default function App() {
 
           <section className="hero-copy-card">
             <h1 className="home-main-title">
-  <span>TRA CỨU ĐỊA DANH</span>
-  <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
-</h1>
+              <span>TRA CỨU ĐỊA DANH</span>
+              <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
+            </h1>
             <p>
               Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ,
               xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.
@@ -155,7 +165,7 @@ export default function App() {
               {q && <button onClick={() => setQ('')}>Xóa tìm kiếm</button>}
             </div>
             <div className="place-grid">
-              {visible.map(place => <PlaceCard place={place} key={place.id}/>) }
+              {visible.map(place => <PlaceCard place={place} key={place.id}/>)}
             </div>
             {!showAll && !q && filter === 'all' && <button className="more-btn" onClick={() => setShowAll(true)}><Map size={18}/> Xem toàn bộ 130 xã/phường <ArrowRight size={18}/></button>}
           </section>
