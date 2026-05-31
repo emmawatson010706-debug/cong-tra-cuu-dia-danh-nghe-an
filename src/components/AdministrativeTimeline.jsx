@@ -1,5 +1,9 @@
 import React from "react";
 import { getAdministrativeTimeline } from "../data/adminHistory2024";
+import placesStats from "../data/places.json";
+
+const SOURCE_2024 = "Nghị quyết 1243/NQ-UBTVQH15";
+const SOURCE_2025 = "Nghị quyết 1678/NQ-UBTVQH15";
 
 function normalizeName(value = "") {
   return String(value)
@@ -8,17 +12,58 @@ function normalizeName(value = "") {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/đ/g, "d")
     .replace(/Đ/g, "D")
-    .replace(/\s+/g, " ")
+    .replace(/^(xa|phuong|thi tran)\s+/i, "")
+    .replace(/[\s-]+/g, " ")
     .trim();
 }
 
+function normalizeSlug(value = "") {
+  return String(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .replace(/^(xa-|phuong-|thi-tran-)/i, "")
+    .replace(/\s+/g, "-")
+    .trim();
+}
+
+function compactSource(source = "") {
+  const text = String(source || "");
+  if (text.includes("1243")) return SOURCE_2024;
+  if (text.includes("1678")) return SOURCE_2025;
+  return text || SOURCE_2025;
+}
+
+function findStatsPlace(place = {}) {
+  const placeSlug = normalizeSlug(place?.slug || "");
+  const placeName = normalizeName(place?.name || place?.title || "");
+
+  return placesStats.find((item) => {
+    const itemSlug = normalizeSlug(item?.slug || "");
+    const itemName = normalizeName(item?.name || "");
+
+    return (
+      (placeSlug && itemSlug && placeSlug === itemSlug) ||
+      (placeName && itemName && placeName === itemName)
+    );
+  });
+}
+
 function getUnits2025(place = {}) {
+  const statsPlace = findStatsPlace(place);
   const candidates = [
     place.oldUnits,
     place.formerUnits,
     place.mergedFrom,
     place.sourceUnits,
-    place.previousUnits
+    place.previousUnits,
+    statsPlace?.oldUnits,
+    statsPlace?.formerUnits,
+    statsPlace?.mergedFrom,
+    statsPlace?.sourceUnits,
+    statsPlace?.previousUnits
   ];
 
   for (const item of candidates) {
@@ -32,15 +77,17 @@ function getUnits2025(place = {}) {
 
 function isSameUnit(place = {}, units = []) {
   if (units.length !== 1) return false;
+  return normalizeName(units[0]) === normalizeName(place.name || place.title || "");
+}
 
-  const clean = (value = "") =>
-    normalizeName(value)
-      .replace(/^xa\s+/, "")
-      .replace(/^phuong\s+/, "")
-      .replace(/^thi tran\s+/, "")
-      .trim();
+function joinVietnameseList(items = []) {
+  const list = items.filter(Boolean);
+  if (list.length <= 1) return list[0] || "";
+  return `${list.slice(0, -1).join(", ")} và ${list[list.length - 1]}`;
+}
 
-  return clean(units[0]) === clean(place.name || place.title || "");
+function build2024FallbackDescription(currentName) {
+  return `Đối chiếu Nghị quyết số 1243/NQ-UBTVQH15, chưa ghi nhận đơn vị cũ cấu thành ${currentName} thuộc danh mục sắp xếp giai đoạn 2023–2025. Nội dung năm 2024 chỉ hiển thị khi có căn cứ trực tiếp trong Nghị quyết 1243/NQ-UBTVQH15.`;
 }
 
 function build2025Description(place = {}, units = []) {
@@ -51,17 +98,16 @@ function build2025Description(place = {}, units = []) {
   }
 
   if (isSameUnit(place, units)) {
-    return `${currentName} là đơn vị hành chính tiếp tục được sử dụng trong hệ thống đơn vị hành chính cấp xã của tỉnh Nghệ An theo Nghị quyết 1678/NQ-UBTVQH15.`;
+    return `Theo Nghị quyết 1678/NQ-UBTVQH15, ${currentName} là đơn vị hành chính không thực hiện sắp xếp trong đợt năm 2025.`;
   }
 
-  return `${currentName} được hình thành trên cơ sở sắp xếp toàn bộ diện tích tự nhiên, quy mô dân số của các đơn vị hành chính cũ gồm: ${units.join(", ")}.`;
+  return `${currentName} được thành lập trên cơ sở sắp xếp toàn bộ diện tích tự nhiên, quy mô dân số của ${joinVietnameseList(units)}.`;
 }
 
 export function AdministrativeTimeline({ place }) {
+  const currentName = place?.name || place?.title || "địa phương này";
   const stages2024 = getAdministrativeTimeline(place);
   const units2025 = getUnits2025(place);
-
-  const legalSource = place?.legalSource || "Nghị quyết 1678/NQ-UBTVQH15";
   const description2025 = build2025Description(place, units2025);
 
   return (
@@ -82,7 +128,7 @@ export function AdministrativeTimeline({ place }) {
               <div className="admin-history-step__body">
                 <h3>{stage.title}</h3>
                 <p>{stage.description}</p>
-                <small>Nguồn đối chiếu: {stage.source}</small>
+                <small>Nguồn đối chiếu: {compactSource(stage.source)}</small>
               </div>
             </article>
           ))
@@ -90,12 +136,9 @@ export function AdministrativeTimeline({ place }) {
           <article className="admin-history-step admin-history-step--muted">
             <div className="admin-history-step__year">2024</div>
             <div className="admin-history-step__body">
-              <h3>Đang đối chiếu lớp sắp xếp trung gian</h3>
-              <p>
-                Chưa ghi nhận thông tin sắp xếp trung gian giai đoạn 2023-2025
-                trong dữ liệu hiện có của địa phương này. Nội dung sẽ tiếp tục
-                được rà soát, đối chiếu trước khi công bố.
-              </p>
+              <h3>Không phát sinh sắp xếp theo Nghị quyết 1243/NQ-UBTVQH15</h3>
+              <p>{build2024FallbackDescription(currentName)}</p>
+              <small>Nguồn đối chiếu: {SOURCE_2024}</small>
             </div>
           </article>
         )}
@@ -103,9 +146,9 @@ export function AdministrativeTimeline({ place }) {
         <article className="admin-history-step admin-history-step--current">
           <div className="admin-history-step__year">2025</div>
           <div className="admin-history-step__body">
-            <h3>Sắp xếp theo {legalSource}</h3>
+            <h3>Sắp xếp theo {SOURCE_2025}</h3>
             <p>{description2025}</p>
-            <small>Nguồn đối chiếu: {legalSource}</small>
+            <small>Nguồn đối chiếu: {SOURCE_2025}</small>
           </div>
         </article>
       </div>

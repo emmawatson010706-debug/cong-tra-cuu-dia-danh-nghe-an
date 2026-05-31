@@ -1,4 +1,4 @@
-﻿// Dữ liệu lịch sử sắp xếp hành chính Nghệ An giai đoạn 2023-2025.
+// Dữ liệu lịch sử sắp xếp hành chính Nghệ An giai đoạn 2023-2025.
 // Thay thế toàn bộ file src/data/adminHistory2024.js bằng file này.
 
 export const ADMIN_HISTORY_SOURCE_2024 ="Nghị quyết số 1243/NQ-UBTVQH15 về việc sắp xếp đơn vị hành chính cấp huyện, cấp xã của tỉnh Nghệ An giai đoạn 2023-2025, ban hành ngày 24/10/2024, có hiệu lực từ ngày 01/12/2024";
@@ -7,7 +7,7 @@ export const adminHistory2024 = [
   {
     "id": "vinh-cua-lo-nghi-loc-to-vinh",
     "year": "2024",
-    "title": "Sắp xếp giai đoạn 2023-2025",
+    "title": "Nhập thị xã Cửa Lò và một số xã của huyện Nghi Lộc vào thành phố Vinh",
     "match": [
       "Thành phố Vinh",
       "TP Vinh",
@@ -768,27 +768,162 @@ const matchStage = (place, stage) => {
   );
 };
 
+
+const timelineNormalizeText = (value = '') =>
+  String(value || '')
+    .toLowerCase()
+    .replace(/[\s-]+/g, ' ')
+    .trim();
+
+const timelineGetUnitNames = (place = {}) => {
+  const arrays = [
+    place.formerUnitsDetailed,
+    place.oldUnitsDetailed,
+    place.sourceUnitsDetailed,
+    place.oldUnits,
+    place.formerUnits,
+    place.mergedFrom,
+    place.sourceUnits,
+    place.previousUnits
+  ];
+
+  const units = [];
+
+  arrays.forEach((arr) => {
+    if (!Array.isArray(arr)) return;
+
+    arr.forEach((item) => {
+      if (!item) return;
+
+      if (typeof item === 'string') {
+        units.push(timelineNormalizeText(item));
+        return;
+      }
+
+      if (item.name) {
+        units.push(timelineNormalizeText(item.name));
+      }
+    });
+  });
+
+  // Không dùng tên đơn vị hiện hành để dò lớp 2024, vì nhiều địa danh trùng tên
+  // giữa xã/phường hoặc giữa các huyện/thành phố cũ. Chỉ đối chiếu theo các
+  // đơn vị cũ cấu thành theo Nghị quyết 1678 đã lưu trong oldUnits/formerUnits.
+
+  return [...new Set(units.filter(Boolean))];
+};
+
+
+const timelineNormalizeDistrict = (value = '') =>
+  String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/^(tp|thanh pho)\s+/i, 'thanh pho ')
+    .replace(/^(tx|thi xa)\s+/i, 'thi xa ')
+    .replace(/^(huyen)\s+/i, '')
+    .replace(/[\s-]+/g, ' ')
+    .trim();
+
+const timelineStageDistrictHints = (stage = {}) => {
+  const id = String(stage.id || '');
+
+  if (id === 'vinh-cua-lo-nghi-loc-to-vinh') {
+    return ['TP Vinh', 'Thành phố Vinh', 'Cửa Lò', 'Thị xã Cửa Lò', 'Nghi Lộc', 'Huyện Nghi Lộc'];
+  }
+
+  const prefixMap = [
+    ['vinh-', ['TP Vinh', 'Thành phố Vinh']],
+    ['nghi-loc-', ['Nghi Lộc', 'Huyện Nghi Lộc']],
+    ['do-luong-', ['Đô Lương', 'Huyện Đô Lương']],
+    ['tan-ky-', ['Tân Kỳ', 'Huyện Tân Kỳ']],
+    ['nghia-dan-', ['Nghĩa Đàn', 'Huyện Nghĩa Đàn']],
+    ['quynh-luu-', ['Quỳnh Lưu', 'Huyện Quỳnh Lưu']],
+    ['con-cuong-', ['Con Cuông', 'Huyện Con Cuông']],
+    ['thanh-chuong-', ['Thanh Chương', 'Huyện Thanh Chương']],
+    ['dien-chau-', ['Diễn Châu', 'Huyện Diễn Châu']],
+    ['hung-nguyen-', ['Hưng Nguyên', 'Huyện Hưng Nguyên']],
+    ['nam-dan-', ['Nam Đàn', 'Huyện Nam Đàn']],
+    ['yen-thanh-', ['Yên Thành', 'Huyện Yên Thành']],
+    ['anh-son-', ['Anh Sơn', 'Huyện Anh Sơn']]
+  ];
+
+  const matched = prefixMap.find(([prefix]) => id.startsWith(prefix));
+  return matched ? matched[1] : [];
+};
+
+const timelineStageDistrictMatches = (stage = {}, place = {}) => {
+  const hints = timelineStageDistrictHints(stage).map(timelineNormalizeDistrict);
+  if (!hints.length) return true;
+
+  const placeDistrict = timelineNormalizeDistrict(place.oldDistrict || place.district || place.regionSubLabel || '');
+  if (!placeDistrict) return true;
+
+  return hints.some((hint) => placeDistrict === hint || placeDistrict.includes(hint) || hint.includes(placeDistrict));
+};
+
+const timelineStageMatchUnits = (stage = {}) => {
+  const units = [];
+
+  if (Array.isArray(stage.match)) {
+    stage.match.forEach((item) => {
+      if (!item) return;
+      units.push(timelineNormalizeText(item));
+    });
+  }
+
+  if (stage.resultUnit?.name) {
+    units.push(timelineNormalizeText(stage.resultUnit.name));
+  }
+
+  if (Array.isArray(stage.relatedUnits)) {
+    stage.relatedUnits.forEach((item) => {
+      if (!item) return;
+
+      if (typeof item === 'string') {
+        units.push(timelineNormalizeText(item));
+        return;
+      }
+
+      if (item.name) {
+        units.push(timelineNormalizeText(item.name));
+      }
+    });
+  }
+
+  return [...new Set(units.filter(Boolean))];
+};
+
 export function getAdministrativeTimeline(place = {}) {
-  const stages = [];
+  const units2025 = timelineGetUnitNames(place);
+  const results = [];
   const seen = new Set();
 
   adminHistory2024.forEach((stage) => {
-    if (!matchStage(place, stage)) return;
+    if (!timelineStageDistrictMatches(stage, place)) return;
 
-    const key = `${stage.id}-${stage.description}`;
+    const resultNames = timelineStageMatchUnits(stage);
+
+    const matched = units2025.some((unit) =>
+      resultNames.some((resultName) => unit === resultName)
+    );
+
+    if (!matched) return;
+
+    const key = stage.id || stage.description;
     if (seen.has(key)) return;
 
     seen.add(key);
-    stages.push({
+
+    results.push({
       year: stage.year,
       title: stage.title,
       description: stage.description,
       source: stage.source,
-      relatedUnit: stage.id
+      relatedUnit: stage.resultUnit?.name || stage.id
     });
   });
 
-  return stages;
+  return results;
 }
-
-
