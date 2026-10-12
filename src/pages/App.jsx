@@ -111,36 +111,45 @@ export default function App() {
     <Layout>
       <section className="home-shell" id="tra-cuu">
         <div className="container">
-          <section className="hero hero-modern hero-image-banner">
-            <div className="hero-banner-media">
-              <img 
-                src="/assets/nghe-an-hero-banner-modern.jpg" 
-                alt="Cảnh sắc quê hương và bản đồ địa chính mới tỉnh Nghệ An" 
-                loading="eager"
-              />
-              <div className="hero-banner-overlay">
-                <span className="banner-tag">🏛️ BẢN ĐỒ ĐỊA CHÍNH MỚI · TỈNH NGHỆ AN</span>
-              </div>
-            </div>
-          </section>
-
-          <section className="hero-copy-card">
+          {/* KHUNG LỚN DUY NHẤT VỚI NỀN BẢN ĐỒ NGHỆ AN 3D VÀ KHUNG TÌM KIẾM TRỰC QUAN NỔI BẬT */}
+          <section className="hero-unified-card" id="tra-cuu-hero">
+            {/* 3 nút thống kê truy cập trên 1 hàng ngang có hiệu ứng phát sáng mạnh */}
             <VisitorCounter variant="hero" />
-            <h1 className="home-main-title">
-              <span>TRA CỨU ĐỊA DANH</span>
-              <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
-            </h1>
-            <p>
-              Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ,
-              xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.
-            </p>
-          </section>
 
-          <form className="hero-search search-card" onSubmit={(e) => { e.preventDefault(); document.getElementById('places')?.scrollIntoView({behavior:'smooth'}); }}>
-            <Search size={30}/>
-            <input value={q} onChange={e => setQ(e.target.value)} placeholder="Nhập tên xã/phường, huyện cũ hoặc địa danh cần tìm" />
-            <button type="submit">Tra cứu</button>
-          </form>
+            <div className="hero-text-content">
+              <h1 className="home-main-title">
+                <span>TRA CỨU ĐỊA DANH</span>
+                <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
+              </h1>
+              <p className="hero-desc">
+                Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ,
+                xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.
+              </p>
+            </div>
+
+            {/* Khung tra cứu lớn, nổi bật, trực quan - nhìn vào muốn nhập tìm kiếm ngay */}
+            <form 
+              className="hero-search-prominent" 
+              onSubmit={(e) => { 
+                e.preventDefault(); 
+                document.getElementById('places')?.scrollIntoView({ behavior: 'smooth' }); 
+              }}
+            >
+              <div className="search-input-wrapper">
+                <Search size={26} className="search-icon-glow" />
+                <input 
+                  value={q} 
+                  onChange={e => setQ(e.target.value)} 
+                  placeholder="Nhập tên xã, phường mới hoặc huyện cũ..." 
+                  aria-label="Nhập tên xã/phường, huyện cũ"
+                />
+              </div>
+              <button type="submit" className="search-btn-prominent">
+                <Search size={20} />
+                <span>Tra cứu</span>
+              </button>
+            </form>
+          </section>
 
           <div id="ban-do" className="home-map-focus">
             <MapPanel title="" homeOnly />

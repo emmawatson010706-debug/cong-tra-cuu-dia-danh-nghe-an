@@ -7,18 +7,24 @@ export function VisitorCounter({ variant = 'hero' }) {
 
   if (variant === 'hero') {
     return (
-      <div className="visitor-badge-row" aria-label="Thống kê truy cập">
-        <div className="visitor-chip online">
+      <div className="visitor-badge-row visitor-row-single" aria-label="Thống kê truy cập">
+        <div className="visitor-chip online glow-green">
           <span className="pulse-dot"></span>
-          <span><b>{onlineCount}</b> đang online</span>
+          <span className="chip-text">
+            <b>{onlineCount}</b> <small>online</small>
+          </span>
         </div>
-        <div className="visitor-chip total">
-          <Eye size={14} />
-          <span><b>{totalVisits.toLocaleString('vi-VN')}</b> lượt truy cập</span>
+        <div className="visitor-chip today glow-amber">
+          <Calendar size={13} />
+          <span className="chip-text">
+            <b>{todayVisits.toLocaleString('vi-VN')}</b> <small>hôm nay</small>
+          </span>
         </div>
-        <div className="visitor-chip today">
-          <Calendar size={14} />
-          <span><b>{todayVisits.toLocaleString('vi-VN')}</b> hôm nay</span>
+        <div className="visitor-chip total glow-cyan">
+          <Eye size={13} />
+          <span className="chip-text">
+            <b>{totalVisits.toLocaleString('vi-VN')}</b> <small>lượt xem</small>
+          </span>
         </div>
       </div>
     );

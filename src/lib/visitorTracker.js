@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react';
 import { supabase } from './supabase.js';
 
 const STORAGE_KEY = 'nata_visitor_stats';
-// Baseline count for a website running stably for several months
-const BASE_TOTAL_VISITS = 142580;
-const BASE_TODAY_MIN = 850;
+// Baseline count: over 1.2 million visits
+const BASE_TOTAL_VISITS = 1268450;
+
+function getTodayBaseline() {
+  const d = new Date();
+  const vnHour = (d.getUTCHours() + 7) % 24;
+  // Dynamic scale throughout the day from 800 (midnight) to ~3600 (afternoon/evening)
+  return Math.floor(950 + (vnHour / 24) * 2800 + Math.random() * 80);
+}
 
 function getTodayString() {
   const d = new Date();
@@ -14,26 +20,26 @@ function getTodayString() {
 }
 
 function getStoredStats() {
+  const todayStr = getTodayString();
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    const todayStr = getTodayString();
     if (raw) {
       const parsed = JSON.parse(raw);
+      // Ensure total is at least over 1.2M as requested
+      if (!parsed.totalVisits || parsed.totalVisits < BASE_TOTAL_VISITS) {
+        parsed.totalVisits = BASE_TOTAL_VISITS + Math.floor(Math.random() * 350);
+      }
       if (parsed.lastDate !== todayStr) {
-        // New day
         parsed.lastDate = todayStr;
-        parsed.todayVisits = Math.floor(BASE_TODAY_MIN + Math.random() * 80);
+        parsed.todayVisits = getTodayBaseline();
       }
       return parsed;
     }
-  } catch (e) {
-    // ignore
-  }
+  } catch (e) {}
 
-  const todayStr = getTodayString();
   const initial = {
-    totalVisits: BASE_TOTAL_VISITS + Math.floor(Math.random() * 120),
-    todayVisits: BASE_TODAY_MIN + Math.floor(Math.random() * 90),
+    totalVisits: BASE_TOTAL_VISITS + Math.floor(Math.random() * 320),
+    todayVisits: getTodayBaseline(),
     lastDate: todayStr
   };
 
