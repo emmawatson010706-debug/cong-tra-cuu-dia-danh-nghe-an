@@ -6,6 +6,7 @@ import places from '../data/places.json';
 import { ArrowRight, FileText, Map, Search, Send, Shuffle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 import { PlaceDetailPage } from './PlaceDetailPage.jsx';
+import { VisitorCounter } from '../components/VisitorCounter.jsx';
 
 function norm(v) {
   return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().trim();
@@ -111,10 +112,20 @@ export default function App() {
       <section className="home-shell" id="tra-cuu">
         <div className="container">
           <section className="hero hero-modern hero-image-banner">
-            <img src="/assets/nghe-an-hero-community.png" alt="Cổng tra cứu địa danh xã phường Nghệ An" />
+            <div className="hero-banner-media">
+              <img 
+                src="/assets/nghe-an-hero-banner-modern.jpg" 
+                alt="Cảnh sắc quê hương và bản đồ địa chính mới tỉnh Nghệ An" 
+                loading="eager"
+              />
+              <div className="hero-banner-overlay">
+                <span className="banner-tag">🏛️ BẢN ĐỒ ĐỊA CHÍNH MỚI · TỈNH NGHỆ AN</span>
+              </div>
+            </div>
           </section>
 
           <section className="hero-copy-card">
+            <VisitorCounter variant="hero" />
             <h1 className="home-main-title">
               <span>TRA CỨU ĐỊA DANH</span>
               <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>

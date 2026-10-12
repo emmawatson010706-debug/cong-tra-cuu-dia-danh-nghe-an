@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, FolderOpen, Map, Menu, Search, ShieldCheck, X, MessageSquare } from 'lucide-react';
+import { VisitorCounter } from './VisitorCounter.jsx';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -56,6 +57,7 @@ export function Footer() {
           <Link to="/admin-login"><ShieldCheck size={16}/> Admin</Link>
         </nav>
       </div>
+      <VisitorCounter variant="footer" />
       <p className="copyright">© 2026 NATA. All rights reserved.</p>
     </footer>
   );
