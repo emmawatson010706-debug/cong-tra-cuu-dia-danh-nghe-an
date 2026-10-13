@@ -23,14 +23,15 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     loadWardShapes().then(setShapes).catch(() => setFailed(true));
   }, []);
 
-  const focusSet = useMemo(() => new Set(focusSlugs), [focusSlugs]);
-  const isFiltered = shapes !== null && focusSlugs.length > 0 && focusSlugs.length < shapes.length;
-  const active = selectedSlug ?? (picked && focusSet.has(picked) ? picked : null) ?? (focusSlugs.length === 1 ? focusSlugs[0] : null);
+  const focusSet = useMemo(() => new Set(focusSlugs || []), [focusSlugs]);
+  const isFiltered = shapes !== null && focusSlugs && focusSlugs.length > 0 && focusSlugs.length < shapes.length;
+  const active = selectedSlug ?? (picked && focusSet.has(picked) ? picked : null) ?? (focusSlugs && focusSlugs.length === 1 ? focusSlugs[0] : null);
 
   const viewBox = useMemo(() => {
-    if (!shapes) return "0 0 1800 1450";
+    if (!shapes || shapes.length === 0) return "0 0 1800 1450";
     const targets = isFiltered ? shapes.filter((s) => focusSet.has(s.slug)) : shapes;
-    const [x0, y0, x1, y1] = boundsOf(targets);
+    const effectiveTargets = targets.length > 0 ? targets : shapes;
+    const [x0, y0, x1, y1] = boundsOf(effectiveTargets);
     const pad = Math.max(x1 - x0, y1 - y0) * 0.12 + 10;
     return `${x0 - pad} ${y0 - pad} ${x1 - x0 + 2 * pad} ${y1 - y0 + 2 * pad}`;
   }, [shapes, focusSet, isFiltered]);
@@ -110,7 +111,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
                 onMouseLeave={() => setHover(null)}
                 onClick={() => {
                   setPicked(s.slug);
-                  if (focusSlugs.length === 1 && focusSlugs[0] === s.slug) return;
+                  if (focusSlugs && focusSlugs.length === 1 && focusSlugs[0] === s.slug) return;
                   navigate(`/don-vi/${s.slug}`);
                 }}
               />
@@ -122,24 +123,28 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
             focusSet.size <= MAX_LABELS &&
             shapes
               .filter((s) => focusSet.has(s.slug))
-              .map((s) => (
-                <text
-                  key={`lbl-${s.slug}`}
-                  x={s.center[0]}
-                  y={s.center[1]}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fontSize="12"
-                  fontWeight="bold"
-                  fill={active === s.slug ? "#ffffff" : "#451a03"}
-                  stroke={active === s.slug ? "#7f1d1d" : "#fef08a"}
-                  strokeWidth="2.5"
-                  paintOrder="stroke fill"
-                  className="pointer-events-none select-none font-sans"
-                >
-                  {s.name}
-                </text>
-              ))}
+              .map((s) => {
+                const posX = s.center ? s.center[0] : (s.bbox[0] + s.bbox[2]) / 2;
+                const posY = s.center ? s.center[1] : (s.bbox[1] + s.bbox[3]) / 2;
+                return (
+                  <text
+                    key={`lbl-${s.slug}`}
+                    x={posX}
+                    y={posY}
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    fontSize="12"
+                    fontWeight="bold"
+                    fill={active === s.slug ? "#ffffff" : "#451a03"}
+                    stroke={active === s.slug ? "#7f1d1d" : "#fef08a"}
+                    strokeWidth="2.5"
+                    paintOrder="stroke fill"
+                    className="pointer-events-none select-none font-sans"
+                  >
+                    {s.name}
+                  </text>
+                );
+              })}
         </svg>
 
         {/* Tooltip khi rê chuột */}

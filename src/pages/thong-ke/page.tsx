@@ -6,9 +6,9 @@ import { STATS, densityOf, type Bin, type GroupRow } from "@/lib/stats.ts";
 
 const RED = "#991b1b";
 const GOLD = "#d97706";
-const f1 = (n: number) => n.toLocaleString("vi-VN", { maximumFractionDigits: 1 });
-const f0 = (n: number) => n.toLocaleString("vi-VN", { maximumFractionDigits: 0 });
-const pct = (n: number) => `${(n * 100).toLocaleString("vi-VN", { maximumFractionDigits: 1 })}%`;
+const f1 = (n: number | undefined | null) => (typeof n === 'number' && !isNaN(n) ? n.toLocaleString("vi-VN", { maximumFractionDigits: 1 }) : "0");
+const f0 = (n: number | undefined | null) => (typeof n === 'number' && !isNaN(n) ? n.toLocaleString("vi-VN", { maximumFractionDigits: 0 }) : "0");
+const pct = (n: number | undefined | null) => (typeof n === 'number' && !isNaN(n) ? `${(n * 100).toLocaleString("vi-VN", { maximumFractionDigits: 1 })}%` : "0%");
 
 function Panel({ title, note, children }: { title: string; note?: string; children: React.ReactNode }) {
   return (
@@ -27,20 +27,6 @@ function Kpi({ label, value, unit }: { label: string; value: string; unit: strin
       <p className="font-sans text-xs font-semibold text-[#854d0e]">{unit}</p>
       <p className="mt-1 font-sans text-xs font-bold text-[#1e293b]">{label}</p>
     </div>
-  );
-}
-
-function Histogram({ data, color }: { data: Bin[]; color: string }) {
-  return (
-    <ResponsiveContainer width="100%" height={240}>
-      <BarChart data={data} margin={{ left: -10, right: 8 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-        <XAxis dataKey="label" tick={{ fontSize: 11, fill: "#475569" }} />
-        <YAxis allowDecimals={false} tick={{ fontSize: 11, fill: "#475569" }} />
-        <Tooltip formatter={(v) => [`${v} đơn vị`, "Số lượng"]} />
-        <Bar dataKey="count" fill={color} radius={[4, 4, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
   );
 }
 
@@ -68,7 +54,7 @@ function RankingTable({
           </tr>
         </thead>
         <tbody className="divide-y divide-[#f1f5f9]">
-          {rows.map((c, i) => (
+          {(rows || []).map((c, i) => (
             <tr key={c.slug} className="hover:bg-[#f8fafc]">
               <td className="py-1.5 font-bold text-[#991b1b]">{i + 1}</td>
               <td className="py-1.5 font-medium text-[#1e293b]">{c.name}</td>
@@ -84,12 +70,14 @@ function RankingTable({
 
 export default function StatsPage() {
   const s = STATS;
-  const districtChart = s.byDistrict.map((d) => ({
+  const districtChart = (s.byDistrict || []).map((d) => ({
     name: districtLabel(d.name),
     count: d.count,
     pop: Math.round(d.population / 1000),
     area: Math.round(d.area),
   }));
+
+  const overallDensity = s.totalArea > 0 ? s.totalPop / s.totalArea : 0;
 
   return (
     <div className="min-h-screen bg-[#fcfaf5] text-[#1e293b]">
@@ -109,24 +97,24 @@ export default function StatsPage() {
 
         {/* 4 Chỉ số KPI đầu trang */}
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Kpi label="Tổng quy mô dân số" value={f0(s.popTotal)} unit="người" />
-          <Kpi label="Tổng diện tích tự nhiên" value={f1(s.areaTotal)} unit="km²" />
-          <Kpi label="Mật độ trung bình toàn tỉnh" value={f0(s.popTotal / s.areaTotal)} unit="người/km²" />
-          <Kpi label="Chỉ số tập trung Gini dân số" value={f1(s.popGini)} unit="hệ số (0..1)" />
+          <Kpi label="Tổng quy mô dân số" value={f0(s.totalPop)} unit="người" />
+          <Kpi label="Tổng diện tích tự nhiên" value={f1(s.totalArea)} unit="km²" />
+          <Kpi label="Mật độ trung bình toàn tỉnh" value={f0(overallDensity)} unit="người/km²" />
+          <Kpi label="Chỉ số tập trung Gini dân số" value={f1(s.giniPop)} unit="hệ số (0..1)" />
         </div>
 
         <div className="mt-6 space-y-6">
           {/* Cơ cấu loại hình */}
           <Panel title="Cơ cấu theo loại hình đơn vị hành chính" note="Tỷ lệ phân bố số lượng giữa Xã và Phường">
             <div className="space-y-4">
-              {s.byType.map((t, i) => (
+              {(s.byType || []).map((t, i) => (
                 <div key={t.name}>
                   <div className="flex justify-between text-sm font-semibold">
                     <span className="text-[#1e293b]">{t.name}</span>
-                    <span className="text-[#991b1b]">{t.count} đơn vị ({pct(t.count / s.n)})</span>
+                    <span className="text-[#991b1b]">{t.count} đơn vị ({pct(s.n > 0 ? t.count / s.n : 0)})</span>
                   </div>
                   <div className="mt-1 h-3.5 overflow-hidden rounded-full bg-[#f1f5f9]">
-                    <div className="h-full rounded-full transition-all duration-500" style={{ width: `${(t.count / s.n) * 100}%`, background: i === 0 ? GOLD : RED }} />
+                    <div className="h-full rounded-full transition-all duration-500" style={{ width: `${s.n > 0 ? (t.count / s.n) * 100 : 0}%`, background: i === 0 ? GOLD : RED }} />
                   </div>
                 </div>
               ))}
@@ -151,13 +139,13 @@ export default function StatsPage() {
             <div className="grid gap-6 md:grid-cols-2">
               <RankingTable
                 title="Top 5 đơn vị có diện tích lớn nhất"
-                rows={s.topArea}
+                rows={s.topArea?.slice(0, 5) || []}
                 valueHeader="Diện tích"
                 valueFn={(c) => `${f1(c.areaKm2)} km²`}
               />
               <RankingTable
                 title="Top 5 đơn vị có dân số đông nhất"
-                rows={s.topPop}
+                rows={s.topPop?.slice(0, 5) || []}
                 valueHeader="Dân số"
                 valueFn={(c) => `${formatNumber(c.population)} người`}
               />
@@ -165,13 +153,13 @@ export default function StatsPage() {
             <div className="mt-6 pt-6 border-t border-[#e2e8f0] grid gap-6 md:grid-cols-2">
               <RankingTable
                 title="Top 5 đơn vị có mật độ dân số cao nhất"
-                rows={s.topDensity}
+                rows={s.topDensity?.slice(0, 5) || []}
                 valueHeader="Mật độ"
                 valueFn={(c) => `${formatNumber(densityOf(c))} ng/km²`}
               />
               <RankingTable
                 title="Top 5 đơn vị có diện tích nhỏ nhất"
-                rows={s.bottomArea}
+                rows={s.bottomArea?.slice(0, 5) || []}
                 valueHeader="Diện tích"
                 valueFn={(c) => `${f1(c.areaKm2)} km²`}
               />

@@ -4,24 +4,30 @@ export type Summary = { mean: number; median: number; stdev: number; cv: number;
 export type GroupRow = { name: string; count: number; area: number; population: number; density: number };
 export type Bin = { label: string; count: number };
 
-const density = (c: Commune) => c.population / c.areaKm2;
+const density = (c: Commune) => (c.areaKm2 > 0 ? c.population / c.areaKm2 : 0);
 const sum = (xs: number[]) => xs.reduce((s, x) => s + x, 0);
 
 export function summarize(xs: number[]): Summary {
+  if (!xs || xs.length === 0) {
+    return { mean: 0, median: 0, stdev: 0, cv: 0, min: 0, max: 0 };
+  }
   const sorted = [...xs].sort((a, b) => a - b);
   const n = sorted.length;
   const mean = sum(sorted) / n;
   const median = n % 2 ? sorted[(n - 1) / 2] : (sorted[n / 2 - 1] + sorted[n / 2]) / 2;
   const stdev = Math.sqrt(sum(sorted.map((x) => (x - mean) ** 2)) / n);
-  return { mean, median, stdev, cv: stdev / mean, min: sorted[0], max: sorted[n - 1] };
+  return { mean, median, stdev, cv: mean > 0 ? stdev / mean : 0, min: sorted[0], max: sorted[n - 1] };
 }
 
 // Hệ số Gini: 0 là phân bố đều tuyệt đối, 1 là tập trung hoàn toàn vào một đơn vị.
 export function gini(xs: number[]): number {
+  if (!xs || xs.length === 0) return 0;
   const s = [...xs].sort((a, b) => a - b);
   const n = s.length;
+  const total = sum(s);
+  if (total === 0) return 0;
   const weighted = s.reduce((acc, x, i) => acc + (i + 1) * x, 0);
-  return (2 * weighted) / (n * sum(s)) - (n + 1) / n;
+  return (2 * weighted) / (n * total) - (n + 1) / n;
 }
 
 export function groupBy(key: (c: Commune) => string): GroupRow[] {
@@ -34,7 +40,7 @@ export function groupBy(key: (c: Commune) => string): GroupRow[] {
     row.population += c.population;
     map.set(k, row);
   }
-  return [...map.values()].map((r) => ({ ...r, density: r.population / r.area }));
+  return [...map.values()].map((r) => ({ ...r, density: r.area > 0 ? r.population / r.area : 0 }));
 }
 
 export function histogram(values: number[], edges: number[], fmt: (n: number) => string): Bin[] {
@@ -49,18 +55,25 @@ export function histogram(values: number[], edges: number[], fmt: (n: number) =>
 const areas = COMMUNES.map((c) => c.areaKm2);
 const pops = COMMUNES.map((c) => c.population);
 const densities = COMMUNES.map(density);
-const topShare = (xs: number[], k: number) => sum([...xs].sort((a, b) => b - a).slice(0, k)) / sum(xs);
+const topShare = (xs: number[], k: number) => {
+  const t = sum(xs);
+  return t > 0 ? sum([...xs].sort((a, b) => b - a).slice(0, k)) / t : 0;
+};
 
 export const STATS = {
   n: COMMUNES.length,
   totalArea: sum(areas),
+  areaTotal: sum(areas),
   totalPop: sum(pops),
-  overallDensity: sum(pops) / sum(areas),
+  popTotal: sum(pops),
+  overallDensity: sum(areas) > 0 ? sum(pops) / sum(areas) : 0,
   area: summarize(areas),
   pop: summarize(pops),
   dens: summarize(densities),
   giniPop: gini(pops),
+  popGini: gini(pops),
   giniArea: gini(areas),
+  areaGini: gini(areas),
   top10PopShare: topShare(pops, 10),
   top10AreaShare: topShare(areas, 10),
   wards: COMMUNES.filter((c) => c.type === "Phường").length,
@@ -71,6 +84,7 @@ export const STATS = {
   areaHist: histogram(areas, [0, 20, 40, 80, 150, 300, 600], (n) => String(n)),
   topPop: [...COMMUNES].sort((a, b) => b.population - a.population).slice(0, 10),
   topArea: [...COMMUNES].sort((a, b) => b.areaKm2 - a.areaKm2).slice(0, 10),
+  bottomArea: [...COMMUNES].sort((a, b) => a.areaKm2 - b.areaKm2).slice(0, 10),
   topDensity: [...COMMUNES].sort((a, b) => density(b) - density(a)).slice(0, 10),
   lowDensity: [...COMMUNES].sort((a, b) => density(a) - density(b)).slice(0, 10),
 };

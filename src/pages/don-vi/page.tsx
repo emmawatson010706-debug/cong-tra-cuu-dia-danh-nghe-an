@@ -31,11 +31,15 @@ export default function CommunePage() {
     );
   }
 
-  const density = Math.round(c.population / c.areaKm2);
+  const oldUnits = c.oldUnits || [];
+  const area = c.areaKm2 || 1;
+  const population = c.population || 0;
+  const density = Math.round(population / area);
+  
   const stats = [
-    { icon: MapPin, value: String(c.areaKm2).replace(".", ","), label: "km² diện tích tự nhiên" },
-    { icon: Users, value: formatNumber(c.population), label: "người quy mô dân số" },
-    { icon: Layers, value: String(c.oldUnits.length), label: "đơn vị cơ sở hợp thành" },
+    { icon: MapPin, value: String(c.areaKm2 || 0).replace(".", ","), label: "km² diện tích tự nhiên" },
+    { icon: Users, value: formatNumber(population), label: "người quy mô dân số" },
+    { icon: Layers, value: String(oldUnits.length), label: "đơn vị cơ sở hợp thành" },
     { icon: Gauge, value: formatNumber(density), label: "người/km² mật độ dân số" },
     { icon: Trophy, value: `#${c.areaRank || 1}`, label: "Xếp hạng diện tích / 130" },
     { icon: Trophy, value: `#${c.populationRank || 1}`, label: "Xếp hạng dân số / 130" },
@@ -74,10 +78,10 @@ export default function CommunePage() {
             Thông tin hành chính tổng quan
           </p>
           <p className="mt-3 font-serif text-base leading-relaxed text-[#334155]">
-            <b className="text-[#991b1b]">{c.name}</b> là một {c.type.toLowerCase()} thuộc tỉnh Nghệ An, được thành lập và sắp xếp năm 2025 theo Nghị quyết số 1678/NQ-UBTVQH15 trên cơ sở sáp nhập toàn bộ diện tích và dân số của <b>{c.oldUnits.length}</b> đơn vị hành chính cũ gồm: <span className="font-medium text-[#1e293b]">{c.oldUnits.join(", ")}</span>.
+            <b className="text-[#991b1b]">{c.name}</b> là một {c.type?.toLowerCase() || "đơn vị"} thuộc tỉnh Nghệ An, được thành lập và sắp xếp năm 2025 theo Nghị quyết số 1678/NQ-UBTVQH15 trên cơ sở sáp nhập toàn bộ diện tích và dân số của <b>{oldUnits.length}</b> đơn vị hành chính cũ gồm: <span className="font-medium text-[#1e293b]">{oldUnits.join(", ")}</span>.
           </p>
           <p className="mt-2 font-serif text-base leading-relaxed text-[#334155]">
-            Đơn vị có diện tích tự nhiên là <b>{String(c.areaKm2).replace(".", ",")} km²</b>, dân số <b>{formatNumber(c.population)} người</b>, mật độ dân số đạt xấp xỉ <b>{formatNumber(density)} người/km²</b>.
+            Đơn vị có diện tích tự nhiên là <b>{String(c.areaKm2 || 0).replace(".", ",")} km²</b>, dân số <b>{formatNumber(population)} người</b>, mật độ dân số đạt xấp xỉ <b>{formatNumber(density)} người/km²</b>.
           </p>
         </div>
 
@@ -108,7 +112,7 @@ export default function CommunePage() {
               Các xã, phường cũ trước sắp xếp
             </p>
             <p className="mt-1 font-sans text-sm sm:text-base font-semibold text-[#1e293b] leading-relaxed">
-              {c.oldUnits.join(" · ")}
+              {oldUnits.join(" · ")}
             </p>
           </div>
         </div>

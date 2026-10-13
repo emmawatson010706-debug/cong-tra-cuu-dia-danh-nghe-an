@@ -27,20 +27,25 @@ export default function Index() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return COMMUNES.filter(
-      (c) =>
-        (!q || c.name.toLowerCase().includes(q) || c.oldUnits.some(u => u.toLowerCase().includes(q))) &&
-        (type === "all" || c.type === type) &&
-        (district === "all" || c.district === district),
-    );
+    return COMMUNES.filter((c) => {
+      const matchName = !q || (c.name && c.name.toLowerCase().includes(q));
+      const matchOldUnits =
+        !q ||
+        (Array.isArray(c.oldUnits) &&
+          c.oldUnits.some((u) => u && typeof u === "string" && u.toLowerCase().includes(q)));
+      const matchQuery = matchName || matchOldUnits;
+      const matchType = type === "all" || c.type === type;
+      const matchDistrict = district === "all" || c.district === district;
+      return matchQuery && matchType && matchDistrict;
+    });
   }, [query, type, district]);
-  
+
   const filteredSlugs = useMemo(() => filtered.map((c) => c.slug), [filtered]);
 
   return (
     <div className="min-h-screen bg-[#fcfaf5] text-[#1e293b]">
       <SiteHeader />
-      
+
       {/* Hero Section */}
       <section className="mx-auto max-w-6xl px-4 py-10 text-center font-serif">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#92400e] shadow-sm">
@@ -142,15 +147,15 @@ export default function Index() {
                 <ul className="mt-4 space-y-1.5 font-sans text-xs sm:text-sm text-[#475569]">
                   <li className="flex items-center gap-2">
                     <MapPin className="size-4 text-[#b91c1c] shrink-0" />
-                    <span>Diện tích: <b className="text-[#1e293b]">{String(c.areaKm2).replace(".", ",")}</b> km²</span>
+                    <span>Diện tích: <b className="text-[#1e293b]">{String(c.areaKm2 || 0).replace(".", ",")}</b> km²</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Users className="size-4 text-[#b91c1c] shrink-0" />
-                    <span>Dân số: <b className="text-[#1e293b]">{formatNumber(c.population)}</b> người</span>
+                    <span>Dân số: <b className="text-[#1e293b]">{formatNumber(c.population || 0)}</b> người</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Landmark className="size-4 text-[#b91c1c] shrink-0" />
-                    <span>Sáp nhập từ: <b className="text-[#1e293b]">{c.oldUnits.length}</b> đơn vị cũ</span>
+                    <span>Sáp nhập từ: <b className="text-[#1e293b]">{c.oldUnits?.length || 0}</b> đơn vị cũ</span>
                   </li>
                 </ul>
               </div>
