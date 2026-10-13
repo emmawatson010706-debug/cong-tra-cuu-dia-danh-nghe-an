@@ -134,7 +134,7 @@ export default function StatsPage() {
                 <h3 className="font-serif text-lg font-bold">1. Không Gian Địa Lý & Non Nước Hữu Tình</h3>
               </div>
               <p className="mt-3 font-sans text-sm leading-relaxed text-[#334155] text-justify">
-                Nghệ An là tỉnh có diện tích tự nhiên lớn nhất Việt Nam (xấp xỉ 16.490 km²), nằm ở trung tâm vùng Bắc Trung Bộ, địa thế trải dài từ đỉnh núi Puxailaileng (2.720 m) của dải Trường Sơn Bắc đến 82 km bờ Biển Đông bao la. Vùng đất được thiên nhiên kiến tạo đa dạng với ba vùng sinh thái đặc trưng: Miền Tây rộng lớn (chiếm 83% diện tích) được UNESCO công nhận là Khu dự trữ sinh quyển thế giới với Vườn quốc gia Pù Mát; dải đồng bằng châu thổ màu mỡ được bồi đắp bởi dòng sông Lam (sông Cả) ngàn năm soi bóng núi Hồng, cùng dải duyên hải với những cửa biển danh tiếng như Cửa Lò, Cửa Hội, Lạch Cờn, Lạch Vạn, Lạch Quèn.
+                Nghệ An là địa phương có diện tích tự nhiên rộng lớn bậc nhất cả nước (xấp xỉ 16.490 km²), nằm ở trung tâm vùng Bắc Trung Bộ, địa thế trải dài từ đỉnh núi Puxailaileng (2.720 m) của dải Trường Sơn Bắc đến 82 km bờ Biển Đông bao la. Vùng đất được thiên nhiên kiến tạo đa dạng với ba vùng sinh thái đặc trưng: Miền Tây rộng lớn (chiếm 83% diện tích) được UNESCO công nhận là Khu dự trữ sinh quyển thế giới với Vườn quốc gia Pù Mát; dải đồng bằng châu thổ màu mỡ được bồi đắp bởi dòng sông Lam (sông Cả) ngàn năm soi bóng núi Hồng, cùng dải duyên hải với những cửa biển danh tiếng như Cửa Lò, Cửa Hội, Lạch Cờn, Lạch Vạn, Lạch Quèn.
               </p>
             </div>
 

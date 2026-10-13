@@ -782,7 +782,7 @@ export const COMMUNE_PROFILES: Record<string, {
   "tuong-duong": {
     "historyFeature": "thị trấn Thạch Giám bên ngã ba sông lịch sử Cửa Rào - nơi hợp lưu giữa hai dòng Nậm Nơn và Nậm Mộ thành dòng sông Lam vĩ đại; Đền Vạn - Cửa Rào thờ Đốc tướng Đoàn Nhữ Hài",
     "geographyFeature": "tọa lạc ngay điểm hợp lưu ngã ba sông Cửa Rào, tựa lưng vào núi đá hùng vĩ, trên tuyến Quốc lộ 7 huyết mạch",
-    "economyFeature": "trung tâm chính trị, thương mại, dịch vụ của huyện có diện tích lớn nhất Việt Nam; kinh tế dịch vụ, du lịch tâm linh và vận tải",
+    "economyFeature": "trung tâm chính trị, thương mại, dịch vụ của huyện Tương Dương có diện tích rộng lớn hàng đầu cả nước; kinh tế dịch vụ, du lịch tâm linh và vận tải",
     "cultureFeature": "Đền Vạn - Cửa Rào linh thiêng đón hàng vạn du khách mỗi năm, cảnh tượng kỳ thú hai dòng nước một trong một đục hợp lưu thành sông Cả",
     "visionFeature": "xây dựng đô thị ngã ba sông Cửa Rào văn minh sinh thái, nâng cấp quần thể di tích Đền Vạn thành điểm nhấn tâm linh của miền Tây"
   },
