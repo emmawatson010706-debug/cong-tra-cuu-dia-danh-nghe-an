@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Download, Layers, MapPin, Search, ArrowLeft, Maximize2, ShieldCheck, Compass } from "lucide-react";
+import { Download, Layers, MapPin, ArrowLeft, ShieldCheck, Compass, CheckCircle2, ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/site-header.tsx";
 import SiteFooter from "@/components/site-footer.tsx";
 
@@ -24,23 +24,49 @@ const PROVINCES = [
   { name: "Bình Dương", lat: 11.1333, lng: 106.6667, zoom: 10 },
 ];
 
+// Bảng màu pastel nhạt cho từng xã/phường
+const PASTEL_COLORS = [
+  "#fef08a", "#fed7aa", "#fecdd3", "#e9d5ff", "#c7d2fe", "#bae6fd",
+  "#bbf7d0", "#d9f99d", "#fef3c7", "#ffedd5", "#fce7f3", "#fae8ff",
+  "#e0e7ff", "#e0f2fe", "#dcfce7", "#fef9c3", "#fee2e2", "#ccfbf1"
+];
+
+const getPastelColor = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return PASTEL_COLORS[Math.abs(hash) % PASTEL_COLORS.length];
+};
+
+type SelectedWardInfo = {
+  name: string;
+  district: string;
+  area: string;
+  pop: string;
+  oldUnits: string;
+  slug: string;
+};
+
 export default function RanhGioiVietNam() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
+  const geoLayerRef = useRef<L.GeoJSON | null>(null);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [activeLayer, setActiveLayer] = useState<"osm" | "satellite" | "topo">("osm");
   const layerRef = useRef<L.TileLayer | null>(null);
+  const [selectedWard, setSelectedWard] = useState<SelectedWardInfo | null>(null);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
     // Khởi tạo bản đồ Leaflet định tâm tại Việt Nam
     const map = L.map(mapContainerRef.current, {
-      center: [16.0, 108.0],
-      zoom: 6,
+      center: [19.2, 105.1],
+      zoom: 9,
       minZoom: 5,
       maxZoom: 18,
-      zoomControl: false, // Dùng zoom control tùy biến
+      zoomControl: false,
     });
 
     mapInstanceRef.current = map;
@@ -64,23 +90,102 @@ export default function RanhGioiVietNam() {
       });
     });
 
-    // 1. Điểm đánh dấu Nghệ An nổi bật
-    const ngheAnMarker = L.circleMarker([19.2, 105.2], {
-      radius: 9,
-      fillColor: "#b91c1c",
-      color: "#ffffff",
-      weight: 2,
-      opacity: 1,
-      fillOpacity: 0.9,
-    }).addTo(map);
+    // 1. Tải và hiển thị ranh giới xã phường chi tiết với các màu nhạt và tên ở tâm
+    fetch("/data/nghe-an-wards-2025.mobile.geojson")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((geoData) => {
+        if (!mapInstanceRef.current) return;
 
-    ngheAnMarker.bindPopup(`
-      <div style="font-family:serif; text-align:center; padding: 4px;">
-        <b style="color:#991b1b; font-size:14px;">Tỉnh Nghệ An</b><br/>
-        <span style="font-size:12px; color:#475569;">130 xã, phường sau sắp xếp</span><br/>
-        <a href="/" style="display:inline-block; margin-top:6px; color:#b91c1c; font-weight:bold; font-size:11px;">➔ Tra cứu địa danh Nghệ An</a>
-      </div>
-    `);
+        const geoLayer = L.geoJSON(geoData, {
+          style: (feature) => {
+            const name = feature?.properties?.ten_xa || feature?.properties?.new_unit_name || "";
+            return {
+              fillColor: getPastelColor(name),
+              fillOpacity: 0.65,
+              color: "#991b1b",
+              weight: 1.2,
+              opacity: 0.85,
+            };
+          },
+          onEachFeature: (feature, layer) => {
+            const props = feature.properties || {};
+            const name = props.ten_xa || props.new_unit_name || props.display_name || "Xã/Phường";
+            const district = props.old_district || "";
+            const area = props.dtich_km2 ? `${props.dtich_km2} km²` : "";
+            const pop = props.dan_so ? `${props.dan_so.toLocaleString("vi-VN")} người` : "";
+            const oldUnits = props.sap_nhap || (Array.isArray(props.old_units) ? props.old_units.join(", ") : "");
+            const slug = props.slug || "";
+
+            // Hiệu ứng rê chuột và nhấp chọn
+            layer.on({
+              mouseover: (e) => {
+                const target = e.target;
+                target.setStyle({
+                  weight: 2.5,
+                  color: "#7f1d1d",
+                  fillOpacity: 0.85,
+                });
+                target.bringToFront();
+              },
+              mouseout: (e) => {
+                geoLayer.resetStyle(e.target);
+              },
+              click: () => {
+                setSelectedWard({
+                  name,
+                  district,
+                  area,
+                  pop,
+                  oldUnits,
+                  slug,
+                });
+              },
+            });
+
+            // TÊN PHƯỜNG XÃ NẰM CHÍNH GIỮA BẢN ĐỒ RANH GIỚI
+            const lat = props.centroid_lat;
+            const lng = props.centroid_lng;
+            if (lat && lng) {
+              const labelIcon = L.divIcon({
+                className: "commune-center-label",
+                html: `<div style="
+                  font-size: 10px;
+                  font-weight: 700;
+                  color: #1e293b;
+                  text-shadow: -1.5px -1.5px 0 #ffffff, 1.5px -1.5px 0 #ffffff, -1.5px 1.5px 0 #ffffff, 1.5px 1.5px 0 #ffffff, 0 0 6px #ffffff;
+                  white-space: nowrap;
+                  text-align: center;
+                  transform: translate(-50%, -50%);
+                  pointer-events: none;
+                  font-family: sans-serif;
+                ">${name}</div>`,
+                iconSize: [0, 0],
+              });
+              L.marker([lat, lng], { icon: labelIcon, interactive: false }).addTo(map);
+            }
+
+            // Popup thông tin chi tiết
+            layer.bindPopup(`
+              <div style="font-family:sans-serif; min-width:180px; padding:2px;">
+                <b style="color:#991b1b; font-size:14px; font-family:serif;">${name}</b><br/>
+                ${district ? `<span style="font-size:12px; color:#854d0e; font-weight:600;">Huyện/TX: ${district}</span><br/>` : ""}
+                ${area ? `<span style="font-size:11.5px; color:#475569;">Diện tích: <b>${area}</b></span><br/>` : ""}
+                ${pop ? `<span style="font-size:11.5px; color:#475569;">Dân số: <b>${pop}</b></span><br/>` : ""}
+                ${oldUnits ? `<span style="font-size:11px; color:#64748b; display:block; margin-top:2px;">Sáp nhập từ: ${oldUnits}</span>` : ""}
+                ${slug ? `<a href="/don-vi/${slug}" style="display:inline-block; margin-top:6px; color:#991b1b; font-weight:bold; font-size:11.5px;">➔ Vào trang chi tiết xã này</a>` : ""}
+              </div>
+            `);
+          },
+        }).addTo(map);
+
+        geoLayerRef.current = geoLayer;
+      })
+      .catch((err) => {
+        console.warn("GeoJSON load notice:", err);
+      });
 
     // 2. Chữ "BIỂN ĐÔNG" khẳng định chủ quyền lãnh hải Việt Nam
     const bienDongIcon = L.divIcon({
@@ -211,6 +316,12 @@ export default function RanhGioiVietNam() {
 
   // Di chuyển nhanh đến địa phương
   const flyToProvince = (p: typeof PROVINCES[0]) => {
+    if (p.name === "Nghệ An" && geoLayerRef.current && mapInstanceRef.current) {
+      try {
+        mapInstanceRef.current.flyToBounds(geoLayerRef.current.getBounds(), { duration: 1.2 });
+        return;
+      } catch {}
+    }
     if (mapInstanceRef.current) {
       mapInstanceRef.current.flyTo([p.lat, p.lng], p.zoom, { duration: 1.5 });
     }
@@ -241,7 +352,7 @@ export default function RanhGioiVietNam() {
             Ranh Giới Xã Phường Toàn Quốc
           </h1>
           <p className="mx-auto mt-2 max-w-3xl font-sans text-sm sm:text-base text-[#475569] text-justify sm:text-center leading-relaxed">
-            Hệ thống bản đồ ranh giới hành chính cấp xã, phường, thị trấn trên toàn quốc. Tra cứu trực quan, zoom độ phân giải cao và tích hợp tải file bản vẽ kỹ thuật CAD.
+            Hệ thống bản đồ ranh giới hành chính cấp xã, phường, thị trấn trên toàn quốc. Tra cứu trực quan, phân chia màu sắc nhạt cho từng đơn vị, zoom độ phân giải cao và tích hợp tải file bản vẽ kỹ thuật CAD.
           </p>
         </div>
 
@@ -303,9 +414,9 @@ export default function RanhGioiVietNam() {
           </div>
         </div>
 
-        {/* Khung Bản đồ tương tác lớn */}
+        {/* Khung Bản đồ tương tác lớn có hiển thị ranh giới và màu pastel */}
         <div className="relative mt-4 overflow-hidden rounded-2xl border-4 border-[#b8860b] shadow-xl">
-          <div ref={mapContainerRef} className="h-[560px] w-full bg-[#f1f5f9]" />
+          <div ref={mapContainerRef} className="h-[520px] sm:h-[580px] w-full bg-[#f1f5f9]" />
 
           {/* Tọa độ góc dưới */}
           {coords && (
@@ -314,6 +425,36 @@ export default function RanhGioiVietNam() {
             </div>
           )}
         </div>
+
+        {/* Khung hiển thị thông tin xã/phường khi nhấp chuột trên bản đồ ranh giới */}
+        {selectedWard && (
+          <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-xl border-2 border-[#b91c1c] bg-[#fffdf5] p-4 shadow-md animate-in fade-in">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="size-5 text-[#991b1b] shrink-0" />
+                <h3 className="font-serif text-lg font-bold text-[#991b1b]">
+                  {selectedWard.name} {selectedWard.district ? `(${selectedWard.district})` : ""}
+                </h3>
+              </div>
+              <p className="font-sans text-xs text-[#475569] leading-relaxed">
+                Diện tích: <b>{selectedWard.area || "Đang cập nhật"}</b> · Dân số: <b>{selectedWard.pop || "Đang cập nhật"}</b>
+                {selectedWard.oldUnits && (
+                  <span className="block mt-0.5 text-[#854d0e]">Sáp nhập từ: {selectedWard.oldUnits}</span>
+                )}
+              </p>
+            </div>
+
+            {selectedWard.slug && (
+              <Link
+                to={`/don-vi/${selectedWard.slug}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-5 py-2.5 font-sans text-xs sm:text-sm font-bold !text-white shadow-md transition-all whitespace-nowrap cursor-pointer border border-[#7f1d1d]"
+              >
+                <span>Vào trang chi tiết xã này</span>
+                <ArrowRight className="size-4 !text-white shrink-0" />
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* Khung Giới thiệu & Tải file CAD kỹ thuật DWG theo đúng yêu cầu */}
         <div className="mt-8 overflow-hidden rounded-2xl border-2 border-[#b8860b] bg-gradient-to-br from-[#fffdf5] via-[#fef9c3]/30 to-[#fffbeb] p-4.5 sm:p-8 shadow-md">
