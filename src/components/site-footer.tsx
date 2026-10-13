@@ -12,9 +12,13 @@ export default function SiteFooter() {
           Cổng Tra Cứu Địa Danh Hành Chính Nghệ An Sau Sáp Nhập
         </p>
         
-        <p className="text-xs sm:text-sm text-[#fef9c3]/90">
-          © {new Date().getFullYear()} · Dữ liệu tổng hợp theo Nghị quyết số 1678/NQ-UBTVQH15
-        </p>
+        <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm text-[#fef9c3]/90">
+          <span>© {new Date().getFullYear()} · Dữ liệu tổng hợp theo Nghị quyết số 1678/NQ-UBTVQH15</span>
+          <span className="text-[#fef08a]/40">·</span>
+          <span className="inline-flex items-center rounded-md bg-[#d97706]/30 px-2 py-0.5 text-[11px] font-bold text-[#fef08a] border border-[#fef08a]/30 tracking-wide uppercase">
+            Version V2
+          </span>
+        </div>
         <p className="text-[11px] sm:text-xs text-[#fef08a]/85">
           Số liệu lấy tại thời điểm ban hành Nghị quyết số 1678/NQ-UBTVQH15, số liệu thực tế hiện tại có thể thay đổi.
         </p>
