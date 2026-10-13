@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Building2, Landmark, MapPin, Search, Users, Sparkles, Map } from "lucide-react";
+import { Building2, Landmark, MapPin, Search, Users, Sparkles, Map, X } from "lucide-react";
 import { Input } from "@/components/ui/input.tsx";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -128,38 +128,64 @@ export default function Index() {
 
       {/* Main Content Area */}
       <main className="mx-auto max-w-6xl px-3 py-6 sm:px-4 sm:py-8">
-        {/* Thanh tìm kiếm & bộ lọc nổi bật */}
-        <div className="flex flex-col gap-2.5 rounded-xl border-4 border-[#b91c1c] bg-white p-3.5 shadow-[0_8px_30px_rgba(185,28,28,0.18)] sm:flex-row sm:items-center sm:p-4">
-          <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 size-4.5 -translate-y-1/2 text-[#b91c1c]" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Nhập tên xã, phường mới hoặc cũ (VD: Thành Vinh, Cửa Lò, Nghi Hải...)"
-              className="h-11 border-2 border-[#fca5a5] bg-white pl-10 text-sm sm:text-base font-medium text-[#1e293b] placeholder:text-[#94a3b8] focus-visible:border-[#b91c1c] focus-visible:ring-2 focus-visible:ring-[#fca5a5] shadow-inner"
-            />
+        {/* Thanh tìm kiếm & bộ lọc nổi bật cùng 1 dãy */}
+        <div className="rounded-2xl border-3 border-[#b91c1c] bg-white p-3 sm:p-3.5 shadow-[0_6px_24px_rgba(185,28,28,0.14)]">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+            {/* 1. Ô nhập tìm kiếm địa danh */}
+            <div className="relative flex-1 min-w-0">
+              <Search className="absolute left-3.5 top-1/2 size-4.5 -translate-y-1/2 text-[#b91c1c]" />
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Nhập tên xã, phường (VD: Nam Đàn, Thành Vinh, Cửa Lò...)"
+                className="h-11 w-full border-2 border-[#fca5a5] bg-[#fffdfa] pl-10 pr-9 text-sm sm:text-base font-semibold text-[#1e293b] placeholder:text-[#94a3b8] focus-visible:border-[#b91c1c] focus-visible:ring-2 focus-visible:ring-[#fca5a5] rounded-xl shadow-inner"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 cursor-pointer"
+                  title="Xóa tìm kiếm"
+                >
+                  <X className="size-4" />
+                </button>
+              )}
+            </div>
+
+            {/* 2. Nút Bấm Tìm Kiếm Cùng Dãy (Màu đỏ nổi bật theo đúng yêu cầu) */}
+            <button
+              type="button"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#991b1b] via-[#b91c1c] to-[#991b1b] hover:from-[#7f1d1d] hover:to-[#991b1b] px-5 text-sm font-extrabold text-white shadow-sm transition-all active:scale-95 shrink-0 cursor-pointer border border-[#7f1d1d]"
+            >
+              <Search className="size-4 text-white" />
+              <span>Tìm kiếm</span>
+            </button>
+
+            {/* 3. Bộ lọc Tất cả loại hình */}
+            <Select value={type} onValueChange={setType} className="sm:w-44 shrink-0">
+              <SelectTrigger className="h-11 rounded-xl border-2 border-[#fca5a5] hover:border-[#b91c1c] bg-white text-xs sm:text-sm font-bold text-[#1e293b]">
+                <SelectValue placeholder="Tất cả loại hình" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Tất cả loại hình</SelectItem>
+                <SelectItem value="Xã">Xã</SelectItem>
+                <SelectItem value="Phường">Phường</SelectItem>
+              </SelectContent>
+            </Select>
+
+            {/* 4. Bộ lọc Tất cả huyện / thị xã */}
+            <Select value={district} onValueChange={setDistrict} className="sm:w-56 shrink-0">
+              <SelectTrigger className="h-11 rounded-xl border-2 border-[#fca5a5] hover:border-[#b91c1c] bg-white text-xs sm:text-sm font-bold text-[#1e293b]">
+                <SelectValue placeholder="Tất cả huyện / thị xã" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Tất cả huyện / thị xã (cũ)</SelectItem>
+                {DISTRICTS.map((d) => (
+                  <SelectItem key={d} value={d}>{districtLabel(d)}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
-          <Select value={type} onValueChange={setType}>
-            <SelectTrigger className="sm:w-40 border-2 border-[#fca5a5] hover:border-[#b91c1c] h-11">
-              <SelectValue placeholder="Tất cả loại hình" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">Tất cả loại hình</SelectItem>
-              <SelectItem value="Xã">Xã</SelectItem>
-              <SelectItem value="Phường">Phường</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select value={district} onValueChange={setDistrict}>
-            <SelectTrigger className="sm:w-56 border-2 border-[#fca5a5] hover:border-[#b91c1c] h-11">
-              <SelectValue placeholder="Tất cả huyện / thị xã" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">Tất cả huyện / thị xã (cũ)</SelectItem>
-              {DISTRICTS.map((d) => (
-                <SelectItem key={d} value={d}>{districtLabel(d)}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
 
         {/* Số lượng kết quả & Bản đồ */}

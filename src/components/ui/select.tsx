@@ -16,11 +16,23 @@ const SelectContext = createContext<SelectContextType>({
   setOpen: () => {},
 });
 
-export function Select({ value, onValueChange, children }: { value: string; onValueChange: (v: string) => void; children: React.ReactNode }) {
+export function Select({
+  value,
+  onValueChange,
+  children,
+  className,
+}: {
+  value: string;
+  onValueChange: (v: string) => void;
+  children: React.ReactNode;
+  className?: string;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <SelectContext.Provider value={{ value, onValueChange, open, setOpen }}>
-      <div className="relative inline-block w-full">{children}</div>
+      <div className={cn("relative inline-block w-full sm:w-auto shrink-0", className)}>
+        {children}
+      </div>
     </SelectContext.Provider>
   );
 }
