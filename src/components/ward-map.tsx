@@ -416,21 +416,23 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
         <div className="flex items-center gap-1.5 text-[11px] sm:text-xs">
           <span>🖐️ <b>Vuốt 1 ngón tay</b> để kéo qua lại · <b>2 ngón tay</b> để phóng to/thu nhỏ</span>
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            window.scrollBy({ top: 380, behavior: "smooth" });
-          }}
-          className="inline-flex items-center gap-1 rounded-md bg-[#fef3c7] hover:bg-[#fde68a] px-2.5 py-1 text-[11px] font-bold text-[#92400e] border border-[#d97706]/40 cursor-pointer shadow-2xs"
-          title="Bấm để cuộn màn hình xuống danh sách xã phường bên dưới"
-        >
-          <ArrowDownCircle className="size-3.5 text-[#b45309]" />
-          <span>Cuộn xuống danh sách</span>
-        </button>
+        {!selectedSlug && (
+          <button
+            type="button"
+            onClick={() => {
+              window.scrollBy({ top: 380, behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-1 rounded-md bg-[#fef3c7] hover:bg-[#fde68a] px-2.5 py-1 text-[11px] font-bold text-[#92400e] border border-[#d97706]/40 cursor-pointer shadow-2xs"
+            title="Bấm để cuộn màn hình xuống danh sách xã phường bên dưới"
+          >
+            <ArrowDownCircle className="size-3.5 text-[#b45309]" />
+            <span>Cuộn xuống danh sách</span>
+          </button>
+        )}
       </div>
 
-      {/* Khung tương tác khi nhấp chọn ranh giới: CHỮ TRẮNG TRÊN NỀN ĐỎ CHO NÚT "VÀO TRANG XÃ/PHƯỜNG" */}
-      {activeShape && (
+      {/* Khung tương tác khi nhấp chọn ranh giới: CHỈ HIỂN THỊ Ở TRANG CHỦ, ẨN Ở TRANG CON ĐỊA PHƯƠNG */}
+      {activeShape && !selectedSlug && (
         <div className="border-t-2 border-[#b91c1c] bg-gradient-to-r from-[#fef2f2] via-[#fff1f2] to-[#fef2f2] p-3.5 sm:p-4 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">

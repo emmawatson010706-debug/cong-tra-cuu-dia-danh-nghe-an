@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import SiteHeader from "@/components/site-header.tsx";
 import SiteFooter from "@/components/site-footer.tsx";
-import FlagBadge from "@/components/flag-badge.tsx";
 import WardMap from "@/components/ward-map.tsx";
 import CommuneName from "@/components/commune-name.tsx";
 import { COMMUNES, formatNumber, districtLabel } from "@/data/communes.ts";
@@ -86,7 +85,6 @@ export default function CommunePage() {
 
         {/* Khung tổng quan hành chính */}
         <div className="relative mt-6 rounded-xl border-2 border-[#d97706]/40 bg-white p-5 sm:p-6 shadow-sm">
-          <FlagBadge className="absolute right-4 top-4" />
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-[#854d0e]">
             Thông tin hành chính tổng quan
           </p>
