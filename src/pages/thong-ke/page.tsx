@@ -1,4 +1,5 @@
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { BookOpen, Landmark, Compass, Users, TrendingUp, Sparkles, MapPin, ShieldCheck, Mountain, Award } from "lucide-react";
 import SiteHeader from "@/components/site-header.tsx";
 import SiteFooter from "@/components/site-footer.tsx";
 import { formatNumber, districtLabel, type Commune } from "@/data/communes.ts";
@@ -103,7 +104,87 @@ export default function StatsPage() {
           <Kpi label="Chỉ số tập trung Gini dân số" value={f1(s.giniPop)} unit="hệ số (0..1)" />
         </div>
 
-        <div className="mt-6 space-y-6">
+        {/* CHUYÊN KHẢO TOÀN DIỆN VỀ ĐỊA LÝ, LỊCH SỬ, VĂN HÓA & CON NGƯỜI XỨ NGHỆ */}
+        <section className="mt-8 rounded-2xl border-2 border-[#b8860b]/40 bg-white p-6 sm:p-8 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-[#991b1b]/20 pb-4">
+            <div className="flex items-center gap-2.5">
+              <span className="flex size-9 items-center justify-center rounded-xl bg-[#991b1b] text-white shadow-sm">
+                <BookOpen className="size-5" />
+              </span>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-serif text-[#991b1b]">
+                  Khái Lược Địa Chí Xứ Nghệ
+                </h2>
+                <p className="font-sans text-xs sm:text-sm font-semibold text-[#854d0e]">
+                  Trầm tích nghìn năm văn hiến · Non nước hữu tình · Con người kiên trung bất khuất
+                </p>
+              </div>
+            </div>
+            <span className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-full bg-[#fef3c7] px-3.5 py-1 text-xs font-bold text-[#92400e] border border-[#d97706]/30">
+              <ShieldCheck className="size-3.5 text-[#b45309]" />
+              Chuyên khảo địa phương học
+            </span>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* 1. Không gian địa lý & Non nước */}
+            <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
+              <div className="flex items-center gap-2 text-[#991b1b]">
+                <Mountain className="size-5 shrink-0" />
+                <h3 className="font-serif text-lg font-bold">1. Không Gian Địa Lý & Non Nước Hữu Tình</h3>
+              </div>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-[#334155] text-justify">
+                Nghệ An là tỉnh có diện tích tự nhiên lớn nhất Việt Nam (xấp xỉ 16.490 km²), nằm ở trung tâm vùng Bắc Trung Bộ, địa thế trải dài từ đỉnh núi Puxailaileng (2.720 m) của dải Trường Sơn Bắc đến 82 km bờ Biển Đông bao la. Vùng đất được thiên nhiên kiến tạo đa dạng với ba vùng sinh thái đặc trưng: Miền Tây rộng lớn (chiếm 83% diện tích) được UNESCO công nhận là Khu dự trữ sinh quyển thế giới với Vườn quốc gia Pù Mát; dải đồng bằng châu thổ màu mỡ được bồi đắp bởi dòng sông Lam (sông Cả) ngàn năm soi bóng núi Hồng, cùng dải duyên hải với những cửa biển danh tiếng như Cửa Lò, Cửa Hội, Lạch Cờn, Lạch Vạn, Lạch Quèn.
+              </p>
+            </div>
+
+            {/* 2. Trầm tích lịch sử & Phên dậu non sông */}
+            <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
+              <div className="flex items-center gap-2 text-[#991b1b]">
+                <Landmark className="size-5 shrink-0" />
+                <h3 className="font-serif text-lg font-bold">2. Trầm Tích Lịch Sử & Vị Thế Phên Dậu Hiểm Yếu</h3>
+              </div>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-[#334155] text-justify">
+                Trải qua hàng vạn năm lịch sử kể từ di chỉ người vượn cổ Thẩm Ồm (Quỳ Châu), văn hóa Quỳnh Văn đến văn minh đồ đồng Làng Vạc (Thái Hòa), Nghệ An luôn giữ vị trí "phên dậu hiểm yếu" của Tổ quốc. Nơi đây từng chứng kiến Vua Mai Hắc Đế dựng cờ khởi nghĩa Vạn An (năm 722) đánh đuổi quân đô hộ nhà Đường; nơi nghĩa quân Lam Sơn của Lê Lợi chọn làm bàn đạp chiến lược "Trận Bồ Đằng sấm vang chớp giật / Miền Trà Lân trúc chẻ tro bay" để tiến ra giải phóng đất nước; và là nơi Hoàng đế Quang Trung định đô Phượng Hoàng Trung Đô (1788). Trong thời đại Hồ Chí Minh, mảnh đất này là cái nôi của phong trào Xô viết Nghệ Tĩnh 1930 - 1931 bất khuất.
+              </p>
+            </div>
+
+            {/* 3. Mạch nguồn khoa bảng & Địa linh nhân kiệt */}
+            <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
+              <div className="flex items-center gap-2 text-[#991b1b]">
+                <Award className="size-5 shrink-0" />
+                <h3 className="font-serif text-lg font-bold">3. Mạch Nguồn Khoa Bảng & Địa Linh Nhân Kiệt</h3>
+              </div>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-[#334155] text-justify">
+                Xứ Nghệ từ ngàn đời nổi tiếng là đất học, đất văn chương với truyền thống "học để làm người, học để giúp đời". Những làng khoa bảng lừng lẫy như Quỳnh Đôi ("Bắc Hà Hành Thiện, Hoan Diễn Quỳnh Đôi"), Kim Liên, Trung Cần... đã sản sinh cho đất nước hàng trăm bậc đại khoa, bảng nhãn, thám hoa. Nơi đây là quê hương của Chủ tịch Hồ Chí Minh - Anh hùng giải phóng dân tộc, Danh nhân văn hóa kiệt xuất; Nhà chí sĩ yêu nước Phan Bội Châu; Tổng Bí thư Lê Hồng Phong; Nhà cách mạng Nguyễn Thị Minh Khai... Cùng với đó là kho tàng Dân ca Ví, Giặm Nghệ Tĩnh được UNESCO vinh danh là Di sản văn hóa phi vật thể đại diện của nhân loại.
+              </p>
+            </div>
+
+            {/* 4. Cốt cách & Phẩm chất con người xứ Nghệ */}
+            <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
+              <div className="flex items-center gap-2 text-[#991b1b]">
+                <Users className="size-5 shrink-0" />
+                <h3 className="font-serif text-lg font-bold">4. Cốt Cách & Phẩm Chất Con Người Xứ Nghệ</h3>
+              </div>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-[#334155] text-justify">
+                Được tôi luyện qua điều kiện tự nhiên khắc nghiệt của gió Lào cát trắng và bão lũ miền Trung, người dân xứ Nghệ hun đúc nên cốt cách thẳng thắn, khảng khái, chuộng khí tiết, trọng nghĩa khinh tài và giàu lòng nhân ái. Nổi bật nhất là đức tính cần cù, nhẫn nại, kiên trì vượt khó trong lao động và tinh thần hiếu học phi thường. Dù trong hoàn cảnh nào, con người xứ Nghệ luôn giữ vững phẩm giá, tình nghĩa thủy chung son sắt và ý chí kiên định cống hiến hết mình cho sự trường tồn và phát triển của quê hương, đất nước.
+              </p>
+            </div>
+          </div>
+
+          {/* 5. Khát vọng thời đại mới */}
+          <div className="mt-6 rounded-xl border border-[#d97706]/40 bg-gradient-to-r from-[#fffbeb] via-[#fefce8] to-[#fffbeb] p-5 sm:p-6 shadow-xs">
+            <div className="flex items-center gap-2 text-[#991b1b]">
+              <TrendingUp className="size-5 shrink-0" />
+              <h3 className="font-serif text-lg font-bold">5. Khát Vọng Đổi Mới & Tầm Nhìn Phát Triển Tương Lai</h3>
+            </div>
+            <p className="mt-2.5 font-sans text-sm sm:text-base leading-relaxed text-[#334155] text-justify">
+              Bước vào kỷ nguyên mới, thực hiện Nghị quyết số 39-NQ/TW của Bộ Chính trị về xây dựng và phát triển tỉnh Nghệ An đến năm 2030, tầm nhìn đến năm 2045, cùng việc hoàn thành thắng lợi việc sắp xếp 130 đơn vị hành chính cấp xã theo Nghị quyết số 1678/NQ-UBTVQH15, Nghệ An đang vươn mình mạnh mẽ thành trung tâm kinh tế - văn hóa của vùng Bắc Trung Bộ. Tỉnh liên tục lọt vào nhóm dẫn đầu cả nước về thu hút vốn đầu tư trực tiếp nước ngoài (FDI), đẩy mạnh phát triển các khu công nghiệp công nghệ cao (VSIP, WHA, Hoàng Mai), mở rộng mạng lưới giao thông cao tốc Bắc Nam, phát triển cảng biển nước sâu Cửa Lò và Cảng hàng không quốc tế Vinh, hướng tới một Nghệ An giàu mạnh, văn minh, hiện đại và đậm đà bản sắc.
+            </p>
+          </div>
+        </section>
+
+        <div className="mt-8 space-y-6">
           {/* Cơ cấu loại hình */}
           <Panel title="Cơ cấu theo loại hình đơn vị hành chính" note="Tỷ lệ phân bố số lượng giữa Xã và Phường">
             <div className="space-y-4">
