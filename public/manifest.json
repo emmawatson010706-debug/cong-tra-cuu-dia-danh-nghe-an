@@ -1,0 +1,22 @@
+{
+  "name": "Tìm Xã Phường Nghệ An - Bản đồ địa giới hành chính sau sáp nhập",
+  "short_name": "Xã Phường Nghệ An",
+  "description": "Cổng tra cứu địa danh và bản đồ địa giới xã phường Nghệ An sau sáp nhập",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#991b1b",
+  "theme_color": "#991b1b",
+  "icons": [
+    {
+      "src": "/app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/app-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

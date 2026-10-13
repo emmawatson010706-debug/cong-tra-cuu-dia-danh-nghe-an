@@ -18,7 +18,7 @@ export default function SiteFooter() {
         <p className="mt-0.5 text-[10.5px] text-[#fef08a]/80">
           Số liệu lấy tại thời điểm ban hành Nghị quyết số 1678/NQ-UBTVQH15, số liệu thực tế hiện tại có thể thay đổi.
         </p>
-        <p className="mx-auto mt-2 max-w-2xl text-[10.5px] leading-relaxed text-[#fef9c3]/75">
+        <p className="mx-auto mt-2 max-w-2xl text-[10.5px] leading-relaxed text-[#fef9c3]/75 text-justify">
           Khuyến cáo: Trang web phục vụ người dân tra khảo đơn vị hành chính sau sáp nhập, không vì mục đích lợi nhuận.
           Thông tin chỉ mang tính tham khảo, không có giá trị pháp lý; người sử dụng tự chịu trách nhiệm khi sử dụng
           và đối chiếu với văn bản chính thức của cơ quan nhà nước có thẩm quyền. Chúng tôi miễn trừ mọi trách nhiệm

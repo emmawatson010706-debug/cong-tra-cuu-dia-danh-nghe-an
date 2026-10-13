@@ -9,6 +9,8 @@ import SiteFooter from "@/components/site-footer.tsx";
 // Danh sách các trung tâm tỉnh thành trọng điểm để chọn nhanh
 const PROVINCES = [
   { name: "Nghệ An", lat: 19.3, lng: 105.1, zoom: 9 },
+  { name: "Hoàng Sa", lat: 16.5, lng: 112.0, zoom: 8 },
+  { name: "Trường Sa", lat: 9.8, lng: 114.2, zoom: 8 },
   { name: "Hà Nội", lat: 21.0285, lng: 105.8542, zoom: 11 },
   { name: "TP. Hồ Chí Minh", lat: 10.7769, lng: 106.7009, zoom: 11 },
   { name: "Đà Nẵng", lat: 16.0544, lng: 108.2022, zoom: 12 },
@@ -34,7 +36,7 @@ export default function RanhGioiVietNam() {
 
     // Khởi tạo bản đồ Leaflet định tâm tại Việt Nam
     const map = L.map(mapContainerRef.current, {
-      center: [16.5, 107.5],
+      center: [16.0, 108.0],
       zoom: 6,
       minZoom: 5,
       maxZoom: 18,
@@ -62,8 +64,8 @@ export default function RanhGioiVietNam() {
       });
     });
 
-    // Điểm đánh dấu Nghệ An nổi bật
-    const nguyenAnMarker = L.circleMarker([19.2, 105.2], {
+    // 1. Điểm đánh dấu Nghệ An nổi bật
+    const ngheAnMarker = L.circleMarker([19.2, 105.2], {
       radius: 9,
       fillColor: "#b91c1c",
       color: "#ffffff",
@@ -72,11 +74,110 @@ export default function RanhGioiVietNam() {
       fillOpacity: 0.9,
     }).addTo(map);
 
-    nguyenAnMarker.bindPopup(`
+    ngheAnMarker.bindPopup(`
       <div style="font-family:serif; text-align:center; padding: 4px;">
         <b style="color:#991b1b; font-size:14px;">Tỉnh Nghệ An</b><br/>
         <span style="font-size:12px; color:#475569;">130 xã, phường sau sắp xếp</span><br/>
         <a href="/" style="display:inline-block; margin-top:6px; color:#b91c1c; font-weight:bold; font-size:11px;">➔ Tra cứu địa danh Nghệ An</a>
+      </div>
+    `);
+
+    // 2. Chữ "BIỂN ĐÔNG" khẳng định chủ quyền lãnh hải Việt Nam
+    const bienDongIcon = L.divIcon({
+      className: "bien-dong-label-container",
+      html: `
+        <div style="
+          color: #0369a1;
+          font-family: serif;
+          font-weight: 900;
+          font-size: 18px;
+          letter-spacing: 0.25em;
+          text-shadow: 0 0 8px #ffffff, 0 0 12px #bae6fd, 1px 1px 2px rgba(0,0,0,0.25);
+          white-space: nowrap;
+          pointer-events: none;
+          transform: rotate(-15deg);
+        ">
+          BIỂN ĐÔNG
+        </div>
+      `,
+      iconSize: [160, 36],
+      iconAnchor: [80, 18],
+    });
+    L.marker([14.2, 112.5], { icon: bienDongIcon, interactive: false }).addTo(map);
+
+    // 3. Quần đảo Hoàng Sa (Thuộc TP. Đà Nẵng, Việt Nam)
+    const hoangSaIcon = L.divIcon({
+      className: "hoang-sa-icon",
+      html: `
+        <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+          <div style="width: 13px; height: 13px; border-radius: 50%; background-color: #dc2626; border: 2.5px solid #ffffff; box-shadow: 0 0 6px rgba(0,0,0,0.5);"></div>
+          <div style="
+            margin-top: 3px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1.5px solid #991b1b;
+            border-radius: 5px;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #991b1b;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            line-height: 1.2;
+            font-family: serif;
+          ">
+            Quần đảo Hoàng Sa<br/>
+            <span style="font-size: 9.5px; font-weight: 700; color: #475569; font-family: sans-serif;">(TP. Đà Nẵng, VN)</span>
+          </div>
+        </div>
+      `,
+      iconSize: [150, 48],
+      iconAnchor: [75, 7],
+    });
+    const hoangSaMarker = L.marker([16.5, 112.0], { icon: hoangSaIcon }).addTo(map);
+    hoangSaMarker.bindPopup(`
+      <div style="font-family:serif; text-align:center; padding: 6px; min-width: 180px;">
+        <b style="color:#991b1b; font-size:14px;">Quần đảo Hoàng Sa</b><br/>
+        <span style="font-size:12px; color:#1e293b; font-weight:bold;">Huyện Hoàng Sa, TP. Đà Nẵng, Việt Nam</span><br/>
+        <p style="font-size:11px; color:#475569; margin-top:4px;">Chủ quyền thiêng liêng không thể tách rời của Tổ quốc Việt Nam.</p>
+      </div>
+    `);
+
+    // 4. Quần đảo Trường Sa (Thuộc Tỉnh Khánh Hòa, Việt Nam)
+    const truongSaIcon = L.divIcon({
+      className: "truong-sa-icon",
+      html: `
+        <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer;">
+          <div style="width: 13px; height: 13px; border-radius: 50%; background-color: #dc2626; border: 2.5px solid #ffffff; box-shadow: 0 0 6px rgba(0,0,0,0.5);"></div>
+          <div style="
+            margin-top: 3px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1.5px solid #991b1b;
+            border-radius: 5px;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #991b1b;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            line-height: 1.2;
+            font-family: serif;
+          ">
+            Quần đảo Trường Sa<br/>
+            <span style="font-size: 9.5px; font-weight: 700; color: #475569; font-family: sans-serif;">(T. Khánh Hòa, VN)</span>
+          </div>
+        </div>
+      `,
+      iconSize: [150, 48],
+      iconAnchor: [75, 7],
+    });
+    const truongSaMarker = L.marker([9.8, 114.2], { icon: truongSaIcon }).addTo(map);
+    truongSaMarker.bindPopup(`
+      <div style="font-family:serif; text-align:center; padding: 6px; min-width: 180px;">
+        <b style="color:#991b1b; font-size:14px;">Quần đảo Trường Sa</b><br/>
+        <span style="font-size:12px; color:#1e293b; font-weight:bold;">Huyện Trường Sa, Tỉnh Khánh Hòa, Việt Nam</span><br/>
+        <p style="font-size:11px; color:#475569; margin-top:4px;">Chủ quyền thiêng liêng không thể tách rời của Tổ quốc Việt Nam.</p>
       </div>
     `);
 
@@ -139,7 +240,7 @@ export default function RanhGioiVietNam() {
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#991b1b]">
             Ranh Giới Xã Phường Toàn Quốc
           </h1>
-          <p className="mx-auto mt-2 max-w-3xl font-sans text-sm sm:text-base text-[#475569]">
+          <p className="mx-auto mt-2 max-w-3xl font-sans text-sm sm:text-base text-[#475569] text-justify sm:text-center leading-relaxed">
             Hệ thống bản đồ ranh giới hành chính cấp xã, phường, thị trấn trên toàn quốc. Tra cứu trực quan, zoom độ phân giải cao và tích hợp tải file bản vẽ kỹ thuật CAD.
           </p>
         </div>
@@ -215,33 +316,38 @@ export default function RanhGioiVietNam() {
         </div>
 
         {/* Khung Giới thiệu & Tải file CAD kỹ thuật DWG theo đúng yêu cầu */}
-        <div className="mt-8 rounded-2xl border-2 border-[#b8860b] bg-gradient-to-br from-[#fffdf5] via-[#fef9c3]/30 to-[#fffbeb] p-6 sm:p-8 shadow-md">
+        <div className="mt-8 overflow-hidden rounded-2xl border-2 border-[#b8860b] bg-gradient-to-br from-[#fffdf5] via-[#fef9c3]/30 to-[#fffbeb] p-4.5 sm:p-8 shadow-md">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-[#991b1b] px-3.5 py-0.5 text-xs font-bold text-white">
-                <ShieldCheck className="size-3.5" /> Dữ liệu Bản vẽ Kỹ thuật AutoCAD (DWG)
+            <div className="space-y-2.5 max-w-2xl min-w-0">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-[#991b1b] px-3.5 py-0.5 text-xs font-bold text-white shadow-xs">
+                <ShieldCheck className="size-3.5 shrink-0" />
+                <span>Dữ liệu Bản vẽ Kỹ thuật AutoCAD (DWG)</span>
               </div>
-              <h2 className="text-2xl font-bold font-serif text-[#991b1b]">
+              <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#991b1b]">
                 Bộ Dữ Liệu Ranh Giới Xã Phường Toàn Quốc 2026
               </h2>
-              <p className="font-sans text-sm text-[#475569] leading-relaxed">
-                Tệp bản vẽ tọa độ chi tiết <b>2026.RanhGioiXaPhuong_105_00_m3_from_lisp.vn.dwg</b> chứa đầy đủ ranh giới hành chính các xã, phường trên cả nước, phục vụ công tác quy hoạch, địa chính, thiết kế bản đồ GIS và nghiên cứu kỹ thuật.
+              <p className="font-sans text-xs sm:text-sm text-[#475569] leading-relaxed text-justify sm:text-left">
+                Tệp bản vẽ tọa độ chi tiết{" "}
+                <code className="break-all font-mono font-bold text-[#991b1b] bg-[#fef3c7] px-1.5 py-0.5 rounded border border-[#d97706]/30 inline-block my-0.5">
+                  2026.RanhGioiXaPhuong_105_00_m3_from_lisp.vn.dwg
+                </code>{" "}
+                chứa đầy đủ ranh giới hành chính các xã, phường trên cả nước, phục vụ công tác quy hoạch, địa chính, thiết kế bản đồ GIS và nghiên cứu kỹ thuật.
               </p>
               <p className="font-sans text-xs text-[#854d0e]">
                 Định dạng: <b>AutoCAD Drawing (.dwg)</b> · Hệ tọa độ: <b>VN-2000 / Kinh tuyến trục</b> · Nguồn: Lisp.vn
               </p>
             </div>
 
-            {/* Nút bấm tải về file MediaFire */}
-            <div className="shrink-0">
+            {/* Nút bấm tải về file MediaFire - Chữ trắng nền đỏ, tương thích mobile không tràn mép */}
+            <div className="w-full md:w-auto shrink-0">
               <a
                 href="https://www.mediafire.com/file/7vgdcw52krs8z0h/2026.RanhGioiXaPhuong_105_00_m3_from_lisp.vn.dwg/file"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#991b1b] to-[#b91c1c] px-6 py-4 font-sans text-sm sm:text-base font-bold text-white shadow-lg hover:from-[#7f1d1d] hover:to-[#991b1b] hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+                className="flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-5 py-3.5 font-sans text-sm sm:text-base font-bold !text-white shadow-lg transition-all transform hover:-translate-y-0.5 border border-[#7f1d1d] cursor-pointer"
               >
-                <Download className="size-5" />
-                <span>Tải File Bản Vẽ DWG (MediaFire)</span>
+                <Download className="size-5 shrink-0 !text-white" />
+                <span className="!text-white whitespace-nowrap">Tải File Bản Vẽ DWG (MediaFire)</span>
               </a>
             </div>
           </div>

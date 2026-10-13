@@ -77,10 +77,10 @@ export default function CommunePage() {
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-[#854d0e]">
             Thông tin hành chính tổng quan
           </p>
-          <p className="mt-3 font-serif text-base leading-relaxed text-[#334155]">
+          <p className="mt-3 font-serif text-base leading-relaxed text-[#334155] text-justify">
             <b className="text-[#991b1b]">{c.name}</b> là một {c.type?.toLowerCase() || "đơn vị"} thuộc tỉnh Nghệ An, được thành lập và sắp xếp năm 2025 theo Nghị quyết số 1678/NQ-UBTVQH15 trên cơ sở sáp nhập toàn bộ diện tích và dân số của <b>{oldUnits.length}</b> đơn vị hành chính cũ gồm: <span className="font-medium text-[#1e293b]">{oldUnits.join(", ")}</span>.
           </p>
-          <p className="mt-2 font-serif text-base leading-relaxed text-[#334155]">
+          <p className="mt-2 font-serif text-base leading-relaxed text-[#334155] text-justify">
             Đơn vị có diện tích tự nhiên là <b>{String(c.areaKm2 || 0).replace(".", ",")} km²</b>, dân số <b>{formatNumber(population)} người</b>, mật độ dân số đạt xấp xỉ <b>{formatNumber(density)} người/km²</b>.
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function CommunePage() {
                 <h3 className="font-serif text-lg font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                   {s.title}
                 </h3>
-                <p className="mt-2.5 font-sans text-sm sm:text-base leading-relaxed text-[#334155]">
+                <p className="mt-2.5 font-sans text-sm sm:text-base leading-relaxed text-[#334155] text-justify">
                   {s.body}
                 </p>
               </div>

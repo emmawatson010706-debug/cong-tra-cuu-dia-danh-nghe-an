@@ -24,6 +24,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0, initialPanX: 0, initialPanY: 0 });
+  const movedDistanceRef = useRef(0);
 
   useEffect(() => {
     loadWardShapes().then(setShapes).catch(() => setFailed(true));
@@ -65,10 +66,14 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     setPanOffset({ x: 0, y: 0 });
   };
 
-  // Kéo chuột di chuyển bản đồ (Pan)
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (e.button !== 0) return;
+  // Kéo di chuyển bản đồ bằng ngón tay trên Điện thoại & Chuột trên Máy tính (Pointer Events chuẩn)
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {}
     setIsDragging(true);
+    movedDistanceRef.current = 0;
     dragStartRef.current = {
       x: e.clientX,
       y: e.clientY,
@@ -77,19 +82,27 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     };
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging) return;
     const dx = e.clientX - dragStartRef.current.x;
     const dy = e.clientY - dragStartRef.current.y;
-    // Tỉ lệ scale sang hệ tọa độ SVG
-    const svgScale = (baseViewBox.w / zoomLevel) / 600;
+    movedDistanceRef.current = Math.hypot(dx, dy);
+
+    const containerRect = e.currentTarget.getBoundingClientRect();
+    const effectiveWidth = containerRect.width || 380;
+    const svgScale = (baseViewBox.w / zoomLevel) / effectiveWidth;
     setPanOffset({
       x: dragStartRef.current.initialPanX - dx * svgScale,
       y: dragStartRef.current.initialPanY - dy * svgScale,
     });
   };
 
-  const handleMouseUp = () => setIsDragging(false);
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {}
+    setIsDragging(false);
+  };
 
   const activeShape = useMemo(
     () => (active && shapes ? shapes.find((s) => s.slug === active) ?? null : null),
@@ -111,7 +124,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
 
   if (!shapes) {
     return (
-      <div className={`relative h-72 w-full overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] sm:h-96 ${className ?? ""}`}>
+      <div className={`relative h-[520px] w-full overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] sm:h-[600px] ${className ?? ""}`}>
         <Skeleton className="h-full w-full" />
         <span className="absolute inset-0 flex items-center justify-center font-serif text-xs text-[#8a6a22]">
           Đang nạp bản đồ địa giới 130 xã phường...
@@ -128,49 +141,52 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
           type="button"
           onClick={handleZoomIn}
           title="Phóng to bản đồ"
-          className="flex size-8 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <ZoomIn className="size-4.5" />
+          <ZoomIn className="size-5" />
         </button>
         <button
           type="button"
           onClick={handleZoomOut}
           title="Thu nhỏ bản đồ"
-          className="flex size-8 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <ZoomOut className="size-4.5" />
+          <ZoomOut className="size-5" />
         </button>
         <button
           type="button"
           onClick={handleResetZoom}
           title="Về kích thước ban đầu"
-          className="flex size-8 items-center justify-center rounded-md bg-[#fefce8] text-[#854d0e] hover:bg-[#854d0e] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#854d0e] hover:bg-[#854d0e] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <RotateCcw className="size-4" />
+          <RotateCcw className="size-4.5" />
         </button>
       </div>
 
-      {/* Hiển thị mức độ zoom hiện tại */}
-      {zoomLevel !== 1 && (
-        <div className="absolute left-3 top-3 z-20 rounded bg-black/60 px-2 py-0.5 text-[11px] font-bold text-white backdrop-blur-xs">
-          Zoom: {Math.round(zoomLevel * 100)}%
+      {/* Hiển thị mức độ zoom hiện tại & hướng dẫn thao tác chạm */}
+      <div className="absolute left-3 top-3 z-20 flex flex-col gap-1">
+        {zoomLevel !== 1 && (
+          <div className="rounded bg-black/65 px-2 py-0.5 text-[11px] font-bold text-white backdrop-blur-xs">
+            Zoom: {Math.round(zoomLevel * 100)}%
+          </div>
+        )}
+        <div className="hidden sm:inline-flex items-center gap-1 rounded bg-[#fffdf5]/90 border border-[#d97706]/40 px-2 py-0.5 text-[10.5px] font-medium text-[#854d0e] shadow-xs">
+          <span>👆 Giữ & kéo để di chuyển</span>
         </div>
-      )}
+      </div>
 
-      {/* Vùng bản đồ SVG */}
+      {/* Vùng bản đồ hình chữ nhật đứng (tăng mạnh chiều cao hiển thị trên điện thoại) */}
       <div
-        className={`relative aspect-[4/3] w-full max-h-[520px] ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={() => {
-          handleMouseUp();
-          setHover(null);
-        }}
+        className={`relative h-[580px] w-full touch-none select-none sm:h-[660px] ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        style={{ touchAction: "none" }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       >
         <svg
           viewBox={viewBoxString}
-          className="h-full w-full select-none transition-all duration-200 ease-out"
+          className="h-full w-full select-none transition-all duration-150 ease-out"
           preserveAspectRatio="xMidYMid meet"
           role="img"
           aria-label="Bản đồ địa giới Nghệ An"
@@ -207,6 +223,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
                 }}
                 onMouseLeave={() => setHover(null)}
                 onClick={() => {
+                  if (movedDistanceRef.current > 6) return;
                   setPicked(s.slug);
                   if (focusSlugs && focusSlugs.length === 1 && focusSlugs[0] === s.slug) return;
                   navigate(`/don-vi/${s.slug}`);
@@ -256,9 +273,9 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
 
       {/* Thanh thông tin bên dưới bản đồ */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#b8860b] bg-[#fffdf5] px-4 py-2.5 text-xs font-serif text-[#78350f]">
-        <div className="flex items-center gap-2">
-          <Move className="size-3.5 text-[#b45309]" />
-          <span>Kéo thả để di chuyển · Dùng nút <b>+ / −</b> góc phải để zoom · Nhấp vào xã để xem chi tiết</span>
+        <div className="flex items-center gap-1.5">
+          <Move className="size-3.5 text-[#b45309] shrink-0" />
+          <span><b>Dùng tay kéo</b> để di chuyển · Bấm <b>+ / −</b> góc phải để zoom · Nhấp vào xã để xem chi tiết</span>
         </div>
         {activeShape && (
           <Link
