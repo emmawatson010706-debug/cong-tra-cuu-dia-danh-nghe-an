@@ -145,22 +145,22 @@ export default function RanhGioiVietNam() {
               },
             });
 
-            // TÊN PHƯỜNG XÃ NẰM CHÍNH GIỮA BẢN ĐỒ RANH GIỚI
+            // TÊN PHƯỜNG XÃ NẰM CHÍNH GIỮA BẢN ĐỒ RANH GIỚI (NHỎ GỌN, KHÔNG HIỆU ỨNG VIỀN)
             const lat = props.centroid_lat;
             const lng = props.centroid_lng;
             if (lat && lng) {
               const labelIcon = L.divIcon({
                 className: "commune-center-label",
                 html: `<div style="
-                  font-size: 10px;
-                  font-weight: 700;
+                  font-size: 8.5px;
+                  font-weight: 600;
                   color: #1e293b;
-                  text-shadow: -1.5px -1.5px 0 #ffffff, 1.5px -1.5px 0 #ffffff, -1.5px 1.5px 0 #ffffff, 1.5px 1.5px 0 #ffffff, 0 0 6px #ffffff;
                   white-space: nowrap;
                   text-align: center;
                   transform: translate(-50%, -50%);
                   pointer-events: none;
-                  font-family: sans-serif;
+                  font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif;
+                  letter-spacing: -0.01em;
                 ">${name}</div>`,
                 iconSize: [0, 0],
               });

@@ -360,23 +360,23 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
             );
           })}
 
-          {/* Nhãn chữ thông minh: Tránh hiện tượng chữ đè chữ gây rối mắt */}
+          {/* Nhãn chữ tên xã phường: Cùng 1 font & size, nhỏ gọn, không hiệu ứng viền, nằm chính giữa ranh giới */}
           {shapes.map((s) => {
             const isSelected = active === s.slug;
             const isFocus = focusSet.size === 0 || focusSet.has(s.slug);
             if (!isFocus && !isSelected) return null;
 
-            // Tính kích thước tương đối của xã trên màn hình
-            const shapeWidth = (s.bbox[2] - s.bbox[0]) * zoomLevel;
-            const shapeHeight = (s.bbox[3] - s.bbox[1]) * zoomLevel;
-            const isBigEnough = Math.min(shapeWidth, shapeHeight) > 30;
-
             if (!showLabels && !isSelected) return null;
-            if (!isSelected && focusSet.size > 15 && !isBigEnough && zoomLevel < 3) return null;
 
+            // Tọa độ trọng tâm chính giữa ranh giới xã
             const posX = s.center ? s.center[0] : (s.bbox[0] + s.bbox[2]) / 2;
             const posY = s.center ? s.center[1] : (s.bbox[1] + s.bbox[3]) / 2;
-            const fontSize = Math.max(9, Math.min(13, 11 / Math.sqrt(zoomLevel)));
+
+            // Chuẩn hóa kích thước chữ nhỏ gọn, đồng nhất cho 130 xã phường
+            const isSingle = focusSet.size === 1;
+            const fontSize = isSingle
+              ? Math.max(2.4, Math.min(5.2, (10.5 * baseViewBox.h) / (450 * zoomLevel)))
+              : Math.max(4.0, Math.min(6.8, 6.5 / Math.pow(zoomLevel, 0.65)));
 
             return (
               <g key={`lbl-${s.slug}`} className="pointer-events-none select-none">
@@ -386,12 +386,15 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
                   textAnchor="middle"
                   dominantBaseline="central"
                   fontSize={fontSize}
-                  fontWeight={isSelected ? "900" : "700"}
-                  fill={isSelected ? "#ffffff" : "#451a03"}
-                  stroke={isSelected ? "#7f1d1d" : "#fef08a"}
-                  strokeWidth={isSelected ? 3 : 2}
-                  paintOrder="stroke fill"
+                  fontWeight={isSelected ? "700" : "600"}
+                  fill={isSelected ? "#ffffff" : "#1e293b"}
+                  stroke="none"
+                  strokeWidth={0}
                   className="font-sans"
+                  style={{
+                    fontFamily: '"Be Vietnam Pro", "Inter", system-ui, sans-serif',
+                    letterSpacing: "-0.01em",
+                  }}
                 >
                   {s.name}
                 </text>

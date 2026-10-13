@@ -25,6 +25,34 @@ const project = ([lng, lat]: Position): Position => [
   (LAT0 - lat) * SCALE,
 ];
 
+function calcCentroid(rawCoords: any, type: string): [number, number] | null {
+  const polys = type === "Polygon" ? [rawCoords] : rawCoords;
+  let maxArea = -Infinity;
+  let bestCenter: [number, number] | null = null;
+
+  for (const poly of polys || []) {
+    const ring = poly?.[0]; // vòng biên ngoài cùng của xã
+    if (!ring || ring.length < 3) continue;
+    let area = 0, cx = 0, cy = 0;
+    for (let i = 0; i < ring.length - 1; i++) {
+      const [x1, y1] = project(ring[i]);
+      const [x2, y2] = project(ring[i + 1]);
+      const cross = x1 * y2 - x2 * y1;
+      area += cross;
+      cx += (x1 + x2) * cross;
+      cy += (y1 + y2) * cross;
+    }
+    area = area / 2;
+    if (Math.abs(area) > maxArea) {
+      maxArea = Math.abs(area);
+      if (Math.abs(area) > 1e-6) {
+        bestCenter = [cx / (6 * area), cy / (6 * area)];
+      }
+    }
+  }
+  return bestCenter;
+}
+
 function toShape(f: RawFeature): WardShape {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   const parts: string[] = [];
@@ -45,8 +73,10 @@ function toShape(f: RawFeature): WardShape {
     }
   }
 
-  const cx = isFinite(minX) && isFinite(maxX) ? (minX + maxX) / 2 : 900;
-  const cy = isFinite(minY) && isFinite(maxY) ? (minY + maxY) / 2 : 725;
+  // Tính trọng tâm đa giác chính xác (Centroid) để nhãn tên nằm chuẩn mực chính giữa ranh giới
+  const centroid = calcCentroid(rawCoords, f.geometry.type);
+  const cx = centroid && isFinite(centroid[0]) ? centroid[0] : (isFinite(minX) && isFinite(maxX) ? (minX + maxX) / 2 : 900);
+  const cy = centroid && isFinite(centroid[1]) ? centroid[1] : (isFinite(minY) && isFinite(maxY) ? (minY + maxY) / 2 : 725);
   const safeBbox: [number, number, number, number] = [
     isFinite(minX) ? minX : 0,
     isFinite(minY) ? minY : 0,
