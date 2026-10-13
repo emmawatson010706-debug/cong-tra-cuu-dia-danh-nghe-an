@@ -75,18 +75,18 @@ export default function Index() {
             </svg>
           </div>
 
-          {/* Dải huy hiệu nằm trên đúng 1 dòng - kích thước tinh chỉnh vừa vặn trên điện thoại */}
-          <div className="relative z-10 inline-flex items-center gap-1.5 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-3.5 py-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#92400e] shadow-xs whitespace-nowrap max-w-full">
-            <Sparkles className="size-3.5 text-[#d97706] shrink-0" />
-            <span className="truncate">Nghệ An sau sắp xếp sáp nhập 2025</span>
+          {/* Dải huy hiệu nằm trọn vẹn, không bị cắt chữ trên điện thoại */}
+          <div className="relative z-10 inline-flex items-center gap-1.5 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-3 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#92400e] shadow-xs max-w-full">
+            <Sparkles className="size-3 text-[#d97706] shrink-0" />
+            <span>Nghệ An sau sắp xếp sáp nhập 2025</span>
           </div>
 
-          {/* Tiêu đề 2 dòng cân đối, tự động co giãn theo màn hình (không bị che khuất hay tràn mép) */}
-          <h1 className="relative z-10 mt-3 font-extrabold leading-tight text-[#991b1b]">
-            <span className="block text-xl sm:text-3xl md:text-4xl tracking-normal text-[#991b1b] [text-shadow:0_1px_2px_rgba(153,27,27,0.15)]">
+          {/* Tiêu đề 2 dòng cân đối, tự động co giãn vừa vặn, không bị tràn hay mất chữ */}
+          <h1 className="relative z-10 mt-2 font-extrabold leading-tight text-[#991b1b]">
+            <span className="block text-lg sm:text-3xl tracking-normal text-[#991b1b] [text-shadow:0_1px_2px_rgba(153,27,27,0.15)]">
               Cổng tra cứu
             </span>
-            <span className="mt-1 block text-[6.2vw] sm:text-4xl md:text-5xl font-extrabold uppercase tracking-normal sm:tracking-wide text-[#b91c1c] [-webkit-text-stroke:0.5px_#7f1d1d] sm:[-webkit-text-stroke:1px_#7f1d1d] [paint-order:stroke_fill] leading-none [text-shadow:0_2px_6px_rgba(185,28,28,0.2)]">
+            <span className="mt-0.5 block text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#b91c1c] leading-tight [text-shadow:0_2px_4px_rgba(185,28,28,0.2)]">
               ĐỊA DANH HÀNH CHÍNH
             </span>
           </h1>
@@ -110,14 +110,17 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Nút xem bản đồ ranh giới toàn quốc: CHỮ TRẮNG NỀN ĐỎ, NẰM TRỌN TRÊN 1 DÒNG */}
+          {/* Nút xem bản đồ ranh giới toàn quốc: CHỮ TRẮNG RỰC RỠ TRÊN NỀN ĐỎ, RÕ RÀNG */}
           <div className="relative z-10 mt-5 pt-4 border-t border-[#d97706]/20 flex justify-center">
             <Link
               to="/ranh-gioi-viet-nam"
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-3 py-2.5 sm:px-4 sm:py-2.5 font-sans text-[11px] sm:text-sm font-bold !text-white shadow-md transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer border border-[#7f1d1d] max-w-full"
+              style={{ color: "#ffffff", backgroundColor: "#991b1b" }}
+              className="inline-flex items-center justify-center gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-4 py-2.5 sm:px-5 sm:py-3 font-sans text-xs sm:text-sm font-black !text-white shadow-md transition-all transform hover:-translate-y-0.5 border border-[#7f1d1d] max-w-full cursor-pointer"
             >
-              <Map className="size-3.5 sm:size-4 shrink-0 !text-white" />
-              <span className="whitespace-nowrap !text-white">Xem Bản Đồ Ranh Giới Xã Phường Toàn Quốc ➔</span>
+              <Map className="size-4 shrink-0 !text-white" style={{ color: "#ffffff" }} />
+              <span style={{ color: "#ffffff" }} className="!text-white font-black text-center whitespace-normal sm:whitespace-nowrap">
+                Xem Bản Đồ Ranh Giới Xã Phường Toàn Quốc ➔
+              </span>
             </Link>
           </div>
         </div>

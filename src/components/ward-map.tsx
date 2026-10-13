@@ -1,6 +1,19 @@
 import { useEffect, useMemo, useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ZoomIn, ZoomOut, RotateCcw, Move, ScrollText, Tag, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {
+  ArrowRight,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  ArrowDownCircle,
+  Eye,
+  EyeOff,
+} from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
 import { boundsOf, loadWardShapes, type WardShape } from "@/lib/ward-geo.ts";
 
@@ -17,19 +30,17 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
   const [hover, setHover] = useState<{ slug: string; x: number; y: number } | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
 
-  // Bộ điều khiển Zoom và Pan - Zoom tối đa lên tới 3500%
+  // Bộ điều khiển Zoom và Pan - Zoom linh hoạt từ 0.6x đến 35x
   const [zoomLevel, setZoomLevel] = useState(1);
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-
-  // Chế độ thao tác trên di động: 'scroll' (cuộn trang web) hoặc 'pan' (kéo bản đồ)
-  const [touchMode, setTouchMode] = useState<"pan" | "scroll">("scroll");
   const [showLabels, setShowLabels] = useState(true);
 
-  // Refs theo dõi cử chỉ chạm (1 ngón kéo, 2 ngón pinch-to-zoom)
+  // Refs điều khiển cử chỉ chạm đa điểm (1 ngón kéo qua lại, 2 ngón pinch-to-zoom)
   const dragStartRef = useRef({ x: 0, y: 0, initialPanX: 0, initialPanY: 0 });
   const pinchStartRef = useRef<{ dist: number; initialZoom: number } | null>(null);
   const movedDistanceRef = useRef(0);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadWardShapes().then(setShapes).catch(() => setFailed(true));
@@ -63,7 +74,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     return `${centerX - w / 2} ${centerY - h / 2} ${w} ${h}`;
   }, [baseViewBox, zoomLevel, panOffset]);
 
-  // Các hàm điều khiển zoom (cho phép zoom lớn đến 3500%)
+  // Các hàm điều khiển zoom
   const handleZoomIn = () => setZoomLevel((z) => Math.min(z * 1.4, 35));
   const handleZoomOut = () => setZoomLevel((z) => Math.max(z / 1.4, 0.6));
   const handleResetZoom = () => {
@@ -71,7 +82,14 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     setPanOffset({ x: 0, y: 0 });
   };
 
-  // Chuột máy tính (Mouse Events)
+  // Nút bấm di chuyển bản đồ theo 4 hướng (Pan buttons)
+  const panStep = (baseViewBox.w / zoomLevel) * 0.22;
+  const panLeft = () => setPanOffset((p) => ({ ...p, x: p.x - panStep }));
+  const panRight = () => setPanOffset((p) => ({ ...p, x: p.x + panStep }));
+  const panUp = () => setPanOffset((p) => ({ ...p, y: p.y - panStep }));
+  const panDown = () => setPanOffset((p) => ({ ...p, y: p.y + panStep }));
+
+  // Xử lý chuột máy tính (Desktop Mouse Drag)
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.button !== 0) return;
     setIsDragging(true);
@@ -90,8 +108,8 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     const dy = e.clientY - dragStartRef.current.y;
     movedDistanceRef.current = Math.hypot(dx, dy);
 
-    const containerRect = e.currentTarget.getBoundingClientRect();
-    const effectiveWidth = containerRect.width || 400;
+    const containerRect = mapContainerRef.current?.getBoundingClientRect();
+    const effectiveWidth = containerRect?.width || 400;
     const svgScale = (baseViewBox.w / zoomLevel) / effectiveWidth;
     setPanOffset({
       x: dragStartRef.current.initialPanX - dx * svgScale,
@@ -101,29 +119,27 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
 
   const handleMouseUp = () => setIsDragging(false);
 
-  // Thao tác cảm ứng điện thoại (Touch Events - Hỗ trợ 2 ngón tay Pinch-to-zoom & Vuốt cuộn trang)
+  // Xử lý cảm ứng điện thoại (Mobile Touch Drag & Pinch-to-zoom)
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (e.touches.length === 2) {
-      // 2 ngón tay: Bắt đầu Pinch-to-zoom
+      // 2 ngón tay -> Bắt đầu Pinch-to-zoom
       const t1 = e.touches[0];
       const t2 = e.touches[1];
       const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
       pinchStartRef.current = { dist, initialZoom: zoomLevel };
       setIsDragging(false);
     } else if (e.touches.length === 1) {
-      // 1 ngón tay: Nếu đang bật chế độ kéo bản đồ
+      // 1 ngón tay -> Vuốt kéo qua lại tự nhiên (Pan)
       pinchStartRef.current = null;
+      setIsDragging(true);
       movedDistanceRef.current = 0;
-      if (touchMode === "pan") {
-        setIsDragging(true);
-        const touch = e.touches[0];
-        dragStartRef.current = {
-          x: touch.clientX,
-          y: touch.clientY,
-          initialPanX: panOffset.x,
-          initialPanY: panOffset.y,
-        };
-      }
+      const touch = e.touches[0];
+      dragStartRef.current = {
+        x: touch.clientX,
+        y: touch.clientY,
+        initialPanX: panOffset.x,
+        initialPanY: panOffset.y,
+      };
     }
   };
 
@@ -136,15 +152,15 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
       const ratio = dist / pinchStartRef.current.dist;
       const targetZoom = Math.min(Math.max(pinchStartRef.current.initialZoom * ratio, 0.6), 35);
       setZoomLevel(targetZoom);
-    } else if (e.touches.length === 1 && isDragging && touchMode === "pan") {
-      // 1 ngón kéo di chuyển bản đồ khi ở chế độ 'pan'
+    } else if (e.touches.length === 1 && isDragging) {
+      // Cử chỉ 1 ngón tay vuốt kéo qua lại bản đồ
       const touch = e.touches[0];
       const dx = touch.clientX - dragStartRef.current.x;
       const dy = touch.clientY - dragStartRef.current.y;
       movedDistanceRef.current = Math.hypot(dx, dy);
 
-      const containerRect = e.currentTarget.getBoundingClientRect();
-      const effectiveWidth = containerRect.width || 380;
+      const containerRect = mapContainerRef.current?.getBoundingClientRect();
+      const effectiveWidth = containerRect?.width || 380;
       const svgScale = (baseViewBox.w / zoomLevel) / effectiveWidth;
       setPanOffset({
         x: dragStartRef.current.initialPanX - dx * svgScale,
@@ -178,7 +194,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
 
   if (!shapes) {
     return (
-      <div className={`relative h-[420px] w-full overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] sm:h-[480px] ${className ?? ""}`}>
+      <div className={`relative h-[380px] w-full overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] sm:h-[450px] ${className ?? ""}`}>
         <Skeleton className="h-full w-full" />
         <span className="absolute inset-0 flex items-center justify-center font-serif text-xs text-[#8a6a22]">
           Đang nạp bản đồ địa giới 130 xã phường...
@@ -188,91 +204,103 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
   }
 
   return (
-    <div className={`relative overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] shadow-md select-none ${className ?? ""}`}>
-      {/* Thanh nút bấm Zoom và Reset góc trên bên phải */}
-      <div className="absolute right-3 top-3 z-20 flex flex-col gap-1.5 rounded-lg bg-white/95 p-1.5 shadow-md border border-[#d97706]/40 backdrop-blur-xs">
+    <div className={`relative overflow-hidden rounded-2xl border-2 border-[#b8860b] bg-[#fbf6e3] shadow-md select-none ${className ?? ""}`}>
+      {/* Cụm điều khiển Zoom & Reset góc trên bên phải */}
+      <div className="absolute right-2.5 top-2.5 z-20 flex flex-col gap-1 rounded-xl bg-white/95 p-1.5 shadow-md border border-[#d97706]/40 backdrop-blur-xs">
         <button
           type="button"
           onClick={handleZoomIn}
-          title="Phóng to bản đồ (hoặc dùng 2 ngón tay kéo dãn)"
-          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          title="Phóng to bản đồ"
+          className="flex size-8 sm:size-9 items-center justify-center rounded-lg bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <ZoomIn className="size-5" />
+          <ZoomIn className="size-4.5 sm:size-5" />
         </button>
         <button
           type="button"
           onClick={handleZoomOut}
-          title="Thu nhỏ bản đồ (hoặc dùng 2 ngón tay chụm lại)"
-          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          title="Thu nhỏ bản đồ"
+          className="flex size-8 sm:size-9 items-center justify-center rounded-lg bg-[#fefce8] text-[#991b1b] hover:bg-[#991b1b] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <ZoomOut className="size-5" />
+          <ZoomOut className="size-4.5 sm:size-5" />
         </button>
         <button
           type="button"
           onClick={handleResetZoom}
           title="Về kích thước ban đầu"
-          className="flex size-9 items-center justify-center rounded-md bg-[#fefce8] text-[#854d0e] hover:bg-[#854d0e] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
+          className="flex size-8 sm:size-9 items-center justify-center rounded-lg bg-[#fefce8] text-[#854d0e] hover:bg-[#854d0e] hover:text-white transition-colors cursor-pointer border border-[#fde047]"
         >
-          <RotateCcw className="size-4.5" />
+          <RotateCcw className="size-4" />
         </button>
       </div>
 
-      {/* Thanh trạng thái góc trên bên trái: Zoom, Chuyển chế độ Cuộn/Kéo, Bật/Tắt nhãn */}
-      <div className="absolute left-3 top-3 z-20 flex flex-wrap items-center gap-1.5 max-w-[calc(100%-80px)]">
-        {zoomLevel !== 1 && (
-          <div className="rounded-md bg-black/75 px-2 py-1 text-[11px] font-bold text-white backdrop-blur-xs shadow-xs">
-            Zoom: {Math.round(zoomLevel * 100)}%
-          </div>
-        )}
-
-        {/* Nút chuyển chế độ cảm ứng di động: Cho phép cuộn trang hoặc kéo bản đồ */}
-        <button
-          type="button"
-          onClick={() => setTouchMode((m) => (m === "pan" ? "scroll" : "pan"))}
-          className={`inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-[11px] font-bold shadow-xs transition-colors cursor-pointer border ${
-            touchMode === "pan"
-              ? "bg-[#991b1b] text-white border-[#7f1d1d]"
-              : "bg-white/95 text-[#854d0e] border-[#d97706]/40 hover:bg-[#fef3c7]"
-          }`}
-          title="Chuyển đổi giữa chế độ kéo bản đồ và cuộn trang web"
-        >
-          {touchMode === "pan" ? (
-            <>
-              <Move className="size-3.5" />
-              <span>Chế độ: Kéo bản đồ</span>
-            </>
-          ) : (
-            <>
-              <ScrollText className="size-3.5" />
-              <span>Chế độ: Cuộn trang (Bật kéo)</span>
-            </>
+      {/* Cụm điều hướng 4 hướng di chuyển (Pan) và trạng thái góc trên bên trái */}
+      <div className="absolute left-2.5 top-2.5 z-20 flex flex-col gap-1.5">
+        <div className="flex items-center gap-1">
+          {zoomLevel !== 1 && (
+            <div className="rounded-md bg-black/75 px-2 py-0.5 text-[10.5px] font-bold text-white backdrop-blur-xs shadow-xs">
+              Zoom: {Math.round(zoomLevel * 100)}%
+            </div>
           )}
-        </button>
 
-        {/* Nút bật tắt nhãn tên tránh bị chữ đè chữ */}
-        <button
-          type="button"
-          onClick={() => setShowLabels((v) => !v)}
-          className={`hidden sm:inline-flex items-center gap-1 rounded-md px-2 py-1 text-[11px] font-semibold shadow-xs transition-colors cursor-pointer border ${
-            showLabels
-              ? "bg-white/95 text-[#78350f] border-[#d97706]/40"
-              : "bg-[#f1f5f9] text-[#64748b] border-gray-300"
-          }`}
-          title="Bật/Tắt nhãn tên để bản đồ không bị rối chữ"
-        >
-          <Tag className="size-3" />
-          <span>{showLabels ? "Hiện tên xã" : "Ẩn tên xã"}</span>
-        </button>
+          {/* Nút bật/tắt nhãn tên */}
+          <button
+            type="button"
+            onClick={() => setShowLabels((v) => !v)}
+            className="inline-flex items-center gap-1 rounded-md bg-white/95 border border-[#d97706]/40 px-2 py-0.5 text-[10.5px] font-bold text-[#854d0e] shadow-xs hover:bg-[#fef3c7] cursor-pointer"
+            title="Bật hoặc tắt nhãn tên xã để tránh rối mắt"
+          >
+            {showLabels ? <Eye className="size-3 text-[#991b1b]" /> : <EyeOff className="size-3 text-[#64748b]" />}
+            <span>{showLabels ? "Tên xã: Bật" : "Tên xã: Tắt"}</span>
+          </button>
+        </div>
+
+        {/* Bàn phím điều hướng 4 chiều mini (Dễ dàng di chuyển qua lại trên điện thoại) */}
+        <div className="inline-flex flex-col items-center rounded-xl bg-white/90 p-1 border border-[#d97706]/40 shadow-xs backdrop-blur-xs w-fit">
+          <button
+            type="button"
+            onClick={panUp}
+            className="p-1 text-[#854d0e] hover:text-[#991b1b] hover:bg-[#fef9c3] rounded cursor-pointer"
+            title="Kéo lên trên"
+          >
+            <ChevronUp className="size-4" />
+          </button>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={panLeft}
+              className="p-1 text-[#854d0e] hover:text-[#991b1b] hover:bg-[#fef9c3] rounded cursor-pointer"
+              title="Kéo sang trái"
+            >
+              <ChevronLeft className="size-4" />
+            </button>
+            <span className="text-[9px] font-bold text-[#b45309]">Dời</span>
+            <button
+              type="button"
+              onClick={panRight}
+              className="p-1 text-[#854d0e] hover:text-[#991b1b] hover:bg-[#fef9c3] rounded cursor-pointer"
+              title="Kéo sang phải"
+            >
+              <ChevronRight className="size-4" />
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={panDown}
+            className="p-1 text-[#854d0e] hover:text-[#991b1b] hover:bg-[#fef9c3] rounded cursor-pointer"
+            title="Kéo xuống dưới"
+          >
+            <ChevronDown className="size-4" />
+          </button>
+        </div>
       </div>
 
-      {/* Vùng bản đồ SVG - Chiều cao tinh chỉnh ngắn lại (420px - 480px) gọn gàng, không che khuất */}
+      {/* Vùng bản đồ SVG - Chiều cao tinh chỉnh gọn gàng (380px trên di động, 450px trên desktop) */}
       <div
-        className={`relative h-[420px] w-full select-none sm:h-[480px] ${
-          isDragging ? "cursor-grabbing" : touchMode === "pan" ? "cursor-grab" : "cursor-default"
+        ref={mapContainerRef}
+        className={`relative h-[380px] w-full select-none sm:h-[450px] ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
         }`}
-        style={{
-          touchAction: touchMode === "pan" ? "none" : "pan-y",
-        }}
+        style={{ touchAction: "none" }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -286,7 +314,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
       >
         <svg
           viewBox={viewBoxString}
-          className="h-full w-full select-none transition-all duration-150 ease-out"
+          className="h-full w-full select-none transition-all duration-100 ease-out"
           preserveAspectRatio="xMidYMid meet"
           role="img"
           aria-label="Bản đồ địa giới Nghệ An"
@@ -325,36 +353,33 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
                 onMouseLeave={() => setHover(null)}
                 onClick={() => {
                   if (movedDistanceRef.current > 6) return;
-                  // Khi nhấp vào: Màn hình VẪN NẰM NGAY BẢN ĐỒ CHÍNH, chỉ chọn xã và đổi thành màu đỏ đậm!
+                  // Nhấp chọn: Giữ nguyên màn hình tại bản đồ chính và đổi thành màu đỏ đậm!
                   setPicked(s.slug);
                 }}
               />
             );
           })}
 
-          {/* Nhãn chữ thông minh: Tránh hiện tượng chữ đè chữ gây rối */}
+          {/* Nhãn chữ thông minh: Tránh hiện tượng chữ đè chữ gây rối mắt */}
           {shapes.map((s) => {
             const isSelected = active === s.slug;
             const isFocus = focusSet.size === 0 || focusSet.has(s.slug);
             if (!isFocus && !isSelected) return null;
 
-            // Tính kích thước ước lượng của đơn vị trên màn hình
+            // Tính kích thước tương đối của xã trên màn hình
             const shapeWidth = (s.bbox[2] - s.bbox[0]) * zoomLevel;
             const shapeHeight = (s.bbox[3] - s.bbox[1]) * zoomLevel;
-            const isBigEnough = Math.min(shapeWidth, shapeHeight) > 28;
+            const isBigEnough = Math.min(shapeWidth, shapeHeight) > 30;
 
-            // Chỉ hiển thị tên nếu được bật, hoặc là đơn vị đang được chọn, hoặc vùng đủ lớn để không đè chữ
             if (!showLabels && !isSelected) return null;
             if (!isSelected && focusSet.size > 15 && !isBigEnough && zoomLevel < 3) return null;
 
             const posX = s.center ? s.center[0] : (s.bbox[0] + s.bbox[2]) / 2;
             const posY = s.center ? s.center[1] : (s.bbox[1] + s.bbox[3]) / 2;
-
             const fontSize = Math.max(9, Math.min(13, 11 / Math.sqrt(zoomLevel)));
 
             return (
               <g key={`lbl-${s.slug}`} className="pointer-events-none select-none">
-                {/* Viền bóng nổi chữ */}
                 <text
                   x={posX}
                   y={posY}
@@ -386,11 +411,22 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
         )}
       </div>
 
-      {/* Thanh hướng dẫn nhỏ gọn bên dưới đáy khung bản đồ */}
+      {/* Thanh công cụ phụ bên dưới: Hướng dẫn vuốt và nút cuộn trang nhanh */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#b8860b]/30 bg-[#fffdf5] px-3.5 py-2 text-xs font-sans text-[#78350f]">
         <div className="flex items-center gap-1.5 text-[11px] sm:text-xs">
-          <span>💡 <b>2 ngón tay</b> để phóng to/thu nhỏ · Nhấp vào xã để chọn và xem thông tin bên dưới</span>
+          <span>🖐️ <b>Vuốt 1 ngón tay</b> để kéo qua lại · <b>2 ngón tay</b> để phóng to/thu nhỏ</span>
         </div>
+        <button
+          type="button"
+          onClick={() => {
+            window.scrollBy({ top: 380, behavior: "smooth" });
+          }}
+          className="inline-flex items-center gap-1 rounded-md bg-[#fef3c7] hover:bg-[#fde68a] px-2.5 py-1 text-[11px] font-bold text-[#92400e] border border-[#d97706]/40 cursor-pointer shadow-2xs"
+          title="Bấm để cuộn màn hình xuống danh sách xã phường bên dưới"
+        >
+          <ArrowDownCircle className="size-3.5 text-[#b45309]" />
+          <span>Cuộn xuống danh sách</span>
+        </button>
       </div>
 
       {/* Khung tương tác khi nhấp chọn ranh giới: CHỮ TRẮNG TRÊN NỀN ĐỎ CHO NÚT "VÀO TRANG XÃ/PHƯỜNG" */}
@@ -415,9 +451,12 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
             <button
               type="button"
               onClick={() => navigate(`/don-vi/${activeShape.slug}`)}
+              style={{ color: "#ffffff", backgroundColor: "#991b1b" }}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-5 py-2.5 font-sans text-xs sm:text-sm font-bold !text-white shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap border border-[#7f1d1d]"
             >
-              <span className="!text-white font-bold">Vào trang {activeShape.name}</span>
+              <span style={{ color: "#ffffff" }} className="!text-white font-bold">
+                Vào trang {activeShape.name}
+              </span>
               <ArrowRight className="size-4 !text-white shrink-0" />
             </button>
           </div>
