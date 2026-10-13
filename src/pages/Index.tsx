@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Building2, Landmark, MapPin, Search, Users, Sparkles } from "lucide-react";
+import { Building2, Landmark, MapPin, Search, Users, Sparkles, Map } from "lucide-react";
 import { Input } from "@/components/ui/input.tsx";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -46,41 +46,85 @@ export default function Index() {
     <div className="min-h-screen bg-[#fcfaf5] text-[#1e293b]">
       <SiteHeader />
 
-      {/* Hero Section */}
-      <section className="mx-auto max-w-6xl px-4 py-10 text-center font-serif">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#92400e] shadow-sm">
-          <Sparkles className="size-3.5 text-[#d97706]" />
-          Nghệ An sau sắp xếp sáp nhập 2025
-        </div>
+      {/* Hero Section với hoa văn trống đồng mờ nghệ thuật & sang trọng */}
+      <section className="relative mx-auto mt-4 max-w-6xl px-4">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-[#b8860b]/40 bg-gradient-to-b from-[#fffef5] via-[#fcf7e5] to-[#fffdf5] px-4 py-10 text-center font-serif shadow-md sm:py-12">
+          {/* Họa tiết hoa văn trống đồng Đông Sơn chìm ở nền */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10">
+            <svg className="size-[540px] text-[#b8860b] animate-spin-slow" viewBox="0 0 200 200" fill="none" stroke="currentColor">
+              {/* Vòng tròn đồng tâm hoa văn trống đồng */}
+              <circle cx="100" cy="100" r="95" strokeWidth="1.2" strokeDasharray="3 3" />
+              <circle cx="100" cy="100" r="88" strokeWidth="0.8" />
+              <circle cx="100" cy="100" r="78" strokeWidth="1.5" strokeDasharray="4 2" />
+              <circle cx="100" cy="100" r="68" strokeWidth="0.8" />
+              <circle cx="100" cy="100" r="54" strokeWidth="1.2" strokeDasharray="6 3" />
+              <circle cx="100" cy="100" r="40" strokeWidth="1" />
+              <circle cx="100" cy="100" r="26" strokeWidth="1" strokeDasharray="2 2" />
+              <circle cx="100" cy="100" r="14" strokeWidth="1" />
+              {/* Ngôi sao mặt trời trung tâm 14 cánh */}
+              <polygon
+                points="100,86 103,96 114,100 103,104 100,114 97,104 86,100 97,96"
+                fill="currentColor"
+                opacity="0.6"
+              />
+              <polygon
+                points="100,86 103,96 114,100 103,104 100,114 97,104 86,100 97,96"
+                fill="currentColor"
+                transform="rotate(45 100 100)"
+                opacity="0.6"
+              />
+            </svg>
+          </div>
 
-        {/* Tiêu đề 2 dòng đẹp mắt theo đúng yêu cầu */}
-        <h1 className="mt-5 font-extrabold leading-tight text-[#991b1b]">
-          <span className="block text-3xl sm:text-5xl tracking-normal text-[#991b1b] [text-shadow:0_2px_4px_rgba(153,27,27,0.15)]">
-            Cổng tra cứu
-          </span>
-          <span className="mt-1 block text-4xl uppercase tracking-wider text-[#b91c1c] sm:text-6xl [-webkit-text-stroke:1px_#7f1d1d] [paint-order:stroke_fill] [text-shadow:0_4px_12px_rgba(185,28,28,0.25)]">
-            ĐỊA DANH HÀNH CHÍNH
-          </span>
-        </h1>
+          {/* Dải huy hiệu nằm trên đúng 1 dòng */}
+          <div className="relative z-10 inline-flex items-center gap-2 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#92400e] shadow-xs whitespace-nowrap">
+            <Sparkles className="size-4 text-[#d97706]" />
+            <span>Nghệ An sau sắp xếp sáp nhập 2025</span>
+          </div>
 
-        <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg font-sans font-medium text-[#475569] leading-relaxed">
-          Tra cứu, đối chiếu <b className="text-[#991b1b]">130 đơn vị hành chính xã, phường</b> tỉnh Nghệ An sau sắp xếp theo Nghị quyết số 1678/NQ-UBTVQH15
-        </p>
+          {/* Tiêu đề 2 dòng cân đối, ấn tượng */}
+          <h1 className="relative z-10 mt-4 font-extrabold leading-tight text-[#991b1b]">
+            <span className="block whitespace-nowrap text-3xl sm:text-5xl tracking-normal text-[#991b1b] [text-shadow:0_2px_4px_rgba(153,27,27,0.15)]">
+              Cổng tra cứu
+            </span>
+            <span className="mt-1 block whitespace-nowrap text-4xl uppercase tracking-wider text-[#b91c1c] sm:text-6xl [-webkit-text-stroke:1px_#7f1d1d] [paint-order:stroke_fill] [text-shadow:0_4px_12px_rgba(185,28,28,0.25)]">
+              ĐỊA DANH HÀNH CHÍNH
+            </span>
+          </h1>
 
-        {/* Khung số liệu tổng quan 3 cột */}
-        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-3 gap-3 sm:gap-4">
-          {STATS.map((s) => (
-            <div key={s.label} className="rounded-xl border-2 border-[#d97706]/30 bg-white p-3 sm:p-4 shadow-sm hover:border-[#b91c1c] hover:shadow-md transition-all">
-              <s.icon className="mx-auto size-5 sm:size-6 text-[#b91c1c]" />
-              <p className="mt-1 text-2xl sm:text-3xl font-extrabold font-serif text-[#991b1b]">{s.value}</p>
-              <p className="text-xs sm:text-sm font-sans font-medium text-[#64748b]">{s.label}</p>
-            </div>
-          ))}
+          <p className="relative z-10 mx-auto mt-4 max-w-2xl font-sans text-sm sm:text-base font-medium text-[#475569] leading-relaxed">
+            Tra cứu, đối chiếu <b className="text-[#991b1b]">130 đơn vị hành chính xã, phường</b> tỉnh Nghệ An sau sắp xếp theo Nghị quyết số 1678/NQ-UBTVQH15
+          </p>
+
+          {/* Khung 3 thẻ số liệu tổng quan */}
+          <div className="relative z-10 mx-auto mt-7 grid max-w-3xl grid-cols-3 gap-3 sm:gap-4">
+            {STATS.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border-2 border-[#d97706]/35 bg-white/90 p-3 sm:p-4 shadow-sm backdrop-blur-xs hover:border-[#b91c1c] hover:shadow-md transition-all"
+              >
+                <s.icon className="mx-auto size-5 sm:size-6 text-[#b91c1c]" />
+                <p className="mt-1 text-2xl sm:text-3xl font-extrabold font-serif text-[#991b1b]">{s.value}</p>
+                <p className="text-xs sm:text-sm font-sans font-medium text-[#64748b]">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Liên kết nhanh sang bản đồ toàn quốc */}
+          <div className="relative z-10 mt-6 pt-5 border-t border-[#d97706]/20 flex justify-center">
+            <Link
+              to="/ranh-gioi-viet-nam"
+              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#991b1b] to-[#b91c1c] px-4 py-2 font-sans text-xs sm:text-sm font-bold text-white shadow-sm hover:from-[#7f1d1d] hover:to-[#991b1b] transition-all"
+            >
+              <Map className="size-4" />
+              <span>Xem Bản Đồ Ranh Giới Xã Phường Toàn Quốc ➔</span>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Main Content Area */}
-      <main className="mx-auto max-w-6xl px-4 pb-16">
+      <main className="mx-auto max-w-6xl px-4 py-8">
         {/* Thanh tìm kiếm & bộ lọc nổi bật */}
         <div className="flex flex-col gap-3 rounded-xl border-4 border-[#b91c1c] bg-white p-4 shadow-[0_8px_30px_rgba(185,28,28,0.2)] sm:flex-row sm:items-center">
           <div className="relative flex-1">
@@ -122,7 +166,7 @@ export default function Index() {
           </p>
         </div>
 
-        {/* Bản đồ tương tác */}
+        {/* Bản đồ tương tác có nút zoom */}
         <WardMap className="mt-3" focusSlugs={filteredSlugs} />
 
         {/* Danh sách thẻ đơn vị */}
