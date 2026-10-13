@@ -31,7 +31,7 @@ export default function CommunePage() {
     return (
       <div className="min-h-screen bg-[#fcfaf5]">
         <SiteHeader />
-        <div className="py-24 text-center font-serif">
+        <div className="py-24 text-center font-sans">
           <p className="text-xl font-bold text-[#991b1b]">Không tìm thấy đơn vị hành chính yêu cầu.</p>
           <Link to="/" className="mt-4 inline-block font-sans text-sm font-semibold text-[#b91c1c] underline hover:text-[#7f1d1d]">
             ← Về trang chủ tra cứu
@@ -76,7 +76,7 @@ export default function CommunePage() {
         </div>
 
         {/* Tiêu đề trang chi tiết */}
-        <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold font-serif text-[#991b1b]">
+        <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold font-sans text-[#991b1b]">
           <CommuneName name={c.name} />
         </h1>
         <p className="mt-1 font-sans text-sm sm:text-base font-semibold text-[#854d0e]">
@@ -88,10 +88,10 @@ export default function CommunePage() {
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-[#854d0e]">
             Thông tin hành chính tổng quan
           </p>
-          <p className="mt-3 font-serif text-base leading-relaxed text-[#334155] text-justify">
+          <p className="mt-3 font-sans text-base leading-relaxed text-[#334155] text-justify">
             <b className="text-[#991b1b]">{c.name}</b> là một {c.type?.toLowerCase() || "đơn vị"} thuộc tỉnh Nghệ An, được thành lập và sắp xếp năm 2025 theo Nghị quyết số 1678/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội trên cơ sở sáp nhập toàn bộ diện tích và dân số của <b>{oldUnits.length}</b> đơn vị hành chính cũ gồm: <span className="font-medium text-[#1e293b]">{oldUnits.join(", ")}</span>.
           </p>
-          <p className="mt-2 font-serif text-base leading-relaxed text-[#334155] text-justify">
+          <p className="mt-2 font-sans text-base leading-relaxed text-[#334155] text-justify">
             Đơn vị có diện tích tự nhiên là <b>{String(c.areaKm2 || 0).replace(".", ",")} km²</b>, dân số <b>{formatNumber(population)} người</b>, mật độ dân số đạt xấp xỉ <b>{formatNumber(density)} người/km²</b>.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function CommunePage() {
               className="rounded-xl border border-[#e2d9c2] bg-white px-3 py-4 text-center shadow-xs hover:border-[#b91c1c] transition-all"
             >
               <s.icon className="mx-auto size-5 text-[#b91c1c]" />
-              <p className="mt-1 text-2xl font-extrabold font-serif text-[#991b1b]">{s.value}</p>
+              <p className="mt-1 text-2xl font-extrabold font-sans text-[#991b1b]">{s.value}</p>
               <p className="font-sans text-xs font-medium text-[#64748b]">{s.label}</p>
             </div>
           ))}
@@ -134,7 +134,7 @@ export default function CommunePage() {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="size-5 text-[#b91c1c] shrink-0" />
-                <h3 className="font-serif text-lg font-bold text-[#991b1b]">
+                <h3 className="font-sans text-lg font-bold text-[#991b1b]">
                   Cổng Thông Tin Điện Tử {c.name}
                 </h3>
               </div>
@@ -162,7 +162,7 @@ export default function CommunePage() {
         <div className="mt-10 space-y-6">
           <div className="flex items-center gap-2 border-b-2 border-[#b91c1c]/20 pb-3">
             <BookOpen className="size-5 text-[#b91c1c]" />
-            <h2 className="text-2xl font-bold font-serif text-[#991b1b]">
+            <h2 className="text-2xl font-bold font-sans text-[#991b1b]">
               Chuyên Khảo Lịch Sử, Địa Lý & Văn Hóa Xã Hội
             </h2>
           </div>
@@ -171,7 +171,7 @@ export default function CommunePage() {
           <section className="rounded-xl border border-[#e2d9c2] bg-white p-5 sm:p-6 shadow-sm hover:border-[#d97706] transition-all">
             <div className="flex items-center gap-2.5">
               <Landmark className="size-5 text-[#b91c1c] shrink-0" />
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
+              <h3 className="font-sans text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                 Lịch Sử Hình Thành & Truyền Thống Đấu Tranh
               </h3>
             </div>
@@ -184,7 +184,7 @@ export default function CommunePage() {
           <section className="rounded-xl border border-[#e2d9c2] bg-white p-5 sm:p-6 shadow-sm hover:border-[#d97706] transition-all">
             <div className="flex items-center gap-2.5">
               <Compass className="size-5 text-[#b91c1c] shrink-0" />
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
+              <h3 className="font-sans text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                 Vị Trí Địa Lý, Địa Hình & Không Gian Lãnh Thổ
               </h3>
             </div>
@@ -197,7 +197,7 @@ export default function CommunePage() {
           <section className="rounded-xl border border-[#e2d9c2] bg-white p-5 sm:p-6 shadow-sm hover:border-[#d97706] transition-all">
             <div className="flex items-center gap-2.5">
               <TrendingUp className="size-5 text-[#b91c1c] shrink-0" />
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
+              <h3 className="font-sans text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                 Kinh Tế - Xã Hội & Hạ Tầng Giao Thông
               </h3>
             </div>
@@ -210,7 +210,7 @@ export default function CommunePage() {
           <section className="rounded-xl border border-[#e2d9c2] bg-white p-5 sm:p-6 shadow-sm hover:border-[#d97706] transition-all">
             <div className="flex items-center gap-2.5">
               <Sparkles className="size-5 text-[#b91c1c] shrink-0" />
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
+              <h3 className="font-sans text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                 Văn Hóa, Di Tích Lịch Sử & Thắng Cảnh Du Lịch
               </h3>
             </div>
@@ -223,7 +223,7 @@ export default function CommunePage() {
           <section className="rounded-xl border border-[#e2d9c2] bg-white p-5 sm:p-6 shadow-sm hover:border-[#d97706] transition-all">
             <div className="flex items-center gap-2.5">
               <Target className="size-5 text-[#b91c1c] shrink-0" />
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
+              <h3 className="font-sans text-lg sm:text-xl font-bold text-[#991b1b] border-l-4 border-[#b91c1c] pl-3">
                 Định Hướng Phát Triển Sau Sắp Xếp Năm 2025
               </h3>
             </div>

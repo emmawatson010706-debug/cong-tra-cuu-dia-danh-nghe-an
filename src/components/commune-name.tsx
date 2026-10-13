@@ -4,7 +4,7 @@ export default function CommuneName({ name, className }: { name: string; classNa
   return (
     <span
       className={cn(
-        "font-serif font-bold text-[#b45309] hover:text-[#991b1b] transition-colors",
+        "font-sans font-bold text-[#b45309] hover:text-[#991b1b] transition-colors",
         "[text-shadow:0_1px_1px_rgba(0,0,0,0.1)]",
         className
       )}

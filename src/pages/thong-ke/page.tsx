@@ -74,7 +74,7 @@ function Panel({
             </span>
           )}
           <div>
-            <h2 className="text-lg sm:text-xl font-bold font-serif text-[#991b1b]">
+            <h2 className="text-lg sm:text-xl font-bold font-sans text-[#991b1b]">
               {title}
             </h2>
             {subtitle && (
@@ -115,7 +115,7 @@ function Kpi({
           <Icon className="size-4" />
         </div>
       )}
-      <p className="text-2xl sm:text-3xl font-extrabold font-serif text-[#991b1b]">
+      <p className="text-2xl sm:text-3xl font-extrabold font-sans text-[#991b1b]">
         {value}
       </p>
       <p className="font-sans text-xs font-bold text-[#854d0e] mt-0.5">{unit}</p>
@@ -142,7 +142,7 @@ function RankingTable({
 }) {
   return (
     <div className="rounded-xl border border-[#f1e8d0] bg-[#fffdfa] p-4 shadow-2xs">
-      <h3 className="font-serif text-sm font-bold uppercase tracking-wider text-[#854d0e] border-b border-[#f1e8d0] pb-2">
+      <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-[#854d0e] border-b border-[#f1e8d0] pb-2">
         {title}
       </h3>
       <table className="mt-2.5 w-full font-sans text-xs sm:text-sm">
@@ -318,7 +318,7 @@ export default function StatsPage() {
 
       <main className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
         {/* Tiêu đề trang trọng mang tầm vóc Địa Chí & Dữ Liệu */}
-        <header className="text-center font-serif">
+        <header className="text-center font-sans">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[#d97706]/40 bg-[#fef3c7] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#92400e]">
             <Scale className="size-3.5 text-[#b45309]" />
             Chuyên Khảo Địa Chí Học & Thống Kê Học Ứng Dụng
@@ -387,7 +387,7 @@ export default function StatsPage() {
                 <BookOpen className="size-5" />
               </span>
               <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold font-serif text-[#991b1b]">
+                <h2 className="text-2xl sm:text-3xl font-extrabold font-sans text-[#991b1b]">
                   Khái Lược Địa Chí Xứ Nghệ
                 </h2>
                 <p className="font-sans text-xs sm:text-sm font-semibold text-[#854d0e]">
@@ -407,7 +407,7 @@ export default function StatsPage() {
             <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
               <div className="flex items-center gap-2 text-[#991b1b]">
                 <Mountain className="size-5 shrink-0" />
-                <h3 className="font-serif text-lg font-bold">
+                <h3 className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                   1. Không Gian Địa Lý & Non Nước Hữu Tình
                 </h3>
               </div>
@@ -429,7 +429,7 @@ export default function StatsPage() {
             <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
               <div className="flex items-center gap-2 text-[#991b1b]">
                 <Landmark className="size-5 shrink-0" />
-                <h3 className="font-serif text-lg font-bold">
+                <h3 className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                   2. Trầm Tích Lịch Sử & Vị Thế Phên Dậu Hiểm Yếu
                 </h3>
               </div>
@@ -451,7 +451,7 @@ export default function StatsPage() {
             <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
               <div className="flex items-center gap-2 text-[#991b1b]">
                 <Award className="size-5 shrink-0" />
-                <h3 className="font-serif text-lg font-bold">
+                <h3 className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                   3. Mạch Nguồn Khoa Bảng & Địa Linh Nhân Kiệt
                 </h3>
               </div>
@@ -473,7 +473,7 @@ export default function StatsPage() {
             <div className="rounded-xl border border-[#e2d9c2] bg-[#fffdfa] p-5 shadow-xs">
               <div className="flex items-center gap-2 text-[#991b1b]">
                 <Users className="size-5 shrink-0" />
-                <h3 className="font-serif text-lg font-bold">
+                <h3 className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                   4. Cốt Cách & Phẩm Chất Con Người Xứ Nghệ
                 </h3>
               </div>
@@ -495,7 +495,7 @@ export default function StatsPage() {
           <div className="mt-6 rounded-xl border border-[#d97706]/40 bg-gradient-to-r from-[#fffbeb] via-[#fefce8] to-[#fffbeb] p-5 sm:p-6 shadow-xs">
             <div className="flex items-center gap-2 text-[#991b1b]">
               <TrendingUp className="size-5 shrink-0" />
-              <h3 className="font-serif text-lg font-bold">
+              <h3 className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                 5. Khát Vọng Đổi Mới & Tầm Nhìn Phát Triển Tương Lai
               </h3>
             </div>
@@ -539,7 +539,7 @@ export default function StatsPage() {
                         {reg.count} xã/phường ({pct(reg.count / 130)})
                       </span>
                     </div>
-                    <h3 className="mt-2 font-serif text-base font-bold text-[#991b1b]">
+                    <h3 className="mt-2 font-sans text-base font-bold text-[#991b1b]">
                       {reg.name}
                     </h3>
                     <p className="mt-1 font-sans text-xs text-[#64748b]">
@@ -735,7 +735,7 @@ export default function StatsPage() {
           <div className="rounded-2xl border-2 border-[#b8860b] bg-gradient-to-r from-[#fefce8] via-[#fffbeb] to-[#fef9c3] p-6 sm:p-7 shadow-xs">
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="size-6 text-[#991b1b] shrink-0" />
-              <h3 className="font-serif text-xl font-bold text-[#991b1b]">
+              <h3 className="font-sans text-xl font-bold text-[#991b1b]">
                 Tổng Kết Lịch Sử & Thể Chế Hành Chính
               </h3>
             </div>

@@ -347,7 +347,7 @@ export default function RanhGioiVietNam() {
         </div>
 
         {/* Tiêu đề trang */}
-        <div className="mt-4 text-center font-serif">
+        <div className="mt-4 text-center font-sans">
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#991b1b]">
             Bản Đồ Việt Nam Và Ranh Giới Xã Phường Nghệ An
           </h1>
@@ -432,7 +432,7 @@ export default function RanhGioiVietNam() {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="size-5 text-[#991b1b] shrink-0" />
-                <h3 className="font-serif text-lg font-bold text-[#991b1b]">
+                <h3 className="font-sans text-lg font-bold text-[#991b1b]">
                   {selectedWard.name} {selectedWard.district ? `(${selectedWard.district})` : ""}
                 </h3>
               </div>
@@ -464,7 +464,7 @@ export default function RanhGioiVietNam() {
                 <ShieldCheck className="size-3.5 shrink-0" />
                 <span>Dữ liệu Bản vẽ Kỹ thuật AutoCAD (DWG)</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#991b1b]">
+              <h2 className="text-xl sm:text-2xl font-bold font-sans text-[#991b1b]">
                 Bộ Dữ Liệu Ranh Giới Xã Phường Toàn Quốc 2026
               </h2>
               <p className="font-sans text-xs sm:text-sm text-[#475569] leading-relaxed text-justify sm:text-left">

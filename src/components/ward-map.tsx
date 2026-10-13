@@ -196,7 +196,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
     return (
       <div className={`relative h-[380px] w-full overflow-hidden rounded-xl border-2 border-[#b8860b] bg-[#fbf6e3] sm:h-[450px] ${className ?? ""}`}>
         <Skeleton className="h-full w-full" />
-        <span className="absolute inset-0 flex items-center justify-center font-serif text-xs text-[#8a6a22]">
+        <span className="absolute inset-0 flex items-center justify-center font-sans text-xs text-[#8a6a22]">
           Đang nạp bản đồ địa giới 130 xã phường...
         </span>
       </div>
@@ -440,7 +440,7 @@ export default function WardMap({ focusSlugs, selectedSlug, className }: Props) 
                 <CheckCircle2 className="size-4 text-white" />
               </span>
               <div>
-                <p className="font-serif text-base sm:text-lg font-bold text-[#991b1b]">
+                <p className="font-sans text-base sm:text-lg font-bold text-[#991b1b]">
                   Đã chọn: <span className="underline decoration-[#991b1b]/40">{activeShape.name}</span>
                 </p>
                 <p className="font-sans text-xs text-[#64748b]">

@@ -20,7 +20,7 @@ export default function SiteHeader() {
             <p className="text-[10px] sm:text-xs font-black uppercase tracking-[0.28em] text-[#92400e] drop-shadow-xs transition-colors group-hover:text-[#b45309]">
               Cổng Thông Tin Tra Cứu
             </p>
-            <h1 className="mt-1 font-serif text-[17px] sm:text-2xl md:text-3xl font-black tracking-normal text-[#991b1b] leading-tight whitespace-nowrap [text-shadow:0_1px_3px_rgba(153,27,27,0.18)]">
+            <h1 className="mt-1 font-sans text-[17px] sm:text-2xl md:text-3xl font-black tracking-normal text-[#991b1b] leading-tight whitespace-nowrap [text-shadow:0_1px_3px_rgba(153,27,27,0.18)]">
               Địa Danh Xã Phường Nghệ An
             </h1>
           </Link>
@@ -68,23 +68,28 @@ export default function SiteHeader() {
             </NavLink>
           </div>
 
-          {/* Hàng 2: Nút Bản đồ Việt Nam và ranh giới xã phường Nghệ An nằm trọn vẹn, cân đối chính giữa */}
+          {/* Hàng 2: Nút Bản đồ Việt Nam và ranh giới xã phường Nghệ An cân đối 2 dòng chính giữa */}
           <div className="w-full max-w-lg">
             <NavLink
               to="/ranh-gioi-viet-nam"
               end
               className={({ isActive }) =>
-                `w-full inline-flex items-center justify-center gap-2 rounded-xl border-2 px-4 py-2.5 text-xs sm:text-sm font-extrabold tracking-wide transition-all duration-200 shadow-sm cursor-pointer ${
+                `w-full inline-flex items-center justify-center gap-2.5 rounded-xl border-2 px-4 py-2 text-xs sm:text-sm font-extrabold tracking-wide transition-all duration-200 shadow-sm cursor-pointer ${
                   isActive
                     ? "bg-gradient-to-r from-[#991b1b] via-[#b91c1c] to-[#991b1b] !text-white border-[#7f1d1d] shadow-[0_4px_12px_rgba(153,27,27,0.35)] scale-[1.01]"
                     : "border-[#d97706] bg-gradient-to-r from-[#fffbeb] to-[#fef3c7] text-[#92400e] hover:border-[#991b1b] hover:text-[#991b1b] hover:shadow-md hover:-translate-y-0.5 active:scale-95"
                 }`
               }
             >
-              <Map className="size-4 shrink-0 text-[#b45309]" />
-              <span className="whitespace-normal sm:whitespace-nowrap text-center">
-                Bản đồ Việt Nam và ranh giới xã phường Nghệ An
-              </span>
+              {({ isActive }) => (
+                <>
+                  <Map className={`size-4.5 shrink-0 ${isActive ? "text-white" : "text-[#b45309]"}`} />
+                  <span className="flex flex-col items-center justify-center text-center leading-tight">
+                    <span>Bản đồ Việt Nam và ranh giới</span>
+                    <span>xã phường Nghệ An</span>
+                  </span>
+                </>
+              )}
             </NavLink>
           </div>
         </nav>

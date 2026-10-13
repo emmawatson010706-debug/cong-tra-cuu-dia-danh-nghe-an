@@ -48,7 +48,7 @@ export default function Index() {
 
       {/* Hero Section với hoa văn trống đồng Đông Sơn chìm mờ và khung gọn gàng không tràn màn hình */}
       <section className="relative mx-auto mt-3 max-w-6xl px-3 sm:px-4">
-        <div className="relative overflow-hidden rounded-2xl border-2 border-[#b8860b]/40 bg-gradient-to-b from-[#fffef5] via-[#fcf7e5] to-[#fffdf5] px-3.5 py-7 text-center font-serif shadow-md sm:px-8 sm:py-10">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-[#b8860b]/40 bg-gradient-to-b from-[#fffef5] via-[#fcf7e5] to-[#fffdf5] px-3.5 py-7 text-center font-sans shadow-md sm:px-8 sm:py-10">
           
           {/* Họa tiết hoa văn trống đồng Đông Sơn chìm ở nền */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10">
@@ -104,7 +104,7 @@ export default function Index() {
                 className="rounded-xl border-2 border-[#d97706]/35 bg-white/95 p-2 sm:p-4 shadow-xs backdrop-blur-xs hover:border-[#b91c1c] hover:shadow-md transition-all"
               >
                 <s.icon className="mx-auto size-4.5 sm:size-6 text-[#b91c1c]" />
-                <p className="mt-1 text-lg sm:text-3xl font-extrabold font-serif text-[#991b1b]">{s.value}</p>
+                <p className="mt-1 text-lg sm:text-3xl font-extrabold font-sans text-[#991b1b]">{s.value}</p>
                 <p className="text-[10px] sm:text-sm font-sans font-medium text-[#64748b] leading-tight">{s.label}</p>
               </div>
             ))}
@@ -164,7 +164,7 @@ export default function Index() {
 
         {/* Số lượng kết quả & Bản đồ */}
         <div className="mt-4 flex items-center justify-between px-1">
-          <p className="font-serif text-xs sm:text-sm font-semibold text-[#854d0e]">
+          <p className="font-sans text-xs sm:text-sm font-semibold text-[#854d0e]">
             Đang hiển thị: <span className="font-bold text-[#b91c1c]">{filtered.length}</span> / {COMMUNES.length} đơn vị hành chính
           </p>
         </div>
@@ -178,7 +178,7 @@ export default function Index() {
             <Link
               key={c.slug}
               to={`/don-vi/${c.slug}`}
-              className="group relative flex flex-col justify-between rounded-xl border-2 border-[#e2d9c2] bg-white p-4.5 font-serif shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#b91c1c] hover:shadow-lg"
+              className="group relative flex flex-col justify-between rounded-xl border-2 border-[#e2d9c2] bg-white p-4.5 font-sans shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#b91c1c] hover:shadow-lg"
             >
               <FlagBadge className="absolute right-3.5 top-3.5 transition-transform group-hover:scale-110" />
               <div>
