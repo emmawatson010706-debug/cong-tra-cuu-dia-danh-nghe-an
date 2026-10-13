@@ -1,0 +1,2364 @@
+[
+  {
+    "slug": "cua-lo",
+    "name": "Cửa Lò",
+    "type": "Phường",
+    "district": "Thị xã Cửa Lò",
+    "areaKm2": 29.09,
+    "population": 64760,
+    "density": 2226.19,
+    "oldUnits": [
+      "phường Nghi Hải",
+      "phường Nghi Hòa",
+      "phường Nghi Hương",
+      "phường Nghi Tân",
+      "phường Nghi Thu",
+      "phường Nghi Thủy",
+      "phường Thu Thủy"
+    ],
+    "lat": 18.796788,
+    "lng": 105.776363,
+    "areaRank": 123,
+    "populationRank": 7
+  },
+  {
+    "slug": "hoang-mai",
+    "name": "Hoàng Mai",
+    "type": "Phường",
+    "district": "Thị xã Hoàng Mai",
+    "areaKm2": 79.67,
+    "population": 44474,
+    "density": 558.23,
+    "oldUnits": [
+      "phường Quỳnh Thiện",
+      "xã Quỳnh Trang",
+      "xã Quỳnh Vinh"
+    ],
+    "lat": 19.279967,
+    "lng": 105.676779,
+    "areaRank": 67,
+    "populationRank": 22
+  },
+  {
+    "slug": "quynh-mai",
+    "name": "Quỳnh Mai",
+    "type": "Phường",
+    "district": "Thị xã Hoàng Mai",
+    "areaKm2": 40.5,
+    "population": 57988,
+    "density": 1431.8,
+    "oldUnits": [
+      "phường Mai Hùng",
+      "phường Quỳnh Phương",
+      "phường Quỳnh Xuân",
+      "xã Quỳnh Liên"
+    ],
+    "lat": 19.228564,
+    "lng": 105.704225,
+    "areaRank": 105,
+    "populationRank": 13
+  },
+  {
+    "slug": "thanh-vinh",
+    "name": "Thành Vinh",
+    "type": "Phường",
+    "district": "TP Vinh",
+    "areaKm2": 15.54,
+    "population": 123507,
+    "density": 7947.68,
+    "oldUnits": [
+      "phường Cửa Nam",
+      "phường Đông Vĩnh",
+      "phường Hưng Bình",
+      "phường Lê Lợi",
+      "phường Quang Trung",
+      "xã Hưng Chính"
+    ],
+    "lat": 18.670942,
+    "lng": 105.65568,
+    "areaRank": 130,
+    "populationRank": 2
+  },
+  {
+    "slug": "thai-hoa",
+    "name": "Thái Hòa",
+    "type": "Phường",
+    "district": "Thị xã Thái Hòa",
+    "areaKm2": 27.09,
+    "population": 26916,
+    "density": 993.58,
+    "oldUnits": [
+      "phường Hòa Hiếu",
+      "phường Long Sơn",
+      "phường Quang Phong"
+    ],
+    "lat": 19.308382,
+    "lng": 105.423487,
+    "areaRank": 124,
+    "populationRank": 59
+  },
+  {
+    "slug": "truong-vinh",
+    "name": "Trường Vinh",
+    "type": "Phường",
+    "district": "TP Vinh",
+    "areaKm2": 34.22,
+    "population": 141477,
+    "density": 4134.34,
+    "oldUnits": [
+      "phường Bến Thủy",
+      "phường Hưng Dũng",
+      "phường Hưng Phúc",
+      "phường Trung Đô",
+      "phường Trường Thi",
+      "phường Vinh Tân",
+      "xã Hưng Hòa"
+    ],
+    "lat": 18.670395,
+    "lng": 105.700711,
+    "areaRank": 116,
+    "populationRank": 1
+  },
+  {
+    "slug": "tan-mai",
+    "name": "Tân Mai",
+    "type": "Phường",
+    "district": "Thị xã Hoàng Mai",
+    "areaKm2": 51.61,
+    "population": 33894,
+    "density": 656.73,
+    "oldUnits": [
+      "phường Quỳnh Dị",
+      "xã Quỳnh Lập",
+      "xã Quỳnh Lộc"
+    ],
+    "lat": 19.275558,
+    "lng": 105.757483,
+    "areaRank": 94,
+    "populationRank": 43
+  },
+  {
+    "slug": "tay-hieu",
+    "name": "Tây Hiếu",
+    "type": "Phường",
+    "district": "Thị xã Thái Hòa",
+    "areaKm2": 43.96,
+    "population": 24698,
+    "density": 561.83,
+    "oldUnits": [
+      "phường Quang Tiến",
+      "xã Nghĩa Tiến",
+      "xã Tây Hiếu"
+    ],
+    "lat": 19.296137,
+    "lng": 105.409081,
+    "areaRank": 102,
+    "populationRank": 69
+  },
+  {
+    "slug": "vinh-hung",
+    "name": "Vinh Hưng",
+    "type": "Phường",
+    "district": "TP Vinh",
+    "areaKm2": 25.47,
+    "population": 60159,
+    "density": 2361.96,
+    "oldUnits": [
+      "phường Hưng Đông",
+      "phường Quán Bàu",
+      "xã Nghi Kim",
+      "xã Nghi Liên"
+    ],
+    "lat": 18.723983,
+    "lng": 105.654085,
+    "areaRank": 126,
+    "populationRank": 12
+  },
+  {
+    "slug": "vinh-loc",
+    "name": "Vinh Lộc",
+    "type": "Phường",
+    "district": "TP Vinh",
+    "areaKm2": 38.86,
+    "population": 68086,
+    "density": 1752.08,
+    "oldUnits": [
+      "phường Hưng Lộc",
+      "xã Nghi Phong",
+      "xã Nghi Thái",
+      "xã Nghi Xuân",
+      "xã Phúc Thọ"
+    ],
+    "lat": 18.725051,
+    "lng": 105.715212,
+    "areaRank": 109,
+    "populationRank": 6
+  },
+  {
+    "slug": "vinh-phu",
+    "name": "Vinh Phú",
+    "type": "Phường",
+    "district": "TP Vinh",
+    "areaKm2": 23.04,
+    "population": 74473,
+    "density": 3232.34,
+    "oldUnits": [
+      "phường Hà Huy Tập",
+      "phường Nghi Đức",
+      "phường Nghi Phú",
+      "xã Nghi Ân"
+    ],
+    "lat": 18.725021,
+    "lng": 105.689201,
+    "areaRank": 127,
+    "populationRank": 3
+  },
+  {
+    "slug": "an-chau",
+    "name": "An Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 34.87,
+    "population": 43437,
+    "density": 1245.68,
+    "oldUnits": [
+      "xã Diễn An",
+      "xã Diễn Tân",
+      "xã Diễn Thịnh",
+      "xã Diễn Trung"
+    ],
+    "lat": 18.927037,
+    "lng": 105.602317,
+    "areaRank": 115,
+    "populationRank": 25
+  },
+  {
+    "slug": "anh-son",
+    "name": "Anh Sơn",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 196.65,
+    "population": 29539,
+    "density": 150.21,
+    "oldUnits": [
+      "thị trấn Kim Nhan",
+      "xã Đức Sơn",
+      "xã Phúc Sơn"
+    ],
+    "lat": 18.883578,
+    "lng": 105.019063,
+    "areaRank": 25,
+    "populationRank": 51
+  },
+  {
+    "slug": "anh-son-dong",
+    "name": "Anh Sơn Đông",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 65.85,
+    "population": 16214,
+    "density": 246.23,
+    "oldUnits": [
+      "xã Lạng Sơn",
+      "xã Tào Sơn",
+      "xã Vĩnh Sơn"
+    ],
+    "lat": 18.972415,
+    "lng": 105.172948,
+    "areaRank": 80,
+    "populationRank": 92
+  },
+  {
+    "slug": "binh-chuan",
+    "name": "Bình Chuẩn",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 182.19,
+    "population": 4638,
+    "density": 25.46,
+    "oldUnits": [
+      "xã Bình Chuẩn"
+    ],
+    "lat": 19.258179,
+    "lng": 104.929835,
+    "areaRank": 29,
+    "populationRank": 128
+  },
+  {
+    "slug": "binh-minh",
+    "name": "Bình Minh",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 91.08,
+    "population": 37031,
+    "density": 406.58,
+    "oldUnits": [
+      "xã Đức Thành",
+      "xã Mã Thành",
+      "xã Tân Thành",
+      "xã Tiến Thành"
+    ],
+    "lat": 19.110849,
+    "lng": 105.500445,
+    "areaRank": 58,
+    "populationRank": 36
+  },
+  {
+    "slug": "bich-hao",
+    "name": "Bích Hào",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 147.06,
+    "population": 33960,
+    "density": 230.93,
+    "oldUnits": [
+      "xã Mai Giang",
+      "xã Thanh Lâm",
+      "xã Thanh Tùng",
+      "xã Thanh Xuân"
+    ],
+    "lat": 18.648274,
+    "lng": 105.394484,
+    "areaRank": 39,
+    "populationRank": 42
+  },
+  {
+    "slug": "bach-ha",
+    "name": "Bạch Hà",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 79.28,
+    "population": 39332,
+    "density": 496.12,
+    "oldUnits": [
+      "xã Đại Sơn",
+      "xã Hiến Sơn",
+      "xã Mỹ Sơn",
+      "xã Trù Sơn"
+    ],
+    "lat": 18.823945,
+    "lng": 105.437827,
+    "areaRank": 68,
+    "populationRank": 33
+  },
+  {
+    "slug": "bach-ngoc",
+    "name": "Bạch Ngọc",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 72.2,
+    "population": 29021,
+    "density": 401.95,
+    "oldUnits": [
+      "xã Bồi Sơn",
+      "xã Giang Sơn Đông",
+      "xã Giang Sơn Tây",
+      "xã Bạch Ngọc"
+    ],
+    "lat": 18.989989,
+    "lng": 105.278761,
+    "areaRank": 74,
+    "populationRank": 52
+  },
+  {
+    "slug": "bac-ly",
+    "name": "Bắc Lý",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 109.17,
+    "population": 5552,
+    "density": 50.86,
+    "oldUnits": [
+      "xã Bắc Lý"
+    ],
+    "lat": 19.621247,
+    "lng": 104.232664,
+    "areaRank": 50,
+    "populationRank": 124
+  },
+  {
+    "slug": "cam-phuc",
+    "name": "Cam Phục",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 162.43,
+    "population": 7412,
+    "density": 45.63,
+    "oldUnits": [
+      "xã Cam Lâm",
+      "xã Đôn Phục"
+    ],
+    "lat": 19.156032,
+    "lng": 104.868908,
+    "areaRank": 33,
+    "populationRank": 118
+  },
+  {
+    "slug": "chieu-luu",
+    "name": "Chiêu Lưu",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 196.93,
+    "population": 9797,
+    "density": 49.75,
+    "oldUnits": [
+      "xã Bảo Thắng",
+      "xã Chiêu Lưu"
+    ],
+    "lat": 19.389188,
+    "lng": 104.363716,
+    "areaRank": 24,
+    "populationRank": 110
+  },
+  {
+    "slug": "chau-binh",
+    "name": "Châu Bình",
+    "type": "Xã",
+    "district": "Huyện Quỳ Châu",
+    "areaKm2": 130.91,
+    "population": 11038,
+    "density": 84.32,
+    "oldUnits": [
+      "xã Châu Bình"
+    ],
+    "lat": 19.500443,
+    "lng": 105.231668,
+    "areaRank": 44,
+    "populationRank": 108
+  },
+  {
+    "slug": "chau-hong",
+    "name": "Châu Hồng",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 134.05,
+    "population": 11809,
+    "density": 88.09,
+    "oldUnits": [
+      "xã Châu Tiến (huyện Quỳ Hợp)",
+      "xã Châu Thành",
+      "xã Châu Hồng"
+    ],
+    "lat": 19.403141,
+    "lng": 105.072669,
+    "areaRank": 43,
+    "populationRank": 106
+  },
+  {
+    "slug": "chau-khe",
+    "name": "Châu Khê",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 544.31,
+    "population": 12210,
+    "density": 22.43,
+    "oldUnits": [
+      "xã Lạng Khê",
+      "xã Châu Khê"
+    ],
+    "lat": 19.012068,
+    "lng": 104.688641,
+    "areaRank": 2,
+    "populationRank": 104
+  },
+  {
+    "slug": "chau-loc",
+    "name": "Châu Lộc",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 85.69,
+    "population": 7234,
+    "density": 84.42,
+    "oldUnits": [
+      "xã Liên Hợp",
+      "xã Châu Lộc"
+    ],
+    "lat": 19.386668,
+    "lng": 105.186012,
+    "areaRank": 65,
+    "populationRank": 119
+  },
+  {
+    "slug": "chau-tien",
+    "name": "Châu Tiến",
+    "type": "Xã",
+    "district": "Huyện Quỳ Châu",
+    "areaKm2": 247.16,
+    "population": 18060,
+    "density": 73.07,
+    "oldUnits": [
+      "xã Châu Tiến (huyện Quỳ Châu)",
+      "xã Châu Bính",
+      "xã Châu Thắng",
+      "xã Châu Thuận"
+    ],
+    "lat": 19.654092,
+    "lng": 105.060519,
+    "areaRank": 18,
+    "populationRank": 89
+  },
+  {
+    "slug": "con-cuong",
+    "name": "Con Cuông",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 155.45,
+    "population": 26043,
+    "density": 167.53,
+    "oldUnits": [
+      "thị trấn Trà Lân",
+      "xã Chi Khê",
+      "xã Yên Khê"
+    ],
+    "lat": 19.037517,
+    "lng": 104.864027,
+    "areaRank": 36,
+    "populationRank": 63
+  },
+  {
+    "slug": "cat-ngan",
+    "name": "Cát Ngạn",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 59.28,
+    "population": 22995,
+    "density": 387.9,
+    "oldUnits": [
+      "xã Minh Sơn (huyện Thanh Chương)",
+      "xã Cát Văn",
+      "xã Phong Thịnh"
+    ],
+    "lat": 18.865525,
+    "lng": 105.229809,
+    "areaRank": 88,
+    "populationRank": 74
+  },
+  {
+    "slug": "dien-chau",
+    "name": "Diễn Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 22.21,
+    "population": 63294,
+    "density": 2849.8,
+    "oldUnits": [
+      "thị trấn Diễn Thành",
+      "xã Diễn Hoa",
+      "xã Diễn Phúc",
+      "xã Ngọc Bích"
+    ],
+    "lat": 18.985071,
+    "lng": 105.590955,
+    "areaRank": 128,
+    "populationRank": 8
+  },
+  {
+    "slug": "giai-lac",
+    "name": "Giai Lạc",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 88.58,
+    "population": 35783,
+    "density": 403.96,
+    "oldUnits": [
+      "xã Hậu Thành",
+      "xã Lăng Thành",
+      "xã Phúc Thành"
+    ],
+    "lat": 19.084957,
+    "lng": 105.438061,
+    "areaRank": 62,
+    "populationRank": 40
+  },
+  {
+    "slug": "giai-xuan",
+    "name": "Giai Xuân",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 121.55,
+    "population": 14160,
+    "density": 116.5,
+    "oldUnits": [
+      "xã Tân Hợp",
+      "xã Giai Xuân"
+    ],
+    "lat": 19.182085,
+    "lng": 105.216051,
+    "areaRank": 46,
+    "populationRank": 97
+  },
+  {
+    "slug": "hoa-quan",
+    "name": "Hoa Quân",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 107.67,
+    "population": 32149,
+    "density": 298.59,
+    "oldUnits": [
+      "xã Thanh An",
+      "xã Thanh Hương",
+      "xã Thanh Quả",
+      "xã Thanh Thịnh"
+    ],
+    "lat": 18.73447,
+    "lng": 105.258326,
+    "areaRank": 53,
+    "populationRank": 46
+  },
+  {
+    "slug": "huoi-tu",
+    "name": "Huồi Tụ",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 109.03,
+    "population": 5177,
+    "density": 47.48,
+    "oldUnits": [
+      "xã Huồi Tụ"
+    ],
+    "lat": 19.524637,
+    "lng": 104.258189,
+    "areaRank": 51,
+    "populationRank": 126
+  },
+  {
+    "slug": "hung-chan",
+    "name": "Hùng Chân",
+    "type": "Xã",
+    "district": "Huyện Quỳ Châu",
+    "areaKm2": 351.87,
+    "population": 12664,
+    "density": 35.99,
+    "oldUnits": [
+      "xã Châu Hoàn",
+      "xã Châu Phong",
+      "xã Diên Lãm"
+    ],
+    "lat": 19.445492,
+    "lng": 104.980905,
+    "areaRank": 6,
+    "populationRank": 101
+  },
+  {
+    "slug": "hung-chau",
+    "name": "Hùng Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 69.11,
+    "population": 55583,
+    "density": 804.27,
+    "oldUnits": [
+      "xã Diễn Đoài",
+      "xã Diễn Lâm",
+      "xã Diễn Trường",
+      "xã Diễn Yên"
+    ],
+    "lat": 19.124701,
+    "lng": 105.557824,
+    "areaRank": 77,
+    "populationRank": 14
+  },
+  {
+    "slug": "hung-nguyen",
+    "name": "Hưng Nguyên",
+    "type": "Xã",
+    "district": "Huyện Hưng Nguyên",
+    "areaKm2": 46.14,
+    "population": 53144,
+    "density": 1151.8,
+    "oldUnits": [
+      "thị trấn Hưng Nguyên",
+      "xã Hưng Đạo",
+      "xã Hưng Tây",
+      "xã Thịnh Mỹ"
+    ],
+    "lat": 18.670858,
+    "lng": 105.632175,
+    "areaRank": 100,
+    "populationRank": 16
+  },
+  {
+    "slug": "hung-nguyen-nam",
+    "name": "Hưng Nguyên Nam",
+    "type": "Xã",
+    "district": "Huyện Hưng Nguyên",
+    "areaKm2": 35.77,
+    "population": 36632,
+    "density": 1024.1,
+    "oldUnits": [
+      "xã Hưng Lĩnh",
+      "xã Long Xá",
+      "xã Thông Tân",
+      "xã Xuân Lam"
+    ],
+    "lat": 18.628476,
+    "lng": 105.606827,
+    "areaRank": 114,
+    "populationRank": 39
+  },
+  {
+    "slug": "hanh-lam",
+    "name": "Hạnh Lâm",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 274.57,
+    "population": 13699,
+    "density": 49.89,
+    "oldUnits": [
+      "xã Thanh Đức",
+      "xã Hạnh Lâm"
+    ],
+    "lat": 18.789595,
+    "lng": 105.079258,
+    "areaRank": 16,
+    "populationRank": 98
+  },
+  {
+    "slug": "hai-chau",
+    "name": "Hải Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 29.13,
+    "population": 43155,
+    "density": 1481.46,
+    "oldUnits": [
+      "xã Diễn Hoàng",
+      "xã Diễn Kim",
+      "xã Diễn Mỹ",
+      "xã Hùng Hải"
+    ],
+    "lat": 19.059881,
+    "lng": 105.622999,
+    "areaRank": 122,
+    "populationRank": 26
+  },
+  {
+    "slug": "hai-loc",
+    "name": "Hải Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 41.25,
+    "population": 21940,
+    "density": 531.88,
+    "oldUnits": [
+      "xã Nghi Thiết",
+      "xã Nghi Tiến",
+      "xã Nghi Yên"
+    ],
+    "lat": 18.866529,
+    "lng": 105.661377,
+    "areaRank": 103,
+    "populationRank": 80
+  },
+  {
+    "slug": "hop-minh",
+    "name": "Hợp Minh",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 54.75,
+    "population": 46942,
+    "density": 857.39,
+    "oldUnits": [
+      "xã Bảo Thành",
+      "xã Long Thành",
+      "xã Sơn Thành",
+      "xã Viên Thành",
+      "xã Vĩnh Thành"
+    ],
+    "lat": 18.933687,
+    "lng": 105.486245,
+    "areaRank": 91,
+    "populationRank": 18
+  },
+  {
+    "slug": "huu-khuong",
+    "name": "Hữu Khuông",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 263.79,
+    "population": 2939,
+    "density": 11.14,
+    "oldUnits": [
+      "xã Hữu Khuông"
+    ],
+    "lat": 19.482278,
+    "lng": 104.62502,
+    "areaRank": 17,
+    "populationRank": 130
+  },
+  {
+    "slug": "huu-kiem",
+    "name": "Hữu Kiệm",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 188.97,
+    "population": 12609,
+    "density": 66.72,
+    "oldUnits": [
+      "xã Bảo Nam",
+      "xã Hữu Lập",
+      "xã Hữu Kiệm"
+    ],
+    "lat": 19.404729,
+    "lng": 104.251653,
+    "areaRank": 26,
+    "populationRank": 102
+  },
+  {
+    "slug": "keng-du",
+    "name": "Keng Đu",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 98.24,
+    "population": 5098,
+    "density": 51.89,
+    "oldUnits": [
+      "xã Keng Đu"
+    ],
+    "lat": 19.638292,
+    "lng": 104.10875,
+    "areaRank": 55,
+    "populationRank": 127
+  },
+  {
+    "slug": "kim-bang",
+    "name": "Kim Bảng",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 183.26,
+    "population": 27936,
+    "density": 152.44,
+    "oldUnits": [
+      "xã Thanh Hà",
+      "xã Thanh Thủy",
+      "xã Kim Bảng"
+    ],
+    "lat": 18.668191,
+    "lng": 105.308651,
+    "areaRank": 27,
+    "populationRank": 57
+  },
+  {
+    "slug": "kim-lien",
+    "name": "Kim Liên",
+    "type": "Xã",
+    "district": "Huyện Nam Đàn",
+    "areaKm2": 61.08,
+    "population": 55471,
+    "density": 908.17,
+    "oldUnits": [
+      "xã Hùng Tiến",
+      "xã Nam Cát",
+      "xã Nam Giang",
+      "xã Xuân Hồng",
+      "xã Kim Liên"
+    ],
+    "lat": 18.675059,
+    "lng": 105.577537,
+    "areaRank": 86,
+    "populationRank": 15
+  },
+  {
+    "slug": "lam-thanh",
+    "name": "Lam Thành",
+    "type": "Xã",
+    "district": "Huyện Hưng Nguyên",
+    "areaKm2": 39.67,
+    "population": 31247,
+    "density": 787.67,
+    "oldUnits": [
+      "xã Châu Nhân",
+      "xã Hưng Nghĩa",
+      "xã Hưng Thành",
+      "xã Phúc Lợi"
+    ],
+    "lat": 18.622932,
+    "lng": 105.663645,
+    "areaRank": 108,
+    "populationRank": 47
+  },
+  {
+    "slug": "luong-son",
+    "name": "Lương Sơn",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 47.39,
+    "population": 26494,
+    "density": 559.06,
+    "oldUnits": [
+      "xã Bài Sơn",
+      "xã Đông Sơn",
+      "xã Hồng Sơn",
+      "xã Tràng Sơn"
+    ],
+    "lat": 18.948854,
+    "lng": 105.308152,
+    "areaRank": 98,
+    "populationRank": 60
+  },
+  {
+    "slug": "luong-minh",
+    "name": "Lượng Minh",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 227.97,
+    "population": 5322,
+    "density": 23.35,
+    "oldUnits": [
+      "xã Lượng Minh"
+    ],
+    "lat": 19.404441,
+    "lng": 104.449448,
+    "areaRank": 20,
+    "populationRank": 125
+  },
+  {
+    "slug": "minh-chau",
+    "name": "Minh Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 39.68,
+    "population": 44358,
+    "density": 1117.89,
+    "oldUnits": [
+      "xã Diễn Cát",
+      "xã Diễn Nguyên",
+      "xã Hạnh Quảng",
+      "xã Minh Châu"
+    ],
+    "lat": 18.966433,
+    "lng": 105.544277,
+    "areaRank": 107,
+    "populationRank": 23
+  },
+  {
+    "slug": "minh-hop",
+    "name": "Minh Hợp",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 159.97,
+    "population": 21276,
+    "density": 133,
+    "oldUnits": [
+      "xã Hạ Sơn",
+      "xã Văn Lợi",
+      "xã Minh Hợp"
+    ],
+    "lat": 19.269508,
+    "lng": 105.250948,
+    "areaRank": 35,
+    "populationRank": 83
+  },
+  {
+    "slug": "mon-son",
+    "name": "Môn Sơn",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 529.42,
+    "population": 18836,
+    "density": 35.58,
+    "oldUnits": [
+      "xã Lục Dạ",
+      "xã Môn Sơn"
+    ],
+    "lat": 18.882005,
+    "lng": 104.838822,
+    "areaRank": 3,
+    "populationRank": 87
+  },
+  {
+    "slug": "muong-chong",
+    "name": "Mường Chọng",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 173.65,
+    "population": 11291,
+    "density": 65.02,
+    "oldUnits": [
+      "xã Bắc Sơn",
+      "xã Nam Sơn (huyện Quỳ Hợp)",
+      "xã Châu Lý"
+    ],
+    "lat": 19.241597,
+    "lng": 105.068461,
+    "areaRank": 30,
+    "populationRank": 107
+  },
+  {
+    "slug": "muong-ham",
+    "name": "Mường Ham",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 160.35,
+    "population": 14257,
+    "density": 88.91,
+    "oldUnits": [
+      "xã Châu Cường",
+      "xã Châu Thái"
+    ],
+    "lat": 19.325795,
+    "lng": 105.079623,
+    "areaRank": 34,
+    "populationRank": 96
+  },
+  {
+    "slug": "muong-long",
+    "name": "Mường Lống",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 148.31,
+    "population": 5649,
+    "density": 38.09,
+    "oldUnits": [
+      "xã Mường Lống"
+    ],
+    "lat": 19.495413,
+    "lng": 104.376394,
+    "areaRank": 37,
+    "populationRank": 123
+  },
+  {
+    "slug": "muong-quang",
+    "name": "Mường Quàng",
+    "type": "Xã",
+    "district": "Huyện Quế Phong",
+    "areaKm2": 342.15,
+    "population": 17917,
+    "density": 52.37,
+    "oldUnits": [
+      "xã Cắm Muộn",
+      "xã Châu Thôn",
+      "xã Quang Phong"
+    ],
+    "lat": 19.528026,
+    "lng": 104.854614,
+    "areaRank": 7,
+    "populationRank": 90
+  },
+  {
+    "slug": "muong-tip",
+    "name": "Mường Típ",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 217.66,
+    "population": 6412,
+    "density": 29.46,
+    "oldUnits": [
+      "xã Mường Ải",
+      "xã Mường Típ"
+    ],
+    "lat": 19.333004,
+    "lng": 103.984546,
+    "areaRank": 21,
+    "populationRank": 121
+  },
+  {
+    "slug": "muong-xen",
+    "name": "Mường Xén",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 182.49,
+    "population": 10396,
+    "density": 56.97,
+    "oldUnits": [
+      "thị trấn Mường Xén",
+      "xã Tà Cạ",
+      "xã Tây Sơn"
+    ],
+    "lat": 19.375042,
+    "lng": 104.086943,
+    "areaRank": 28,
+    "populationRank": 109
+  },
+  {
+    "slug": "mau-thach",
+    "name": "Mậu Thạch",
+    "type": "Xã",
+    "district": "Huyện Con Cuông",
+    "areaKm2": 164.26,
+    "population": 13200,
+    "density": 80.36,
+    "oldUnits": [
+      "xã Mậu Đức",
+      "xã Thạch Ngàn"
+    ],
+    "lat": 19.113608,
+    "lng": 104.95188,
+    "areaRank": 31,
+    "populationRank": 99
+  },
+  {
+    "slug": "my-ly",
+    "name": "Mỹ Lý",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 211.03,
+    "population": 5861,
+    "density": 27.77,
+    "oldUnits": [
+      "xã Mỹ Lý"
+    ],
+    "lat": 19.649156,
+    "lng": 104.355631,
+    "areaRank": 22,
+    "populationRank": 122
+  },
+  {
+    "slug": "na-loi",
+    "name": "Na Loi",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 141.86,
+    "population": 4321,
+    "density": 30.46,
+    "oldUnits": [
+      "xã Đoọc Mạy",
+      "xã Na Loi"
+    ],
+    "lat": 19.566829,
+    "lng": 104.178552,
+    "areaRank": 41,
+    "populationRank": 129
+  },
+  {
+    "slug": "na-ngoi",
+    "name": "Na Ngoi",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 341.25,
+    "population": 9536,
+    "density": 27.94,
+    "oldUnits": [
+      "xã Nậm Càn",
+      "xã Na Ngoi"
+    ],
+    "lat": 19.220661,
+    "lng": 104.219316,
+    "areaRank": 8,
+    "populationRank": 111
+  },
+  {
+    "slug": "nam-dan",
+    "name": "Nam Đàn",
+    "type": "Xã",
+    "district": "Huyện Nam Đàn",
+    "areaKm2": 67.6,
+    "population": 24489,
+    "density": 362.26,
+    "oldUnits": [
+      "xã Nghĩa Thái (huyện Nam Đàn)",
+      "xã Nam Hưng",
+      "xã Nam Thanh"
+    ],
+    "lat": 18.751517,
+    "lng": 105.462013,
+    "areaRank": 79,
+    "populationRank": 70
+  },
+  {
+    "slug": "nga-my",
+    "name": "Nga My",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 302.52,
+    "population": 8467,
+    "density": 27.99,
+    "oldUnits": [
+      "xã Xiêng My",
+      "xã Nga My"
+    ],
+    "lat": 19.316131,
+    "lng": 104.820524,
+    "areaRank": 13,
+    "populationRank": 115
+  },
+  {
+    "slug": "nghi-loc",
+    "name": "Nghi Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 33.31,
+    "population": 46022,
+    "density": 1381.63,
+    "oldUnits": [
+      "thị trấn Quán Hành",
+      "xã Diên Hoa",
+      "xã Nghi Trung",
+      "xã Nghi Vạn"
+    ],
+    "lat": 18.771009,
+    "lng": 105.63995,
+    "areaRank": 118,
+    "populationRank": 20
+  },
+  {
+    "slug": "nghia-hanh",
+    "name": "Nghĩa Hành",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 112,
+    "population": 22312,
+    "density": 199.21,
+    "oldUnits": [
+      "xã Phú Sơn",
+      "xã Tân Hương",
+      "xã Nghĩa Hành"
+    ],
+    "lat": 19.020053,
+    "lng": 105.157381,
+    "areaRank": 49,
+    "populationRank": 79
+  },
+  {
+    "slug": "nghia-hung",
+    "name": "Nghĩa Hưng",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 68.65,
+    "population": 25459,
+    "density": 370.85,
+    "oldUnits": [
+      "xã Nghĩa Thành",
+      "xã Nghĩa Hưng"
+    ],
+    "lat": 19.350444,
+    "lng": 105.353482,
+    "areaRank": 78,
+    "populationRank": 66
+  },
+  {
+    "slug": "nghia-khanh",
+    "name": "Nghĩa Khánh",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 77.72,
+    "population": 25653,
+    "density": 330.07,
+    "oldUnits": [
+      "xã Nghĩa An",
+      "xã Nghĩa Đức",
+      "xã Nghĩa Khánh"
+    ],
+    "lat": 19.234154,
+    "lng": 105.378688,
+    "areaRank": 70,
+    "populationRank": 65
+  },
+  {
+    "slug": "nghia-lam",
+    "name": "Nghĩa Lâm",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 121.75,
+    "population": 23753,
+    "density": 195.1,
+    "oldUnits": [
+      "xã Nghĩa Lạc",
+      "xã Nghĩa Sơn",
+      "xã Nghĩa Yên",
+      "xã Nghĩa Lâm"
+    ],
+    "lat": 19.418661,
+    "lng": 105.444968,
+    "areaRank": 45,
+    "populationRank": 72
+  },
+  {
+    "slug": "nghia-loc",
+    "name": "Nghĩa Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 62.93,
+    "population": 25007,
+    "density": 397.38,
+    "oldUnits": [
+      "xã Nghĩa Long",
+      "xã Nghĩa Lộc"
+    ],
+    "lat": 19.229322,
+    "lng": 105.461113,
+    "areaRank": 84,
+    "populationRank": 67
+  },
+  {
+    "slug": "nghia-mai",
+    "name": "Nghĩa Mai",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 146.99,
+    "population": 17844,
+    "density": 121.4,
+    "oldUnits": [
+      "xã Nghĩa Hồng",
+      "xã Nghĩa Minh",
+      "xã Nghĩa Mai"
+    ],
+    "lat": 19.428523,
+    "lng": 105.35047,
+    "areaRank": 40,
+    "populationRank": 91
+  },
+  {
+    "slug": "nghia-tho",
+    "name": "Nghĩa Thọ",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 92.19,
+    "population": 21391,
+    "density": 232.03,
+    "oldUnits": [
+      "xã Nghĩa Hội",
+      "xã Nghĩa Lợi",
+      "xã Nghĩa Thọ"
+    ],
+    "lat": 19.355624,
+    "lng": 105.527611,
+    "areaRank": 57,
+    "populationRank": 82
+  },
+  {
+    "slug": "nghia-dan",
+    "name": "Nghĩa Đàn",
+    "type": "Xã",
+    "district": "Huyện Nghĩa Đàn",
+    "areaKm2": 47.32,
+    "population": 19670,
+    "density": 415.68,
+    "oldUnits": [
+      "thị trấn Nghĩa Đàn",
+      "xã Nghĩa Bình",
+      "xã Nghĩa Trung"
+    ],
+    "lat": 19.371083,
+    "lng": 105.485531,
+    "areaRank": 99,
+    "populationRank": 85
+  },
+  {
+    "slug": "nghia-dong",
+    "name": "Nghĩa Đồng",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 72.43,
+    "population": 20195,
+    "density": 278.82,
+    "oldUnits": [
+      "xã Bình Hợp",
+      "xã Nghĩa Đồng"
+    ],
+    "lat": 19.170021,
+    "lng": 105.369186,
+    "areaRank": 73,
+    "populationRank": 84
+  },
+  {
+    "slug": "nhan-hoa",
+    "name": "Nhân Hòa",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 86.88,
+    "population": 22626,
+    "density": 260.43,
+    "oldUnits": [
+      "xã Cẩm Sơn",
+      "xã Hùng Sơn",
+      "xã Tam Đỉnh"
+    ],
+    "lat": 19.015596,
+    "lng": 104.968945,
+    "areaRank": 64,
+    "populationRank": 77
+  },
+  {
+    "slug": "nhon-mai",
+    "name": "Nhôn Mai",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 310.26,
+    "population": 7060,
+    "density": 22.76,
+    "oldUnits": [
+      "xã Mai Sơn",
+      "xã Nhôn Mai"
+    ],
+    "lat": 19.565459,
+    "lng": 104.510128,
+    "areaRank": 12,
+    "populationRank": 120
+  },
+  {
+    "slug": "nam-can",
+    "name": "Nậm Cắn",
+    "type": "Xã",
+    "district": "Huyện Kỳ Sơn",
+    "areaKm2": 147.7,
+    "population": 8694,
+    "density": 58.86,
+    "oldUnits": [
+      "xã Phà Đánh",
+      "xã Nậm Cắn"
+    ],
+    "lat": 19.465847,
+    "lng": 104.139458,
+    "areaRank": 38,
+    "populationRank": 113
+  },
+  {
+    "slug": "phuc-loc",
+    "name": "Phúc Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 70.5,
+    "population": 28236,
+    "density": 400.51,
+    "oldUnits": [
+      "xã Nghi Công Bắc",
+      "xã Nghi Công Nam",
+      "xã Nghi Lâm",
+      "xã Nghi Mỹ"
+    ],
+    "lat": 18.802037,
+    "lng": 105.538583,
+    "areaRank": 76,
+    "populationRank": 56
+  },
+  {
+    "slug": "quan-thanh",
+    "name": "Quan Thành",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 37.71,
+    "population": 29973,
+    "density": 794.83,
+    "oldUnits": [
+      "xã Bắc Thành",
+      "xã Nam Thành",
+      "xã Trung Thành",
+      "xã Xuân Thành"
+    ],
+    "lat": 18.979362,
+    "lng": 105.433033,
+    "areaRank": 112,
+    "populationRank": 50
+  },
+  {
+    "slug": "quang-dong",
+    "name": "Quang Đồng",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 75.61,
+    "population": 22364,
+    "density": 295.78,
+    "oldUnits": [
+      "xã Đồng Thành",
+      "xã Kim Thành",
+      "xã Quang Thành"
+    ],
+    "lat": 19.040297,
+    "lng": 105.394714,
+    "areaRank": 72,
+    "populationRank": 78
+  },
+  {
+    "slug": "quang-chau",
+    "name": "Quảng Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 26.4,
+    "population": 37434,
+    "density": 1417.95,
+    "oldUnits": [
+      "xã Diễn Đồng",
+      "xã Diễn Liên",
+      "xã Diễn Thái",
+      "xã Xuân Tháp"
+    ],
+    "lat": 19.014861,
+    "lng": 105.540365,
+    "areaRank": 125,
+    "populationRank": 35
+  },
+  {
+    "slug": "que-phong",
+    "name": "Quế Phong",
+    "type": "Xã",
+    "district": "Huyện Quế Phong",
+    "areaKm2": 276.57,
+    "population": 22834,
+    "density": 82.56,
+    "oldUnits": [
+      "thị trấn Kim Sơn",
+      "xã Châu Kim",
+      "xã Mường Nọc",
+      "xã Nậm Giải"
+    ],
+    "lat": 19.621592,
+    "lng": 104.862245,
+    "areaRank": 15,
+    "populationRank": 75
+  },
+  {
+    "slug": "quy-chau",
+    "name": "Quỳ Châu",
+    "type": "Xã",
+    "district": "Huyện Quỳ Châu",
+    "areaKm2": 327.53,
+    "population": 23094,
+    "density": 70.51,
+    "oldUnits": [
+      "thị trấn Tân Lạc",
+      "xã Châu Hạnh",
+      "xã Châu Hội",
+      "xã Châu Nga"
+    ],
+    "lat": 19.564291,
+    "lng": 105.188882,
+    "areaRank": 10,
+    "populationRank": 73
+  },
+  {
+    "slug": "quy-hop",
+    "name": "Quỳ Hợp",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 90.07,
+    "population": 36929,
+    "density": 410,
+    "oldUnits": [
+      "thị trấn Quỳ Hợp",
+      "xã Châu Đình",
+      "xã Châu Quang",
+      "xã Thọ Hợp"
+    ],
+    "lat": 19.313158,
+    "lng": 105.182609,
+    "areaRank": 61,
+    "populationRank": 37
+  },
+  {
+    "slug": "quynh-anh",
+    "name": "Quỳnh Anh",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 39.8,
+    "population": 60329,
+    "density": 1515.8,
+    "oldUnits": [
+      "xã Minh Lương",
+      "xã Quỳnh Bảng",
+      "xã Quỳnh Đôi",
+      "xã Quỳnh Thanh",
+      "xã Quỳnh Yên"
+    ],
+    "lat": 19.158345,
+    "lng": 105.698626,
+    "areaRank": 106,
+    "populationRank": 11
+  },
+  {
+    "slug": "quynh-luu",
+    "name": "Quỳnh Lưu",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 40.55,
+    "population": 73584,
+    "density": 1814.65,
+    "oldUnits": [
+      "thị trấn Cầu Giát",
+      "xã Bình Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Diễn",
+      "xã Quỳnh Giang",
+      "xã Quỳnh Hậu"
+    ],
+    "lat": 19.130455,
+    "lng": 105.631982,
+    "areaRank": 104,
+    "populationRank": 4
+  },
+  {
+    "slug": "quynh-phu",
+    "name": "Quỳnh Phú",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 33.48,
+    "population": 72062,
+    "density": 2152.39,
+    "oldUnits": [
+      "xã An Hòa",
+      "xã Phú Nghĩa",
+      "xã Thuận Long",
+      "xã Văn Hải"
+    ],
+    "lat": 19.105351,
+    "lng": 105.688623,
+    "areaRank": 117,
+    "populationRank": 5
+  },
+  {
+    "slug": "quynh-son",
+    "name": "Quỳnh Sơn",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 61.21,
+    "population": 36834,
+    "density": 601.76,
+    "oldUnits": [
+      "xã Ngọc Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Lâm",
+      "xã Quỳnh Sơn"
+    ],
+    "lat": 19.167974,
+    "lng": 105.595688,
+    "areaRank": 85,
+    "populationRank": 38
+  },
+  {
+    "slug": "quynh-tam",
+    "name": "Quỳnh Tam",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 103.4,
+    "population": 35568,
+    "density": 343.98,
+    "oldUnits": [
+      "xã Tân Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Châu",
+      "xã Quỳnh Tam"
+    ],
+    "lat": 19.198966,
+    "lng": 105.513324,
+    "areaRank": 54,
+    "populationRank": 41
+  },
+  {
+    "slug": "quynh-thang",
+    "name": "Quỳnh Thắng",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 107.99,
+    "population": 15313,
+    "density": 141.8,
+    "oldUnits": [
+      "xã Tân Thắng",
+      "xã Quỳnh Thắng"
+    ],
+    "lat": 19.320002,
+    "lng": 105.592099,
+    "areaRank": 52,
+    "populationRank": 93
+  },
+  {
+    "slug": "quynh-van",
+    "name": "Quỳnh Văn",
+    "type": "Xã",
+    "district": "Huyện Quỳnh Lưu",
+    "areaKm2": 53.35,
+    "population": 42927,
+    "density": 804.63,
+    "oldUnits": [
+      "xã Quỳnh Tân",
+      "xã Quỳnh Thạch",
+      "xã Quỳnh Văn"
+    ],
+    "lat": 19.223742,
+    "lng": 105.649498,
+    "areaRank": 93,
+    "populationRank": 27
+  },
+  {
+    "slug": "son-lam",
+    "name": "Sơn Lâm",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 162.94,
+    "population": 12331,
+    "density": 75.68,
+    "oldUnits": [
+      "xã Ngọc Lâm",
+      "xã Thanh Sơn"
+    ],
+    "lat": 18.735342,
+    "lng": 105.154588,
+    "areaRank": 32,
+    "populationRank": 103
+  },
+  {
+    "slug": "tam-hop",
+    "name": "Tam Hợp",
+    "type": "Xã",
+    "district": "Huyện Quỳ Hợp",
+    "areaKm2": 135.97,
+    "population": 42628,
+    "density": 313.51,
+    "oldUnits": [
+      "xã Tam Hợp (huyện Quỳ Hợp)",
+      "xã Đồng Hợp",
+      "xã Nghĩa Xuân",
+      "xã Yên Hợp"
+    ],
+    "lat": 19.401512,
+    "lng": 105.293013,
+    "areaRank": 42,
+    "populationRank": 28
+  },
+  {
+    "slug": "tam-quang",
+    "name": "Tam Quang",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 507.95,
+    "population": 13013,
+    "density": 25.62,
+    "oldUnits": [
+      "xã Tam Đình",
+      "xã Tam Quang"
+    ],
+    "lat": 19.121285,
+    "lng": 104.576481,
+    "areaRank": 4,
+    "populationRank": 100
+  },
+  {
+    "slug": "tam-thai",
+    "name": "Tam Thái",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 356.01,
+    "population": 7730,
+    "density": 21.71,
+    "oldUnits": [
+      "xã Tam Hợp (huyện Tương Dương)",
+      "xã Tam Thái"
+    ],
+    "lat": 19.167743,
+    "lng": 104.468991,
+    "areaRank": 5,
+    "populationRank": 117
+  },
+  {
+    "slug": "tam-dong",
+    "name": "Tam Đồng",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 53.38,
+    "population": 26382,
+    "density": 494.23,
+    "oldUnits": [
+      "xã Thanh Liên",
+      "xã Thanh Mỹ",
+      "xã Thanh Tiên"
+    ],
+    "lat": 18.808559,
+    "lng": 105.238932,
+    "areaRank": 92,
+    "populationRank": 61
+  },
+  {
+    "slug": "thien-nhan",
+    "name": "Thiên Nhẫn",
+    "type": "Xã",
+    "district": "Huyện Nam Đàn",
+    "areaKm2": 70.81,
+    "population": 40885,
+    "density": 577.39,
+    "oldUnits": [
+      "xã Khánh Sơn",
+      "xã Nam Kim",
+      "xã Trung Phúc Cường"
+    ],
+    "lat": 18.589888,
+    "lng": 105.542889,
+    "areaRank": 75,
+    "populationRank": 30
+  },
+  {
+    "slug": "thuan-trung",
+    "name": "Thuần Trung",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 49.26,
+    "population": 40317,
+    "density": 818.45,
+    "oldUnits": [
+      "xã Minh Sơn (huyện Đô Lương)",
+      "xã Lạc Sơn",
+      "xã Nhân Sơn",
+      "xã Thuận Sơn",
+      "xã Trung Sơn",
+      "xã Xuân Sơn"
+    ],
+    "lat": 18.850735,
+    "lng": 105.358364,
+    "areaRank": 96,
+    "populationRank": 32
+  },
+  {
+    "slug": "thanh-binh-tho",
+    "name": "Thành Bình Thọ",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 88.18,
+    "population": 12021,
+    "density": 136.32,
+    "oldUnits": [
+      "xã Bình Sơn (huyện Anh Sơn)",
+      "xã Thành Sơn",
+      "xã Thọ Sơn"
+    ],
+    "lat": 19.079679,
+    "lng": 105.037394,
+    "areaRank": 63,
+    "populationRank": 105
+  },
+  {
+    "slug": "thong-thu",
+    "name": "Thông Thụ",
+    "type": "Xã",
+    "district": "Huyện Quế Phong",
+    "areaKm2": 706.75,
+    "population": 8481,
+    "density": 12,
+    "oldUnits": [
+      "xã Đồng Văn (huyện Quế Phong)",
+      "xã Thông Thụ"
+    ],
+    "lat": 19.858643,
+    "lng": 104.995486,
+    "areaRank": 1,
+    "populationRank": 114
+  },
+  {
+    "slug": "than-linh",
+    "name": "Thần Lĩnh",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 44.69,
+    "population": 21718,
+    "density": 485.97,
+    "oldUnits": [
+      "xã Nghi Đồng",
+      "xã Nghi Hưng",
+      "xã Nghi Phương"
+    ],
+    "lat": 18.82443,
+    "lng": 105.602516,
+    "areaRank": 101,
+    "populationRank": 81
+  },
+  {
+    "slug": "tien-dong",
+    "name": "Tiên Đồng",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 119.62,
+    "population": 19663,
+    "density": 164.38,
+    "oldUnits": [
+      "xã Đồng Văn (huyện Tân Kỳ)",
+      "xã Tiên Kỳ"
+    ],
+    "lat": 19.11832,
+    "lng": 105.110871,
+    "areaRank": 47,
+    "populationRank": 86
+  },
+  {
+    "slug": "tien-phong",
+    "name": "Tiền Phong",
+    "type": "Xã",
+    "district": "Huyện Quế Phong",
+    "areaKm2": 319.02,
+    "population": 14494,
+    "density": 45.43,
+    "oldUnits": [
+      "xã Hạnh Dịch",
+      "xã Tiền Phong"
+    ],
+    "lat": 19.704373,
+    "lng": 104.938625,
+    "areaRank": 11,
+    "populationRank": 94
+  },
+  {
+    "slug": "tri-le",
+    "name": "Tri Lễ",
+    "type": "Xã",
+    "district": "Huyện Quế Phong",
+    "areaKm2": 243.95,
+    "population": 14432,
+    "density": 59.16,
+    "oldUnits": [
+      "xã Nậm Nhoóng",
+      "xã Tri Lễ"
+    ],
+    "lat": 19.601136,
+    "lng": 104.719873,
+    "areaRank": 19,
+    "populationRank": 95
+  },
+  {
+    "slug": "trung-loc",
+    "name": "Trung Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 31.35,
+    "population": 31182,
+    "density": 994.64,
+    "oldUnits": [
+      "xã Nghi Long",
+      "xã Nghi Quang",
+      "xã Nghi Thuận",
+      "xã Nghi Xá"
+    ],
+    "lat": 18.821133,
+    "lng": 105.654883,
+    "areaRank": 119,
+    "populationRank": 49
+  },
+  {
+    "slug": "tan-an",
+    "name": "Tân An",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 90.41,
+    "population": 22775,
+    "density": 251.91,
+    "oldUnits": [
+      "xã Hương Sơn",
+      "xã Nghĩa Phúc",
+      "xã Tân An"
+    ],
+    "lat": 19.072267,
+    "lng": 105.170934,
+    "areaRank": 59,
+    "populationRank": 76
+  },
+  {
+    "slug": "tan-chau",
+    "name": "Tân Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 64.6,
+    "population": 33073,
+    "density": 511.97,
+    "oldUnits": [
+      "xã Diễn Lộc",
+      "xã Diễn Lợi",
+      "xã Diễn Phú",
+      "xã Diễn Thọ"
+    ],
+    "lat": 18.909312,
+    "lng": 105.569462,
+    "areaRank": 81,
+    "populationRank": 44
+  },
+  {
+    "slug": "tan-ky",
+    "name": "Tân Kỳ",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 116.5,
+    "population": 32974,
+    "density": 283.04,
+    "oldUnits": [
+      "thị trấn Tân Kỳ",
+      "xã Nghĩa Dũng",
+      "xã Kỳ Tân",
+      "xã Kỳ Sơn"
+    ],
+    "lat": 19.066162,
+    "lng": 105.29042,
+    "areaRank": 48,
+    "populationRank": 45
+  },
+  {
+    "slug": "tan-phu",
+    "name": "Tân Phú",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 93.32,
+    "population": 28878,
+    "density": 309.45,
+    "oldUnits": [
+      "xã Nghĩa Thái (huyện Tân Kỳ)",
+      "xã Hoàn Long",
+      "xã Tân Xuân",
+      "xã Tân Phú"
+    ],
+    "lat": 19.165647,
+    "lng": 105.303574,
+    "areaRank": 56,
+    "populationRank": 53
+  },
+  {
+    "slug": "tuong-duong",
+    "name": "Tương Dương",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 330.95,
+    "population": 18479,
+    "density": 55.84,
+    "oldUnits": [
+      "thị trấn Thạch Giám",
+      "xã Lưu Kiền",
+      "xã Xá Lượng"
+    ],
+    "lat": 19.238987,
+    "lng": 104.384222,
+    "areaRank": 9,
+    "populationRank": 88
+  },
+  {
+    "slug": "van-du",
+    "name": "Vân Du",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 84.3,
+    "population": 25868,
+    "density": 306.86,
+    "oldUnits": [
+      "xã Minh Thành",
+      "xã Tây Thành",
+      "xã Thịnh Thành"
+    ],
+    "lat": 19.000602,
+    "lng": 105.344432,
+    "areaRank": 66,
+    "populationRank": 64
+  },
+  {
+    "slug": "van-tu",
+    "name": "Vân Tụ",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 48.73,
+    "population": 43922,
+    "density": 901.33,
+    "oldUnits": [
+      "xã Liên Thành",
+      "xã Mỹ Thành",
+      "xã Vân Tụ"
+    ],
+    "lat": 18.934034,
+    "lng": 105.422876,
+    "areaRank": 97,
+    "populationRank": 24
+  },
+  {
+    "slug": "van-hien",
+    "name": "Văn Hiến",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 55.53,
+    "population": 39144,
+    "density": 704.92,
+    "oldUnits": [
+      "xã Tân Sơn (huyện Đô Lương)",
+      "xã Hòa Sơn",
+      "xã Quang Sơn",
+      "xã Thái Sơn",
+      "xã Thượng Sơn"
+    ],
+    "lat": 18.873178,
+    "lng": 105.392531,
+    "areaRank": 90,
+    "populationRank": 34
+  },
+  {
+    "slug": "van-kieu",
+    "name": "Văn Kiều",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 63.46,
+    "population": 28341,
+    "density": 446.6,
+    "oldUnits": [
+      "xã Nghi Kiều",
+      "xã Nghi Văn"
+    ],
+    "lat": 18.82602,
+    "lng": 105.499288,
+    "areaRank": 83,
+    "populationRank": 55
+  },
+  {
+    "slug": "vinh-tuong",
+    "name": "Vĩnh Tường",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 76.44,
+    "population": 24810,
+    "density": 324.57,
+    "oldUnits": [
+      "xã Hoa Sơn",
+      "xã Hội Sơn",
+      "xã Tường Sơn"
+    ],
+    "lat": 18.933036,
+    "lng": 105.014678,
+    "areaRank": 71,
+    "populationRank": 68
+  },
+  {
+    "slug": "van-an",
+    "name": "Vạn An",
+    "type": "Xã",
+    "district": "Huyện Nam Đàn",
+    "areaKm2": 56.37,
+    "population": 44830,
+    "density": 795.28,
+    "oldUnits": [
+      "thị trấn Nam Đàn",
+      "xã Thượng Tân Lộc",
+      "xã Xuân Hòa"
+    ],
+    "lat": 18.69466,
+    "lng": 105.502931,
+    "areaRank": 89,
+    "populationRank": 21
+  },
+  {
+    "slug": "xuan-lam",
+    "name": "Xuân Lâm",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 60.88,
+    "population": 40624,
+    "density": 667.28,
+    "oldUnits": [
+      "xã Ngọc Sơn (huyện Thanh Chương)",
+      "xã Minh Tiến",
+      "xã Xuân Dương"
+    ],
+    "lat": 18.745757,
+    "lng": 105.406965,
+    "areaRank": 87,
+    "populationRank": 31
+  },
+  {
+    "slug": "yen-hoa",
+    "name": "Yên Hòa",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 211.01,
+    "population": 8418,
+    "density": 39.89,
+    "oldUnits": [
+      "xã Yên Thắng",
+      "xã Yên Hòa"
+    ],
+    "lat": 19.284596,
+    "lng": 104.6856,
+    "areaRank": 23,
+    "populationRank": 116
+  },
+  {
+    "slug": "yen-na",
+    "name": "Yên Na",
+    "type": "Xã",
+    "district": "Huyện Tương Dương",
+    "areaKm2": 297.32,
+    "population": 9530,
+    "density": 32.05,
+    "oldUnits": [
+      "xã Yên Tĩnh",
+      "xã Yên Na"
+    ],
+    "lat": 19.374242,
+    "lng": 104.644224,
+    "areaRank": 14,
+    "populationRank": 112
+  },
+  {
+    "slug": "yen-thanh",
+    "name": "Yên Thành",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 38.13,
+    "population": 47780,
+    "density": 1253.08,
+    "oldUnits": [
+      "thị trấn Hoa Thành",
+      "xã Đông Thành",
+      "xã Tăng Thành",
+      "xã Văn Thành"
+    ],
+    "lat": 19.0017,
+    "lng": 105.486205,
+    "areaRank": 110,
+    "populationRank": 17
+  },
+  {
+    "slug": "yen-trung",
+    "name": "Yên Trung",
+    "type": "Xã",
+    "district": "Huyện Hưng Nguyên",
+    "areaKm2": 37.74,
+    "population": 26239,
+    "density": 695.26,
+    "oldUnits": [
+      "xã Hưng Yên Bắc",
+      "xã Hưng Yên Nam",
+      "xã Hưng Trung"
+    ],
+    "lat": 18.761207,
+    "lng": 105.590561,
+    "areaRank": 111,
+    "populationRank": 62
+  },
+  {
+    "slug": "yen-xuan",
+    "name": "Yên Xuân",
+    "type": "Xã",
+    "district": "Huyện Anh Sơn",
+    "areaKm2": 90.41,
+    "population": 27707,
+    "density": 306.46,
+    "oldUnits": [
+      "xã Cao Sơn",
+      "xã Khai Sơn",
+      "xã Lĩnh Sơn",
+      "xã Long Sơn"
+    ],
+    "lat": 18.888332,
+    "lng": 105.166242,
+    "areaRank": 60,
+    "populationRank": 58
+  },
+  {
+    "slug": "do-luong",
+    "name": "Đô Lương",
+    "type": "Xã",
+    "district": "Huyện Đô Lương",
+    "areaKm2": 50.06,
+    "population": 61960,
+    "density": 1237.71,
+    "oldUnits": [
+      "xã Bắc Sơn",
+      "xã Nam Sơn (huyện Đô Lương)",
+      "xã Đà Sơn",
+      "xã Đặng Sơn",
+      "xã Lưu Sơn",
+      "xã Thịnh Sơn",
+      "xã Văn Sơn",
+      "xã Yên Sơn",
+      "thị trấn Đô Lương"
+    ],
+    "lat": 18.894948,
+    "lng": 105.302107,
+    "areaRank": 95,
+    "populationRank": 10
+  },
+  {
+    "slug": "dong-hieu",
+    "name": "Đông Hiếu",
+    "type": "Xã",
+    "district": "Huyện Tân Kỳ",
+    "areaKm2": 63.87,
+    "population": 28634,
+    "density": 448.32,
+    "oldUnits": [
+      "xã Nghĩa Mỹ",
+      "xã Nghĩa Thuận",
+      "xã Đông Hiếu"
+    ],
+    "lat": 19.268068,
+    "lng": 105.479672,
+    "areaRank": 82,
+    "populationRank": 54
+  },
+  {
+    "slug": "dong-loc",
+    "name": "Đông Lộc",
+    "type": "Xã",
+    "district": "Huyện Nghi Lộc",
+    "areaKm2": 29.32,
+    "population": 31219,
+    "density": 1064.77,
+    "oldUnits": [
+      "xã Khánh Hợp",
+      "xã Nghi Thạch",
+      "xã Thịnh Trường"
+    ],
+    "lat": 18.788385,
+    "lng": 105.692272,
+    "areaRank": 121,
+    "populationRank": 48
+  },
+  {
+    "slug": "dong-thanh",
+    "name": "Đông Thành",
+    "type": "Xã",
+    "district": "Huyện Yên Thành",
+    "areaKm2": 30.2,
+    "population": 46116,
+    "density": 1527.02,
+    "oldUnits": [
+      "xã Đô Thành",
+      "xã Phú Thành",
+      "xã Thọ Thành"
+    ],
+    "lat": 19.047823,
+    "lng": 105.538309,
+    "areaRank": 120,
+    "populationRank": 19
+  },
+  {
+    "slug": "dai-hue",
+    "name": "Đại Huệ",
+    "type": "Xã",
+    "district": "Huyện Nam Đàn",
+    "areaKm2": 36.11,
+    "population": 24441,
+    "density": 676.85,
+    "oldUnits": [
+      "xã Nam Anh",
+      "xã Nam Lĩnh",
+      "xã Nam Xuân"
+    ],
+    "lat": 18.721762,
+    "lng": 105.545452,
+    "areaRank": 113,
+    "populationRank": 71
+  },
+  {
+    "slug": "dai-dong",
+    "name": "Đại Đồng",
+    "type": "Xã",
+    "district": "Huyện Thanh Chương",
+    "areaKm2": 77.87,
+    "population": 63131,
+    "density": 810.72,
+    "oldUnits": [
+      "thị trấn Dùng",
+      "xã Đồng Văn (huyện Thanh Chương)",
+      "xã Thanh Ngọc",
+      "xã Thanh Phong",
+      "xã Đại Đồng"
+    ],
+    "lat": 18.799723,
+    "lng": 105.351604,
+    "areaRank": 69,
+    "populationRank": 9
+  },
+  {
+    "slug": "duc-chau",
+    "name": "Đức Châu",
+    "type": "Xã",
+    "district": "Huyện Diễn Châu",
+    "areaKm2": 20.97,
+    "population": 40899,
+    "density": 1950.36,
+    "oldUnits": [
+      "xã Diễn Hồng",
+      "xã Diễn Kỷ",
+      "xã Diễn Phong",
+      "xã Diễn Vạn"
+    ],
+    "lat": 19.038536,
+    "lng": 105.591687,
+    "areaRank": 129,
+    "populationRank": 29
+  }
+]

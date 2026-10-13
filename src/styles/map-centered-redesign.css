@@ -13,25 +13,95 @@
 
 body{
   background:
-    radial-gradient(circle at 12% 0%, rgba(20,184,166,.22), transparent 30%),
-    linear-gradient(180deg,#022622 0%,#031715 640px,#f4fffb 641px,#ffffff 100%) !important;
+    radial-gradient(circle at 50% 0%, rgba(220,38,38,.18), transparent 42%),
+    linear-gradient(180deg,#420808 0%,#1f0404 560px,#f8fafc 561px,#ffffff 100%) !important;
 }
 
 .site-header{
-  background:rgba(4,28,26,.92) !important;
-  border-color:rgba(255,255,255,.12) !important;
-  box-shadow:0 18px 44px rgba(0,0,0,.22) !important;
+  background:rgba(42,6,6,.96) !important;
+  border:1px solid rgba(245,158,11,.32) !important;
+  box-shadow:0 16px 44px rgba(0,0,0,.35) !important;
 }
-.brand strong{color:#f4fffb !important}
-.brand mark{color:#ffd733 !important}
-.menu-btn{background:rgba(255,255,255,.06) !important;color:#f4fffb !important;border-color:rgba(255,255,255,.16) !important;box-shadow:none !important}
-.mobile-menu{background:#042421 !important;border-color:rgba(255,255,255,.14) !important}
-.mobile-menu a{color:#effffb !important}
-.mobile-menu a:hover{background:rgba(20,184,166,.14) !important}
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  text-decoration:none !important;
+}
+.brand-logo-combo{
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  flex-shrink:0 !important;
+}
+.brand-nata-logo{
+  height:36px !important;
+  width:auto !important;
+}
+.brand-text-block{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+}
+.brand-main-name{
+  color:#ffffff !important;
+  font-size:16.5px !important;
+  font-weight:900 !important;
+  letter-spacing:-.01em !important;
+  line-height:1.2 !important;
+}
+.brand-slogan-sub{
+  color:#fde047 !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.04em !important;
+  text-transform:uppercase !important;
+  line-height:1.2 !important;
+}
+.menu-btn{background:rgba(255,255,255,.08) !important;color:#fde047 !important;border-color:rgba(245,158,11,.3) !important;box-shadow:none !important}
+.mobile-menu{background:#2a0606 !important;border-color:rgba(245,158,11,.28) !important}
+.mobile-menu a{color:#fef08a !important}
+.mobile-menu a:hover{background:rgba(245,158,11,.15) !important}
 
-.home-shell{padding-top:18px !important}
-/* === HERO UNIFIED GRAND CARD WITH NGHE AN 3D MAP BACKGROUND === */
-.hero-unified-card {
+.home-shell{padding-top:16px !important}
+
+/* === QUỐC KỲ & HOA SEN & HOA VĂN TRỐNG ĐỒNG === */
+.vn-flag-wrapper{
+  display:inline-flex !important;
+  align-items:center !important;
+  border-radius:4px !important;
+  overflow:hidden !important;
+  box-shadow:0 0 12px rgba(245,158,11,.5) !important;
+  border:1px solid rgba(254,240,138,.5) !important;
+  flex-shrink:0 !important;
+}
+.flag-flutter{
+  animation:flag-wave 3.5s ease-in-out infinite !important;
+}
+@keyframes flag-wave{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-1.5px) scale(1.02)}
+}
+
+.dong-son-watermark{
+  position:absolute !important;
+  top:-50px !important;
+  right:-50px !important;
+  width:380px !important;
+  height:380px !important;
+  color:#f59e0b !important;
+  opacity:.12 !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+  animation:dongson-rotate 160s linear infinite !important;
+}
+@keyframes dongson-rotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* === HERO UNIFIED GRAND CARD - PHONG CÁCH HÀNH CHÍNH QUỐC GIA (ĐỎ - VÀNG - BẠC) === */
+.hero-unified-card.civic-hero-card {
   position: relative !important;
   overflow: hidden !important;
   isolation: isolate !important;
@@ -39,38 +109,62 @@ body{
   padding: 24px 20px 22px !important;
   margin: 6px 0 16px !important;
   background:
-    radial-gradient(circle at 50% 38%, rgba(6, 44, 38, 0.42), rgba(2, 22, 19, 0.88) 82%),
+    radial-gradient(circle at 50% 36%, rgba(185, 28, 28, 0.48), rgba(42, 6, 6, 0.95) 82%),
     url('/assets/nghe-an-map-3d-bg.webp') center 36% / 96% auto no-repeat,
-    linear-gradient(180deg, #02201c 0%, #031513 100%) !important;
-  border: 1px solid rgba(45, 212, 191, 0.28) !important;
+    linear-gradient(180deg, #7f1d1d 0%, #350606 100%) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.38) !important;
   box-shadow: 
-    0 24px 56px rgba(0, 0, 0, 0.38),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(254, 240, 138, 0.18),
+    0 0 35px rgba(220, 38, 38, 0.32) !important;
   text-align: center !important;
 }
 
-.hero-unified-card::before {
+.civic-hero-card::before {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
   z-index: -2 !important;
   background:
-    radial-gradient(circle at 50% 40%, rgba(20, 184, 166, 0.16), transparent 60%),
+    radial-gradient(circle at 50% 40%, rgba(245, 158, 11, 0.12), transparent 62%),
     url('/assets/nghe-an-map-3d-bg.webp') center 36% / 96% auto no-repeat !important;
-  opacity: 0.88 !important;
-  filter: saturate(1.25) contrast(1.15) brightness(1.1) !important;
+  opacity: 0.82 !important;
+  filter: saturate(1.22) contrast(1.15) brightness(1.05) !important;
   transform: scale(1.01) !important;
 }
 
-.hero-unified-card::after {
+.civic-hero-card::after {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
   z-index: -1 !important;
   background:
-    radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.58) 75%),
-    linear-gradient(180deg, rgba(2, 22, 19, 0.3), rgba(1, 16, 14, 0.65)) !important;
+    radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65) 75%),
+    linear-gradient(180deg, rgba(66, 8, 8, 0.28), rgba(28, 4, 4, 0.72)) !important;
+}
+
+/* PHÙ HIỆU QUỐC GIA */
+.civic-national-badge{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:5px 14px !important;
+  border-radius:999px !important;
+  background:rgba(42,6,6,.88) !important;
+  border:1px solid rgba(245,158,11,.4) !important;
+  box-shadow:0 0 16px rgba(245,158,11,.25) !important;
+  margin:0 auto 12px !important;
+  backdrop-filter:blur(8px) !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+.badge-nation-text{
+  color:#fef08a !important;
+  font-size:11.5px !important;
+  font-weight:850 !important;
+  letter-spacing:.04em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 1px 4px rgba(0,0,0,.9) !important;
 }
 
 /* === 3 NÚT TRÊN 1 HÀNG NGANG - HIỆU ỨNG PHÁT SÁNG MẠNH === */
@@ -80,7 +174,7 @@ body{
   gap: 8px !important;
   width: 100% !important;
   max-width: 580px !important;
-  margin: 0 auto 16px !important;
+  margin: 0 auto 14px !important;
   position: relative !important;
   z-index: 2 !important;
 }
@@ -101,20 +195,13 @@ body{
 
 /* PHÁT SÁNG XANH LÁ (ONLINE) */
 .visitor-chip.glow-green {
-  background: rgba(3, 38, 30, 0.88) !important;
+  background: rgba(3, 38, 26, 0.9) !important;
   border: 1.5px solid #10b981 !important;
   color: #a7f3d0 !important;
   box-shadow: 
     0 0 16px rgba(16, 185, 129, 0.65),
     0 0 32px rgba(16, 185, 129, 0.25),
     inset 0 0 8px rgba(16, 185, 129, 0.35) !important;
-}
-.visitor-chip.glow-green:hover {
-  box-shadow: 
-    0 0 22px rgba(16, 185, 129, 0.85),
-    0 0 40px rgba(16, 185, 129, 0.4),
-    inset 0 0 10px rgba(16, 185, 129, 0.5) !important;
-  transform: translateY(-1px) !important;
 }
 .visitor-chip.glow-green .pulse-dot {
   width: 8px !important;
@@ -128,7 +215,7 @@ body{
 
 /* PHÁT SÁNG VÀNG CAM (HÔM NAY) */
 .visitor-chip.glow-amber {
-  background: rgba(38, 24, 3, 0.88) !important;
+  background: rgba(46, 26, 4, 0.9) !important;
   border: 1.5px solid #f59e0b !important;
   color: #fde68a !important;
   box-shadow: 
@@ -136,30 +223,16 @@ body{
     0 0 32px rgba(245, 158, 11, 0.25),
     inset 0 0 8px rgba(245, 158, 11, 0.35) !important;
 }
-.visitor-chip.glow-amber:hover {
-  box-shadow: 
-    0 0 22px rgba(245, 158, 11, 0.85),
-    0 0 40px rgba(245, 158, 11, 0.4),
-    inset 0 0 10px rgba(245, 158, 11, 0.5) !important;
-  transform: translateY(-1px) !important;
-}
 
-/* PHÁT SÁNG XANH DƯƠNG / CYAN (TỔNG LƯỢT XEM > 1 TRIỆU) */
+/* PHÁT SÁNG XANH CYAN / ÁNH KIM (TỔNG LƯỢT XEM > 1.2 TRIỆU) */
 .visitor-chip.glow-cyan {
-  background: rgba(4, 32, 46, 0.88) !important;
+  background: rgba(4, 30, 48, 0.9) !important;
   border: 1.5px solid #06b6d4 !important;
   color: #bae6fd !important;
   box-shadow: 
     0 0 18px rgba(6, 182, 212, 0.72),
     0 0 34px rgba(6, 182, 212, 0.28),
     inset 0 0 8px rgba(6, 182, 212, 0.35) !important;
-}
-.visitor-chip.glow-cyan:hover {
-  box-shadow: 
-    0 0 24px rgba(6, 182, 212, 0.9),
-    0 0 42px rgba(6, 182, 212, 0.45),
-    inset 0 0 10px rgba(6, 182, 212, 0.5) !important;
-  transform: translateY(-1px) !important;
 }
 
 .visitor-row-single .chip-text {
@@ -178,64 +251,71 @@ body{
   opacity: 0.92 !important;
 }
 
-/* === TIÊU ĐỀ NỔI BẬT, CHỮ RÕ NÉT TRÊN NỀN BẢN ĐỒ === */
+/* === TIÊU ĐỀ MỚI "TÌM XÃ PHƯỜNG NGHỆ AN" & SLOGAN === */
 .hero-text-content {
   position: relative !important;
   z-index: 2 !important;
-  margin: 6px 0 16px !important;
+  margin: 6px 0 14px !important;
 }
 
-.hero-unified-card .home-main-title {
-  margin: 0 auto 10px !important;
-  max-width: 100% !important;
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 4px !important;
+.civic-title-wrap{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  margin-bottom:6px !important;
 }
 
-.hero-unified-card .home-main-title span {
-  display: block !important;
-  text-align: center !important;
-  color: #ffffff !important;
-  font-size: clamp(23px, 4.4vw, 36px) !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.025em !important;
-  line-height: 1.18 !important;
-  text-shadow: 
-    0 2px 6px rgba(0, 0, 0, 0.95),
-    0 4px 16px rgba(0, 0, 0, 0.85),
-    0 0 24px rgba(0, 0, 0, 0.8) !important;
+.civic-main-title{
+  margin:0 !important;
+  font-size:clamp(26px,5.2vw,44px) !important;
+  font-weight:950 !important;
+  letter-spacing:-.02em !important;
+  line-height:1.15 !important;
 }
 
-.hero-unified-card .home-main-title mark {
-  color: #ffd43b !important;
-  background: transparent !important;
-  font-weight: 950 !important;
-  text-shadow: 
-    0 2px 6px rgba(0, 0, 0, 0.95),
-    0 0 20px rgba(255, 212, 59, 0.65),
-    0 4px 18px rgba(0, 0, 0, 0.85) !important;
+.title-glow{
+  background:linear-gradient(135deg,#ffffff 0%,#fef08a 40%,#f59e0b 100%) !important;
+  -webkit-background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,.92)) !important;
 }
 
-.hero-unified-card .hero-desc {
-  max-width: 680px !important;
-  margin: 0 auto !important;
-  text-align: center !important;
-  color: #f1fbf8 !important;
-  font-size: 14.5px !important;
-  line-height: 1.6 !important;
-  text-shadow: 
-    0 2px 5px rgba(0, 0, 0, 0.92),
-    0 0 16px rgba(0, 0, 0, 0.75) !important;
+.civic-slogan-box{
+  display:inline-block !important;
+  padding:5px 16px !important;
+  border-radius:999px !important;
+  background:rgba(245,158,11,.16) !important;
+  border:1px solid rgba(245,158,11,.4) !important;
+  box-shadow:0 0 18px rgba(245,158,11,.25) !important;
+  margin:4px auto 10px !important;
 }
 
-/* === KHUNG TÌM KIẾM NỔI BẬT, TRỰC QUAN - NHÌN VÀO MUỐN NHẬP NGAY === */
-.hero-search-prominent {
+.civic-slogan-text{
+  margin:0 !important;
+  color:#fde68a !important;
+  font-size:13.5px !important;
+  font-weight:900 !important;
+  letter-spacing:.045em !important;
+  text-transform:uppercase !important;
+  text-shadow:0 1px 5px rgba(0,0,0,.9) !important;
+}
+
+.civic-desc{
+  max-width:700px !important;
+  margin:0 auto !important;
+  text-align:center !important;
+  color:#f8fafc !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+  text-shadow:0 1px 6px rgba(0,0,0,.92) !important;
+}
+
+/* === KHUNG TÌM KIẾM TRỰC QUAN NỔI BẬT (ĐỎ - VÀNG - BẠC) === */
+.civic-search-bar {
   position: relative !important;
   z-index: 2 !important;
-  margin: 20px auto 4px !important;
+  margin: 18px auto 4px !important;
   width: 100% !important;
   max-width: 720px !important;
   display: grid !important;
@@ -244,18 +324,20 @@ body{
   padding: 8px !important;
   border-radius: 24px !important;
   background: rgba(255, 255, 255, 0.98) !important;
+  border: 2px solid rgba(245, 158, 11, 0.42) !important;
   box-shadow: 
-    0 14px 36px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.8),
-    0 0 28px rgba(20, 184, 166, 0.42) !important;
+    0 14px 38px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 26px rgba(245, 158, 11, 0.35) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.hero-search-prominent:focus-within {
+.civic-search-bar:focus-within {
+  border-color: #f59e0b !important;
   box-shadow: 
-    0 18px 46px rgba(0, 0, 0, 0.45),
-    0 0 0 2.5px #14b8a6,
-    0 0 36px rgba(20, 184, 166, 0.65) !important;
+    0 18px 48px rgba(0, 0, 0, 0.52),
+    0 0 34px rgba(245, 158, 11, 0.6),
+    0 0 0 2px #d97706 !important;
   transform: translateY(-2px) !important;
 }
 
@@ -268,9 +350,9 @@ body{
 }
 
 .search-icon-glow {
-  color: #087f73 !important;
+  color: #b91c1c !important;
   flex-shrink: 0 !important;
-  filter: drop-shadow(0 2px 4px rgba(8, 127, 115, 0.25)) !important;
+  filter: drop-shadow(0 2px 4px rgba(185, 28, 28, 0.3)) !important;
 }
 
 .search-input-wrapper input {
@@ -289,7 +371,7 @@ body{
   font-weight: 500 !important;
 }
 
-.search-btn-prominent {
+.civic-btn-action {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -297,27 +379,145 @@ body{
   padding: 0 28px !important;
   min-height: 52px !important;
   border-radius: 18px !important;
-  border: none !important;
-  background: linear-gradient(135deg, #0d9488 0%, #059669 100%) !important;
-  color: #ffffff !important;
-  font-size: 16px !important;
-  font-weight: 850 !important;
-  letter-spacing: 0.02em !important;
+  border: 1px solid rgba(254, 240, 138, 0.45) !important;
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%) !important;
+  color: #fef08a !important;
+  font-size: 15.5px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.03em !important;
   cursor: pointer !important;
-  box-shadow: 0 6px 18px rgba(13, 148, 136, 0.45), 0 0 18px rgba(13, 148, 136, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(185, 28, 28, 0.55), 0 0 16px rgba(245, 158, 11, 0.35) !important;
   transition: all 0.25s ease !important;
   white-space: nowrap !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-.search-btn-prominent:hover {
-  background: linear-gradient(135deg, #0f766e 0%, #047857 100%) !important;
+.civic-btn-action:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
   transform: translateY(-1px) scale(1.02) !important;
-  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.6), 0 0 24px rgba(13, 148, 136, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.7), 0 0 24px rgba(245, 158, 11, 0.5) !important;
 }
 
-.search-btn-prominent:active {
+.civic-btn-action:active {
   transform: scale(0.98) !important;
 }
+
+/* HIỆU ỨNG ÁNH KIM SHIMMER */
+.civic-btn-action::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -60% !important;
+  width: 40% !important;
+  height: 200% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent) !important;
+  transform: rotate(25deg) !important;
+  animation: btn-shimmer 3.8s infinite !important;
+}
+@keyframes btn-shimmer {
+  0% { left: -60%; }
+  35%, 100% { left: 140%; }
+}
+
+/* GỢI Ý TÌM KIẾM NHANH */
+.quick-tags-container{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px 10px !important;
+  margin-top:14px !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+.quick-tags-label{
+  color:#fef08a !important;
+  font-size:12.5px !important;
+  font-weight:800 !important;
+  text-shadow:0 1px 4px rgba(0,0,0,.9) !important;
+}
+.quick-tags-list{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  justify-content:center !important;
+}
+.quick-chip-btn{
+  border:1px solid rgba(245,158,11,.38) !important;
+  background:rgba(42,6,6,.75) !important;
+  color:#fef9c3 !important;
+  border-radius:999px !important;
+  padding:4px 11px !important;
+  font-size:12px !important;
+  font-weight:750 !important;
+  cursor:pointer !important;
+  transition:all .2s ease !important;
+  backdrop-filter:blur(6px) !important;
+}
+.quick-chip-btn:hover{
+  background:rgba(185,28,28,.95) !important;
+  border-color:#f59e0b !important;
+  color:#ffffff !important;
+  transform:translateY(-1px) !important;
+  box-shadow:0 0 14px rgba(245,158,11,.45) !important;
+}
+
+/* === NHÃN CHỦ QUYỀN HOÀNG SA & TRƯỜNG SA TRÊN BẢN ĐỒ === */
+.sov-map-pill{
+  display:flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  padding:5px 12px !important;
+  border-radius:999px !important;
+  background:rgba(127,29,29,.94) !important;
+  border:1.5px solid #f59e0b !important;
+  color:#fef08a !important;
+  font-size:12px !important;
+  font-weight:850 !important;
+  box-shadow:0 4px 14px rgba(0,0,0,.45),0 0 14px rgba(245,158,11,.45) !important;
+  white-space:nowrap !important;
+}
+.sov-map-pill.sea-pill{
+  background:rgba(15,23,42,.94) !important;
+  border-color:#38bdf8 !important;
+  color:#e0f2fe !important;
+  font-size:12px !important;
+  letter-spacing:.04em !important;
+}
+.sov-star{font-size:13px !important}
+
+/* === FOOTER HÀNH CHÍNH & THÔNG TIN TÁC GIẢ === */
+.civic-footer{
+  background:linear-gradient(180deg,#2a0606 0%,#150202 100%) !important;
+  border-top:2px solid rgba(245,158,11,.35) !important;
+}
+.footer-flag-logo{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin-bottom:8px !important;
+}
+.footer-flag-logo img{height:36px !important;width:auto !important}
+.footer-site-title{color:#ffffff !important;font-size:18px !important;font-weight:900 !important}
+.footer-slogan{color:#fde047 !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.04em !important;margin:3px 0 10px !important}
+.footer-developer-card{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:8px 12px !important;
+  padding:10px 14px !important;
+  border-radius:12px !important;
+  background:rgba(245,158,11,.14) !important;
+  border:1px solid rgba(245,158,11,.35) !important;
+  margin:10px 0 !important;
+}
+.dev-tag{color:#cbd5e1 !important;font-size:13px !important;display:flex !important;align-items:center !important;gap:4px !important}
+.dev-name{color:#fef08a !important;font-size:14.5px !important;font-weight:850 !important}
+.dev-phone{color:#f8fafc !important;font-size:13px !important;display:flex !important;align-items:center !important;gap:4px !important}
+.dev-phone a{color:#f59e0b !important;font-weight:800 !important;text-decoration:none !important}
+.sovereignty-affirmation{color:#fed7aa !important;font-size:12.5px !important;font-weight:700 !important;margin-top:6px !important}
 
 .footer-visitor-box{
   margin:20px 0 16px;
@@ -409,31 +609,89 @@ body{
 .footer-contact a{text-decoration:none;color:inherit}
 
 @media(max-width:900px){
-  body{background:linear-gradient(180deg,#022622 0%,#031715 520px,#f4fffb 521px,#fff 100%) !important}
-  .container{width:calc(100% - 18px) !important}
-  .hero-unified-card{
-    border-radius:24px !important;
-    padding:20px 16px 20px !important;
-    margin:4px 0 16px !important;
+  body{
     background:
-      radial-gradient(circle at 50% 36%, rgba(6,44,38,.45), rgba(2,22,19,.90) 84%),
+      radial-gradient(circle at 50% 0%, rgba(220,38,38,.2), transparent 42%),
+      linear-gradient(180deg,#420808 0%,#1f0404 460px,#f8fafc 461px,#ffffff 100%) !important;
+  }
+  .container{width:calc(100% - 16px) !important}
+  .hero-unified-card.civic-hero-card{
+    border-radius:22px !important;
+    padding:18px 14px 18px !important;
+    margin:4px 0 14px !important;
+    background:
+      radial-gradient(circle at 50% 36%, rgba(185,28,28,.45), rgba(42,6,6,.96) 82%),
       url('/assets/nghe-an-map-3d-bg.webp') center 34% / contain no-repeat,
-      linear-gradient(180deg,#02201c 0%,#031513 100%) !important;
+      linear-gradient(180deg,#7f1d1d 0%,#350606 100%) !important;
   }
-  .hero-unified-card::before{
+  .civic-hero-card::before{
     background:
-      radial-gradient(circle at 50% 36%, rgba(20,184,166,.18), transparent 60%),
+      radial-gradient(circle at 50% 36%, rgba(245,158,11,.14), transparent 60%),
       url('/assets/nghe-an-map-3d-bg.webp') center 34% / contain no-repeat !important;
-    opacity:0.92 !important;
+    opacity:0.85 !important;
   }
-  .visitor-row-single{gap:6px !important;margin-bottom:14px !important}
-  .visitor-row-single .visitor-chip{padding:7px 5px !important;font-size:12px !important}
-  .hero-unified-card .home-main-title span{font-size:24px !important}
-  .hero-unified-card .hero-desc{font-size:13.5px !important;line-height:1.58 !important}
-  .hero-search-prominent{grid-template-columns:1fr !important;gap:9px !important;padding:8px !important;border-radius:20px !important;margin-top:16px !important}
-  .search-input-wrapper{min-height:50px !important;padding:0 12px !important}
-  .search-input-wrapper input{font-size:16px !important}
-  .search-btn-prominent{width:100% !important;min-height:50px !important;font-size:16px !important;border-radius:16px !important}
+  .dong-son-watermark{
+    width:260px !important;
+    height:260px !important;
+    top:-30px !important;
+    right:-30px !important;
+    opacity:0.09 !important;
+  }
+  .civic-national-badge{
+    padding:4px 10px !important;
+    gap:6px !important;
+    margin-bottom:10px !important;
+  }
+  .badge-nation-text{
+    font-size:10px !important;
+  }
+  .civic-main-title{
+    font-size:24px !important;
+  }
+  .civic-slogan-box{
+    padding:4px 12px !important;
+    margin:3px auto 8px !important;
+  }
+  .civic-slogan-text{
+    font-size:11.5px !important;
+  }
+  .civic-desc{
+    font-size:13px !important;
+    line-height:1.55 !important;
+  }
+  .civic-search-bar{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+    padding:8px !important;
+    border-radius:20px !important;
+    margin-top:14px !important;
+  }
+  .search-input-wrapper{
+    min-height:48px !important;
+    padding:0 10px !important;
+  }
+  .search-input-wrapper input{
+    font-size:16px !important;
+  }
+  .civic-btn-action{
+    width:100% !important;
+    min-height:48px !important;
+    font-size:15px !important;
+    border-radius:16px !important;
+  }
+  .quick-tags-container{
+    gap:4px 6px !important;
+    margin-top:10px !important;
+  }
+  .quick-tags-label{
+    font-size:11px !important;
+  }
+  .quick-chip-btn{
+    padding:3px 8px !important;
+    font-size:11px !important;
+  }
+  .visitor-row-single{gap:5px !important;margin-bottom:12px !important}
+  .visitor-row-single .visitor-chip{padding:6px 4px !important;font-size:11.5px !important}
   .home-map-card .leaflet-box{height:410px !important;border-radius:18px !important}
   .map-card{padding:12px !important;border-radius:20px !important}
   .section-title{align-items:flex-start !important;gap:10px !important}
@@ -457,19 +715,23 @@ body{
 }
 
 @media(max-width:480px){
-  .hero-unified-card{padding:16px 12px 16px !important;border-radius:20px !important}
-  .visitor-row-single{gap:4px !important;margin-bottom:12px !important}
-  .visitor-row-single .visitor-chip{padding:6px 3px !important;gap:3px !important}
-  .visitor-row-single .chip-text b{font-size:11.5px !important}
-  .visitor-row-single .chip-text small{font-size:9.5px !important}
-  .visitor-row-single svg{width:12px !important;height:12px !important}
-  .hero-unified-card .home-main-title span{font-size:20.5px !important;line-height:1.2 !important}
-  .hero-unified-card .hero-desc{font-size:12.5px !important;line-height:1.5 !important}
-  .search-input-wrapper{min-height:46px !important;padding:0 8px !important}
-  .search-btn-prominent{min-height:48px !important;font-size:15px !important}
+  .hero-unified-card.civic-hero-card{padding:14px 10px 16px !important;border-radius:18px !important}
+  .visitor-row-single{gap:3px !important;margin-bottom:10px !important}
+  .visitor-row-single .visitor-chip{padding:5px 2px !important;gap:2px !important}
+  .visitor-row-single .chip-text b{font-size:11px !important}
+  .visitor-row-single .chip-text small{font-size:9px !important}
+  .visitor-row-single svg{width:11px !important;height:11px !important}
+  .civic-main-title{font-size:21px !important}
+  .civic-title-wrap svg{width:20px !important;height:20px !important}
+  .civic-slogan-text{font-size:10.5px !important}
+  .civic-desc{font-size:12px !important;line-height:1.48 !important}
+  .search-input-wrapper{min-height:44px !important;padding:0 6px !important}
+  .civic-btn-action{min-height:46px !important;font-size:14.5px !important}
   .home-map-card .leaflet-box{height:360px !important}
   .stats-grid{grid-template-columns:1fr !important}
-  .brand strong{font-size:13px !important}
+  .brand-main-name{font-size:14.5px !important}
+  .brand-slogan-sub{font-size:9px !important}
+  .brand-nata-logo{height:30px !important}
 }
 /* === FEATURE GRID COMPACT - 4 ô, mỗi dòng 2 ô === */
 

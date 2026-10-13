@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { Maximize2, X } from 'lucide-react';
 
@@ -6,9 +6,9 @@ import { Maximize2, X } from 'lucide-react';
 const createIslandLabelIcon = (label, type = 'island') =>
   L.divIcon({
     className: `vn-map-label vn-map-label--${type}`,
-    html: `<span>${label}</span>`,
-    iconSize: type === 'sea' ? [130, 28] : [150, 44],
-    iconAnchor: type === 'sea' ? [65, 14] : [75, 22],
+    html: `<div class="sov-map-pill ${type === 'sea' ? 'sea-pill' : 'island-pill'}"><span class="sov-star">🇻🇳</span><strong>${label}</strong></div>`,
+    iconSize: type === 'sea' ? [180, 32] : [220, 44],
+    iconAnchor: type === 'sea' ? [90, 16] : [110, 22],
   });
 
 const addVietnamSeaLabels = (mapInstance, labelsLayerRef) => {
@@ -16,17 +16,17 @@ const addVietnamSeaLabels = (mapInstance, labelsLayerRef) => {
 
   const group = L.layerGroup([
     L.marker([16.55, 112.25], {
-      icon: createIslandLabelIcon('qu\u1ea7n \u0111\u1ea3o Ho\u00e0ng Sa'),
+      icon: createIslandLabelIcon('Quần đảo Hoàng Sa (Việt Nam)'),
       interactive: false,
       keyboard: false,
     }),
     L.marker([9.75, 114.15], {
-      icon: createIslandLabelIcon('qu\u1ea7n \u0111\u1ea3o Tr\u01b0\u1eddng Sa'),
+      icon: createIslandLabelIcon('Quần đảo Trường Sa (Việt Nam)'),
       interactive: false,
       keyboard: false,
     }),
     L.marker([13.2, 112.6], {
-      icon: createIslandLabelIcon('BI\u1ec2N \u0110\u00d4NG', 'sea'),
+      icon: createIslandLabelIcon('BIỂN ĐÔNG (VIỆT NAM)', 'sea'),
       interactive: false,
       keyboard: false,
     }),
@@ -50,12 +50,24 @@ const modeTiles = {
 function styleFeature(feature, selectedSlug, mode) {
   const slug = feature?.properties?.slug;
   const selected = selectedSlug && slug === selectedSlug;
+  if (selected) {
+    // Highlight ĐỎ nổi bật khi xã/phường được chọn
+    return {
+      color: '#C8102E',       // viền đỏ quốc kỳ
+      weight: 3.5,
+      opacity: 1,
+      fillColor: '#FEE2E2',   // nền đỏ nhạt
+      fillOpacity: 0.45,
+      dashArray: null,
+    };
+  }
+  // Mặc định: xám nhạt, không rối bản đồ
   return {
-    color: selected ? '#0f766e' : mode === '3D' ? '#14b8a6' : '#0f766e',
-    weight: selected ? 3.5 : mode === '3D' ? 1.5 : 1.15,
-    opacity: selected ? 1 : mode === '3D' ? 0.92 : 0.76,
-    fillColor: selected ? '#99f6e4' : mode === '3D' ? '#2dd4bf' : '#d1fae5',
-    fillOpacity: selected ? 0.48 : mode === '3D' ? 0.12 : 0.18
+    color: mode === '3D' ? '#64748b' : '#6B7280',
+    weight: mode === '3D' ? 1.2 : 0.9,
+    opacity: 0.70,
+    fillColor: '#E5E7EB',
+    fillOpacity: mode === '3D' ? 0.10 : 0.14,
   };
 }
 
@@ -90,7 +102,8 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
 
   useEffect(() => {
     if (!mapEl.current || map.current) return;
-    map.current = L.map(mapEl.current, { zoomControl: true, preferCanvas: true }).setView([19.1, 104.9], 8);
+    const vnBounds = L.latLngBounds(L.latLng(7.0, 101.5), L.latLng(23.5, 117.8));
+    map.current = L.map(mapEl.current, { zoomControl: true, preferCanvas: true, maxBounds: vnBounds, maxBoundsViscosity: 0.95, minZoom: 6 }).setView([19.1, 104.9], 8);
     tileLayer.current = L.tileLayer(modeTiles['2D'].url, { attribution: modeTiles['2D'].attribution, maxZoom: 18 }).addTo(map.current);
     addVietnamSeaLabels(map.current, islandLabelsLayer);
   }, []);
@@ -124,7 +137,9 @@ export default function MapPanel({ selectedSlug, compact=false, title='Bản đ�
         layer.bindTooltip(p.display_name || p.new_unit_name, { sticky: true });
         layer.on('click', () => {
           setActive(p);
-          if (p.slug) layer.setStyle({ color: '#0f766e', weight: 4, fillOpacity: 0.52 });
+          // Reset tất cả về mặc định, rồi highlight cái được click
+          geoLayer.current?.eachLayer(l => l.setStyle && l.setStyle(styleFeature(l.feature, null, mode)));
+          if (p.slug) layer.setStyle({ color: '#C8102E', weight: 3.5, fillColor: '#FEE2E2', fillOpacity: 0.45, opacity: 1 });
         });
       }
     }).addTo(map.current);

@@ -1,0 +1,1668 @@
+[
+  {
+    "stt": 19,
+    "name": "Phường Cửa Lò",
+    "slug": "cua-lo",
+    "oldDistrict": "Cửa Lò",
+    "oldUnits": [
+      "phường Nghi Hải",
+      "phường Nghi Hòa",
+      "phường Nghi Hương",
+      "phường Nghi Tân",
+      "phường Nghi Thu",
+      "phường Nghi Thủy",
+      "phường Thu Thủy"
+    ],
+    "stages": [
+      "vinh-cua-lo-nghi-loc-to-vinh"
+    ]
+  },
+  {
+    "stt": 34,
+    "name": "Phường Hoàng Mai",
+    "slug": "hoang-mai",
+    "oldDistrict": "Hoàng Mai",
+    "oldUnits": [
+      "phường Quỳnh Thiện",
+      "xã Quỳnh Trang",
+      "xã Quỳnh Vinh"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 86,
+    "name": "Phường Quỳnh Mai",
+    "slug": "quynh-mai",
+    "oldDistrict": "Hoàng Mai",
+    "oldUnits": [
+      "phường Mai Hùng",
+      "phường Quỳnh Phương",
+      "phường Quỳnh Xuân",
+      "xã Quỳnh Liên"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 106,
+    "name": "Phường Thành Vinh",
+    "slug": "thanh-vinh",
+    "oldDistrict": "TP Vinh",
+    "oldUnits": [
+      "phường Cửa Nam",
+      "phường Đông Vĩnh",
+      "phường Hưng Bình",
+      "phường Lê Lợi",
+      "phường Quang Trung",
+      "xã Hưng Chính"
+    ],
+    "stages": [
+      "vinh-quang-trung"
+    ]
+  },
+  {
+    "stt": 103,
+    "name": "Phường Thái Hòa",
+    "slug": "thai-hoa",
+    "oldDistrict": "Thái Hòa",
+    "oldUnits": [
+      "phường Hòa Hiếu",
+      "phường Long Sơn",
+      "phường Quang Phong"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 114,
+    "name": "Phường Trường Vinh",
+    "slug": "truong-vinh",
+    "oldDistrict": "TP Vinh",
+    "oldUnits": [
+      "phường Bến Thủy",
+      "phường Hưng Dũng",
+      "phường Hưng Phúc",
+      "phường Trung Đô",
+      "phường Trường Thi",
+      "phường Vinh Tân",
+      "xã Hưng Hòa"
+    ],
+    "stages": [
+      "vinh-vinh-tan"
+    ]
+  },
+  {
+    "stt": 100,
+    "name": "Phường Tân Mai",
+    "slug": "tan-mai",
+    "oldDistrict": "Hoàng Mai",
+    "oldUnits": [
+      "phường Quỳnh Dị",
+      "xã Quỳnh Lập",
+      "xã Quỳnh Lộc"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 102,
+    "name": "Phường Tây Hiếu",
+    "slug": "tay-hieu",
+    "oldDistrict": "Thái Hòa",
+    "oldUnits": [
+      "phường Quang Tiến",
+      "xã Nghĩa Tiến",
+      "xã Tây Hiếu"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 121,
+    "name": "Phường Vinh Hưng",
+    "slug": "vinh-hung",
+    "oldDistrict": "TP Vinh",
+    "oldUnits": [
+      "phường Hưng Đông",
+      "phường Quán Bàu",
+      "xã Nghi Kim",
+      "xã Nghi Liên"
+    ],
+    "stages": [
+      "vinh-hung-dong"
+    ]
+  },
+  {
+    "stt": 122,
+    "name": "Phường Vinh Lộc",
+    "slug": "vinh-loc",
+    "oldDistrict": "TP Vinh",
+    "oldUnits": [
+      "phường Hưng Lộc",
+      "xã Nghi Phong",
+      "xã Nghi Thái",
+      "xã Nghi Xuân",
+      "xã Phúc Thọ"
+    ],
+    "stages": [
+      "vinh-cua-lo-nghi-loc-to-vinh",
+      "vinh-hung-loc"
+    ]
+  },
+  {
+    "stt": 123,
+    "name": "Phường Vinh Phú",
+    "slug": "vinh-phu",
+    "oldDistrict": "TP Vinh",
+    "oldUnits": [
+      "phường Hà Huy Tập",
+      "phường Nghi Đức",
+      "phường Nghi Phú",
+      "xã Nghi Ân"
+    ],
+    "stages": [
+      "vinh-nghi-phu",
+      "vinh-nghi-duc"
+    ]
+  },
+  {
+    "stt": 1,
+    "name": "Xã An Châu",
+    "slug": "an-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn An",
+      "xã Diễn Tân",
+      "xã Diễn Thịnh",
+      "xã Diễn Trung"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 2,
+    "name": "Xã Anh Sơn",
+    "slug": "anh-son",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "thị trấn Kim Nhan",
+      "xã Đức Sơn",
+      "xã Phúc Sơn"
+    ],
+    "stages": [
+      "anh-son-kim-nhan"
+    ]
+  },
+  {
+    "stt": 3,
+    "name": "Xã Anh Sơn Đông",
+    "slug": "anh-son-dong",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "xã Lạng Sơn",
+      "xã Tào Sơn",
+      "xã Vĩnh Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 8,
+    "name": "Xã Bình Chuẩn",
+    "slug": "binh-chuan",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "xã Bình Chuẩn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 9,
+    "name": "Xã Bình Minh",
+    "slug": "binh-minh",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Đức Thành",
+      "xã Mã Thành",
+      "xã Tân Thành",
+      "xã Tiến Thành"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 7,
+    "name": "Xã Bích Hào",
+    "slug": "bich-hao",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Mai Giang",
+      "xã Thanh Lâm",
+      "xã Thanh Tùng",
+      "xã Thanh Xuân"
+    ],
+    "stages": [
+      "thanh-chuong-mai-giang"
+    ]
+  },
+  {
+    "stt": 5,
+    "name": "Xã Bạch Hà",
+    "slug": "bach-ha",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Đại Sơn",
+      "xã Hiến Sơn",
+      "xã Mỹ Sơn",
+      "xã Trù Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 6,
+    "name": "Xã Bạch Ngọc",
+    "slug": "bach-ngoc",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Bồi Sơn",
+      "xã Giang Sơn Đông",
+      "xã Giang Sơn Tây",
+      "xã Bạch Ngọc"
+    ],
+    "stages": [
+      "do-luong-bach-ngoc"
+    ]
+  },
+  {
+    "stt": 4,
+    "name": "Xã Bắc Lý",
+    "slug": "bac-ly",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Bắc Lý"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 10,
+    "name": "Xã Cam Phục",
+    "slug": "cam-phuc",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "xã Cam Lâm",
+      "xã Đôn Phục"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 17,
+    "name": "Xã Chiêu Lưu",
+    "slug": "chieu-luu",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Bảo Thắng",
+      "xã Chiêu Lưu"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 12,
+    "name": "Xã Châu Bình",
+    "slug": "chau-binh",
+    "oldDistrict": "Quỳ Châu",
+    "oldUnits": [
+      "xã Châu Bình"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 13,
+    "name": "Xã Châu Hồng",
+    "slug": "chau-hong",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Châu Tiến (huyện Quỳ Hợp)",
+      "xã Châu Thành",
+      "xã Châu Hồng"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 14,
+    "name": "Xã Châu Khê",
+    "slug": "chau-khe",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "xã Lạng Khê",
+      "xã Châu Khê"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 15,
+    "name": "Xã Châu Lộc",
+    "slug": "chau-loc",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Liên Hợp",
+      "xã Châu Lộc"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 16,
+    "name": "Xã Châu Tiến",
+    "slug": "chau-tien",
+    "oldDistrict": "Quỳ Châu",
+    "oldUnits": [
+      "xã Châu Tiến (huyện Quỳ Châu)",
+      "xã Châu Bính",
+      "xã Châu Thắng",
+      "xã Châu Thuận"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 18,
+    "name": "Xã Con Cuông",
+    "slug": "con-cuong",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "thị trấn Trà Lân",
+      "xã Chi Khê",
+      "xã Yên Khê"
+    ],
+    "stages": [
+      "con-cuong-tra-lan"
+    ]
+  },
+  {
+    "stt": 11,
+    "name": "Xã Cát Ngạn",
+    "slug": "cat-ngan",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Minh Sơn (huyện Thanh Chương)",
+      "xã Cát Văn",
+      "xã Phong Thịnh"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 22,
+    "name": "Xã Diễn Châu",
+    "slug": "dien-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "thị trấn Diễn Thành",
+      "xã Diễn Hoa",
+      "xã Diễn Phúc",
+      "xã Ngọc Bích"
+    ],
+    "stages": [
+      "dien-chau-dien-thanh",
+      "dien-chau-ngoc-bich"
+    ]
+  },
+  {
+    "stt": 28,
+    "name": "Xã Giai Lạc",
+    "slug": "giai-lac",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Hậu Thành",
+      "xã Lăng Thành",
+      "xã Phúc Thành"
+    ],
+    "stages": [
+      "yen-thanh-hau-thanh"
+    ]
+  },
+  {
+    "stt": 29,
+    "name": "Xã Giai Xuân",
+    "slug": "giai-xuan",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Tân Hợp",
+      "xã Giai Xuân"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 33,
+    "name": "Xã Hoa Quân",
+    "slug": "hoa-quan",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Thanh An",
+      "xã Thanh Hương",
+      "xã Thanh Quả",
+      "xã Thanh Thịnh"
+    ],
+    "stages": [
+      "thanh-chuong-thanh-qua"
+    ]
+  },
+  {
+    "stt": 40,
+    "name": "Xã Huồi Tụ",
+    "slug": "huoi-tu",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Huồi Tụ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 36,
+    "name": "Xã Hùng Chân",
+    "slug": "hung-chan",
+    "oldDistrict": "Quỳ Châu",
+    "oldUnits": [
+      "xã Châu Hoàn",
+      "xã Châu Phong",
+      "xã Diên Lãm"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 37,
+    "name": "Xã Hùng Châu",
+    "slug": "hung-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Đoài",
+      "xã Diễn Lâm",
+      "xã Diễn Trường",
+      "xã Diễn Yên"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 38,
+    "name": "Xã Hưng Nguyên",
+    "slug": "hung-nguyen",
+    "oldDistrict": "Hưng Nguyên",
+    "oldUnits": [
+      "thị trấn Hưng Nguyên",
+      "xã Hưng Đạo",
+      "xã Hưng Tây",
+      "xã Thịnh Mỹ"
+    ],
+    "stages": [
+      "hung-nguyen-thinh-my"
+    ]
+  },
+  {
+    "stt": 39,
+    "name": "Xã Hưng Nguyên Nam",
+    "slug": "hung-nguyen-nam",
+    "oldDistrict": "Hưng Nguyên",
+    "oldUnits": [
+      "xã Hưng Lĩnh",
+      "xã Long Xá",
+      "xã Thông Tân",
+      "xã Xuân Lam"
+    ],
+    "stages": [
+      "hung-nguyen-thong-tan"
+    ]
+  },
+  {
+    "stt": 32,
+    "name": "Xã Hạnh Lâm",
+    "slug": "hanh-lam",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Thanh Đức",
+      "xã Hạnh Lâm"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 30,
+    "name": "Xã Hải Châu",
+    "slug": "hai-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Hoàng",
+      "xã Diễn Kim",
+      "xã Diễn Mỹ",
+      "xã Hùng Hải"
+    ],
+    "stages": [
+      "dien-chau-hung-hai"
+    ]
+  },
+  {
+    "stt": 31,
+    "name": "Xã Hải Lộc",
+    "slug": "hai-loc",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Nghi Thiết",
+      "xã Nghi Tiến",
+      "xã Nghi Yên"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 35,
+    "name": "Xã Hợp Minh",
+    "slug": "hop-minh",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Bảo Thành",
+      "xã Long Thành",
+      "xã Sơn Thành",
+      "xã Viên Thành",
+      "xã Vĩnh Thành"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 41,
+    "name": "Xã Hữu Khuông",
+    "slug": "huu-khuong",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Hữu Khuông"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 42,
+    "name": "Xã Hữu Kiệm",
+    "slug": "huu-kiem",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Bảo Nam",
+      "xã Hữu Lập",
+      "xã Hữu Kiệm"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 43,
+    "name": "Xã Keng Đu",
+    "slug": "keng-du",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Keng Đu"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 44,
+    "name": "Xã Kim Bảng",
+    "slug": "kim-bang",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Thanh Hà",
+      "xã Thanh Thủy",
+      "xã Kim Bảng"
+    ],
+    "stages": [
+      "thanh-chuong-kim-bang"
+    ]
+  },
+  {
+    "stt": 45,
+    "name": "Xã Kim Liên",
+    "slug": "kim-lien",
+    "oldDistrict": "Nam Đàn",
+    "oldUnits": [
+      "xã Hùng Tiến",
+      "xã Nam Cát",
+      "xã Nam Giang",
+      "xã Xuân Hồng",
+      "xã Kim Liên"
+    ],
+    "stages": [
+      "nam-dan-xuan-hong"
+    ]
+  },
+  {
+    "stt": 46,
+    "name": "Xã Lam Thành",
+    "slug": "lam-thanh",
+    "oldDistrict": "Hưng Nguyên",
+    "oldUnits": [
+      "xã Châu Nhân",
+      "xã Hưng Nghĩa",
+      "xã Hưng Thành",
+      "xã Phúc Lợi"
+    ],
+    "stages": [
+      "hung-nguyen-phuc-loi"
+    ]
+  },
+  {
+    "stt": 48,
+    "name": "Xã Lương Sơn",
+    "slug": "luong-son",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Bài Sơn",
+      "xã Đông Sơn",
+      "xã Hồng Sơn",
+      "xã Tràng Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 47,
+    "name": "Xã Lượng Minh",
+    "slug": "luong-minh",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Lượng Minh"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 50,
+    "name": "Xã Minh Châu",
+    "slug": "minh-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Cát",
+      "xã Diễn Nguyên",
+      "xã Hạnh Quảng",
+      "xã Minh Châu"
+    ],
+    "stages": [
+      "dien-chau-hanh-quang"
+    ]
+  },
+  {
+    "stt": 51,
+    "name": "Xã Minh Hợp",
+    "slug": "minh-hop",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Hạ Sơn",
+      "xã Văn Lợi",
+      "xã Minh Hợp"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 52,
+    "name": "Xã Môn Sơn",
+    "slug": "mon-son",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "xã Lục Dạ",
+      "xã Môn Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 53,
+    "name": "Xã Mường Chọng",
+    "slug": "muong-chong",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Bắc Sơn",
+      "xã Nam Sơn (huyện Quỳ Hợp)",
+      "xã Châu Lý"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 54,
+    "name": "Xã Mường Ham",
+    "slug": "muong-ham",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Châu Cường",
+      "xã Châu Thái"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 55,
+    "name": "Xã Mường Lống",
+    "slug": "muong-long",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Mường Lống"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 56,
+    "name": "Xã Mường Quàng",
+    "slug": "muong-quang",
+    "oldDistrict": "Quế Phong",
+    "oldUnits": [
+      "xã Cắm Muộn",
+      "xã Châu Thôn",
+      "xã Quang Phong"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 57,
+    "name": "Xã Mường Típ",
+    "slug": "muong-tip",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Mường Ải",
+      "xã Mường Típ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 58,
+    "name": "Xã Mường Xén",
+    "slug": "muong-xen",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "thị trấn Mường Xén",
+      "xã Tà Cạ",
+      "xã Tây Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 49,
+    "name": "Xã Mậu Thạch",
+    "slug": "mau-thach",
+    "oldDistrict": "Con Cuông",
+    "oldUnits": [
+      "xã Mậu Đức",
+      "xã Thạch Ngàn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 59,
+    "name": "Xã Mỹ Lý",
+    "slug": "my-ly",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Mỹ Lý"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 60,
+    "name": "Xã Na Loi",
+    "slug": "na-loi",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Đoọc Mạy",
+      "xã Na Loi"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 61,
+    "name": "Xã Na Ngoi",
+    "slug": "na-ngoi",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Nậm Càn",
+      "xã Na Ngoi"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 63,
+    "name": "Xã Nam Đàn",
+    "slug": "nam-dan",
+    "oldDistrict": "Nam Đàn",
+    "oldUnits": [
+      "xã Nghĩa Thái (huyện Nam Đàn)",
+      "xã Nam Hưng",
+      "xã Nam Thanh"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 64,
+    "name": "Xã Nga My",
+    "slug": "nga-my",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Xiêng My",
+      "xã Nga My"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 65,
+    "name": "Xã Nghi Lộc",
+    "slug": "nghi-loc",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "thị trấn Quán Hành",
+      "xã Diên Hoa",
+      "xã Nghi Trung",
+      "xã Nghi Vạn"
+    ],
+    "stages": [
+      "nghi-loc-dien-hoa"
+    ]
+  },
+  {
+    "stt": 68,
+    "name": "Xã Nghĩa Hành",
+    "slug": "nghia-hanh",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Phú Sơn",
+      "xã Tân Hương",
+      "xã Nghĩa Hành"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 69,
+    "name": "Xã Nghĩa Hưng",
+    "slug": "nghia-hung",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa Thành",
+      "xã Nghĩa Hưng"
+    ],
+    "stages": [
+      "nghia-dan-nghia-hung"
+    ]
+  },
+  {
+    "stt": 70,
+    "name": "Xã Nghĩa Khánh",
+    "slug": "nghia-khanh",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa An",
+      "xã Nghĩa Đức",
+      "xã Nghĩa Khánh"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 71,
+    "name": "Xã Nghĩa Lâm",
+    "slug": "nghia-lam",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa Lạc",
+      "xã Nghĩa Sơn",
+      "xã Nghĩa Yên",
+      "xã Nghĩa Lâm"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 72,
+    "name": "Xã Nghĩa Lộc",
+    "slug": "nghia-loc",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa Long",
+      "xã Nghĩa Lộc"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 73,
+    "name": "Xã Nghĩa Mai",
+    "slug": "nghia-mai",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa Hồng",
+      "xã Nghĩa Minh",
+      "xã Nghĩa Mai"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 74,
+    "name": "Xã Nghĩa Thọ",
+    "slug": "nghia-tho",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "xã Nghĩa Hội",
+      "xã Nghĩa Lợi",
+      "xã Nghĩa Thọ"
+    ],
+    "stages": [
+      "nghia-dan-nghia-tho"
+    ]
+  },
+  {
+    "stt": 66,
+    "name": "Xã Nghĩa Đàn",
+    "slug": "nghia-dan",
+    "oldDistrict": "Nghĩa Đàn",
+    "oldUnits": [
+      "thị trấn Nghĩa Đàn",
+      "xã Nghĩa Bình",
+      "xã Nghĩa Trung"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 67,
+    "name": "Xã Nghĩa Đồng",
+    "slug": "nghia-dong",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Bình Hợp",
+      "xã Nghĩa Đồng"
+    ],
+    "stages": [
+      "tan-ky-binh-hop"
+    ]
+  },
+  {
+    "stt": 75,
+    "name": "Xã Nhân Hòa",
+    "slug": "nhan-hoa",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "xã Cẩm Sơn",
+      "xã Hùng Sơn",
+      "xã Tam Đỉnh"
+    ],
+    "stages": [
+      "anh-son-tam-dinh"
+    ]
+  },
+  {
+    "stt": 76,
+    "name": "Xã Nhôn Mai",
+    "slug": "nhon-mai",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Mai Sơn",
+      "xã Nhôn Mai"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 62,
+    "name": "Xã Nậm Cắn",
+    "slug": "nam-can",
+    "oldDistrict": "Kỳ Sơn",
+    "oldUnits": [
+      "xã Phà Đánh",
+      "xã Nậm Cắn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 77,
+    "name": "Xã Phúc Lộc",
+    "slug": "phuc-loc",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Nghi Công Bắc",
+      "xã Nghi Công Nam",
+      "xã Nghi Lâm",
+      "xã Nghi Mỹ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 78,
+    "name": "Xã Quan Thành",
+    "slug": "quan-thanh",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Bắc Thành",
+      "xã Nam Thành",
+      "xã Trung Thành",
+      "xã Xuân Thành"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 80,
+    "name": "Xã Quang Đồng",
+    "slug": "quang-dong",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Đồng Thành",
+      "xã Kim Thành",
+      "xã Quang Thành"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 79,
+    "name": "Xã Quảng Châu",
+    "slug": "quang-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Đồng",
+      "xã Diễn Liên",
+      "xã Diễn Thái",
+      "xã Xuân Tháp"
+    ],
+    "stages": [
+      "dien-chau-xuan-thap"
+    ]
+  },
+  {
+    "stt": 81,
+    "name": "Xã Quế Phong",
+    "slug": "que-phong",
+    "oldDistrict": "Quế Phong",
+    "oldUnits": [
+      "thị trấn Kim Sơn",
+      "xã Châu Kim",
+      "xã Mường Nọc",
+      "xã Nậm Giải"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 82,
+    "name": "Xã Quỳ Châu",
+    "slug": "quy-chau",
+    "oldDistrict": "Quỳ Châu",
+    "oldUnits": [
+      "thị trấn Tân Lạc",
+      "xã Châu Hạnh",
+      "xã Châu Hội",
+      "xã Châu Nga"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 83,
+    "name": "Xã Quỳ Hợp",
+    "slug": "quy-hop",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "thị trấn Quỳ Hợp",
+      "xã Châu Đình",
+      "xã Châu Quang",
+      "xã Thọ Hợp"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 84,
+    "name": "Xã Quỳnh Anh",
+    "slug": "quynh-anh",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã Minh Lương",
+      "xã Quỳnh Bảng",
+      "xã Quỳnh Đôi",
+      "xã Quỳnh Thanh",
+      "xã Quỳnh Yên"
+    ],
+    "stages": [
+      "quynh-luu-minh-luong"
+    ]
+  },
+  {
+    "stt": 85,
+    "name": "Xã Quỳnh Lưu",
+    "slug": "quynh-luu",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "thị trấn Cầu Giát",
+      "xã Bình Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Diễn",
+      "xã Quỳnh Giang",
+      "xã Quỳnh Hậu"
+    ],
+    "stages": [
+      "quynh-luu-cau-giat"
+    ]
+  },
+  {
+    "stt": 87,
+    "name": "Xã Quỳnh Phú",
+    "slug": "quynh-phu",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã An Hòa",
+      "xã Phú Nghĩa",
+      "xã Thuận Long",
+      "xã Văn Hải"
+    ],
+    "stages": [
+      "quynh-luu-thuan-long",
+      "quynh-luu-van-hai",
+      "quynh-luu-phu-nghia"
+    ]
+  },
+  {
+    "stt": 88,
+    "name": "Xã Quỳnh Sơn",
+    "slug": "quynh-son",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã Ngọc Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Lâm",
+      "xã Quỳnh Sơn"
+    ],
+    "stages": [
+      "quynh-luu-quynh-son"
+    ]
+  },
+  {
+    "stt": 89,
+    "name": "Xã Quỳnh Tam",
+    "slug": "quynh-tam",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã Tân Sơn (huyện Quỳnh Lưu)",
+      "xã Quỳnh Châu",
+      "xã Quỳnh Tam"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 90,
+    "name": "Xã Quỳnh Thắng",
+    "slug": "quynh-thang",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã Tân Thắng",
+      "xã Quỳnh Thắng"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 91,
+    "name": "Xã Quỳnh Văn",
+    "slug": "quynh-van",
+    "oldDistrict": "Quỳnh Lưu",
+    "oldUnits": [
+      "xã Quỳnh Tân",
+      "xã Quỳnh Thạch",
+      "xã Quỳnh Văn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 92,
+    "name": "Xã Sơn Lâm",
+    "slug": "son-lam",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Ngọc Lâm",
+      "xã Thanh Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 94,
+    "name": "Xã Tam Hợp",
+    "slug": "tam-hop",
+    "oldDistrict": "Quỳ Hợp",
+    "oldUnits": [
+      "xã Tam Hợp (huyện Quỳ Hợp)",
+      "xã Đồng Hợp",
+      "xã Nghĩa Xuân",
+      "xã Yên Hợp"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 95,
+    "name": "Xã Tam Quang",
+    "slug": "tam-quang",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Tam Đình",
+      "xã Tam Quang"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 96,
+    "name": "Xã Tam Thái",
+    "slug": "tam-thai",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Tam Hợp (huyện Tương Dương)",
+      "xã Tam Thái"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 93,
+    "name": "Xã Tam Đồng",
+    "slug": "tam-dong",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Thanh Liên",
+      "xã Thanh Mỹ",
+      "xã Thanh Tiên"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 107,
+    "name": "Xã Thiên Nhẫn",
+    "slug": "thien-nhan",
+    "oldDistrict": "Nam Đàn",
+    "oldUnits": [
+      "xã Khánh Sơn",
+      "xã Nam Kim",
+      "xã Trung Phúc Cường"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 109,
+    "name": "Xã Thuần Trung",
+    "slug": "thuan-trung",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Minh Sơn (huyện Đô Lương)",
+      "xã Lạc Sơn",
+      "xã Nhân Sơn",
+      "xã Thuận Sơn",
+      "xã Trung Sơn",
+      "xã Xuân Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 105,
+    "name": "Xã Thành Bình Thọ",
+    "slug": "thanh-binh-tho",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "xã Bình Sơn (huyện Anh Sơn)",
+      "xã Thành Sơn",
+      "xã Thọ Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 108,
+    "name": "Xã Thông Thụ",
+    "slug": "thong-thu",
+    "oldDistrict": "Quế Phong",
+    "oldUnits": [
+      "xã Đồng Văn (huyện Quế Phong)",
+      "xã Thông Thụ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 104,
+    "name": "Xã Thần Lĩnh",
+    "slug": "than-linh",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Nghi Đồng",
+      "xã Nghi Hưng",
+      "xã Nghi Phương"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 110,
+    "name": "Xã Tiên Đồng",
+    "slug": "tien-dong",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Đồng Văn (huyện Tân Kỳ)",
+      "xã Tiên Kỳ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 111,
+    "name": "Xã Tiền Phong",
+    "slug": "tien-phong",
+    "oldDistrict": "Quế Phong",
+    "oldUnits": [
+      "xã Hạnh Dịch",
+      "xã Tiền Phong"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 112,
+    "name": "Xã Tri Lễ",
+    "slug": "tri-le",
+    "oldDistrict": "Quế Phong",
+    "oldUnits": [
+      "xã Nậm Nhoóng",
+      "xã Tri Lễ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 113,
+    "name": "Xã Trung Lộc",
+    "slug": "trung-loc",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Nghi Long",
+      "xã Nghi Quang",
+      "xã Nghi Thuận",
+      "xã Nghi Xá"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 97,
+    "name": "Xã Tân An",
+    "slug": "tan-an",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Hương Sơn",
+      "xã Nghĩa Phúc",
+      "xã Tân An"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 98,
+    "name": "Xã Tân Châu",
+    "slug": "tan-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Lộc",
+      "xã Diễn Lợi",
+      "xã Diễn Phú",
+      "xã Diễn Thọ"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 99,
+    "name": "Xã Tân Kỳ",
+    "slug": "tan-ky",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "thị trấn Tân Kỳ",
+      "xã Nghĩa Dũng",
+      "xã Kỳ Tân",
+      "xã Kỳ Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 101,
+    "name": "Xã Tân Phú",
+    "slug": "tan-phu",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Nghĩa Thái (huyện Tân Kỳ)",
+      "xã Hoàn Long",
+      "xã Tân Xuân",
+      "xã Tân Phú"
+    ],
+    "stages": [
+      "tan-ky-hoan-long"
+    ]
+  },
+  {
+    "stt": 115,
+    "name": "Xã Tương Dương",
+    "slug": "tuong-duong",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "thị trấn Thạch Giám",
+      "xã Lưu Kiền",
+      "xã Xá Lượng"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 117,
+    "name": "Xã Vân Du",
+    "slug": "van-du",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Minh Thành",
+      "xã Tây Thành",
+      "xã Thịnh Thành"
+    ],
+    "stages": [
+      "yen-thanh-minh-thanh"
+    ]
+  },
+  {
+    "stt": 120,
+    "name": "Xã Vân Tụ",
+    "slug": "van-tu",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Liên Thành",
+      "xã Mỹ Thành",
+      "xã Vân Tụ"
+    ],
+    "stages": [
+      "yen-thanh-van-tu",
+      "yen-thanh-lien-thanh"
+    ]
+  },
+  {
+    "stt": 118,
+    "name": "Xã Văn Hiến",
+    "slug": "van-hien",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Tân Sơn (huyện Đô Lương)",
+      "xã Hòa Sơn",
+      "xã Quang Sơn",
+      "xã Thái Sơn",
+      "xã Thượng Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 119,
+    "name": "Xã Văn Kiều",
+    "slug": "van-kieu",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Nghi Kiều",
+      "xã Nghi Văn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 124,
+    "name": "Xã Vĩnh Tường",
+    "slug": "vinh-tuong",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "xã Hoa Sơn",
+      "xã Hội Sơn",
+      "xã Tường Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 116,
+    "name": "Xã Vạn An",
+    "slug": "van-an",
+    "oldDistrict": "Nam Đàn",
+    "oldUnits": [
+      "thị trấn Nam Đàn",
+      "xã Thượng Tân Lộc",
+      "xã Xuân Hòa"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 125,
+    "name": "Xã Xuân Lâm",
+    "slug": "xuan-lam",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "xã Ngọc Sơn (huyện Thanh Chương)",
+      "xã Minh Tiến",
+      "xã Xuân Dương"
+    ],
+    "stages": [
+      "thanh-chuong-xuan-duong",
+      "thanh-chuong-minh-tien"
+    ]
+  },
+  {
+    "stt": 126,
+    "name": "Xã Yên Hòa",
+    "slug": "yen-hoa",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Yên Thắng",
+      "xã Yên Hòa"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 127,
+    "name": "Xã Yên Na",
+    "slug": "yen-na",
+    "oldDistrict": "Tương Dương",
+    "oldUnits": [
+      "xã Yên Tĩnh",
+      "xã Yên Na"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 128,
+    "name": "Xã Yên Thành",
+    "slug": "yen-thanh",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "thị trấn Hoa Thành",
+      "xã Đông Thành",
+      "xã Tăng Thành",
+      "xã Văn Thành"
+    ],
+    "stages": [
+      "yen-thanh-hoa-thanh",
+      "yen-thanh-dong-thanh"
+    ]
+  },
+  {
+    "stt": 129,
+    "name": "Xã Yên Trung",
+    "slug": "yen-trung",
+    "oldDistrict": "Hưng Nguyên",
+    "oldUnits": [
+      "xã Hưng Yên Bắc",
+      "xã Hưng Yên Nam",
+      "xã Hưng Trung"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 130,
+    "name": "Xã Yên Xuân",
+    "slug": "yen-xuan",
+    "oldDistrict": "Anh Sơn",
+    "oldUnits": [
+      "xã Cao Sơn",
+      "xã Khai Sơn",
+      "xã Lĩnh Sơn",
+      "xã Long Sơn"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 23,
+    "name": "Xã Đô Lương",
+    "slug": "do-luong",
+    "oldDistrict": "Đô Lương",
+    "oldUnits": [
+      "xã Bắc Sơn",
+      "xã Nam Sơn (huyện Đô Lương)",
+      "xã Đà Sơn",
+      "xã Đặng Sơn",
+      "xã Lưu Sơn",
+      "xã Thịnh Sơn",
+      "xã Văn Sơn",
+      "xã Yên Sơn",
+      "thị trấn Đô Lương"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 24,
+    "name": "Xã Đông Hiếu",
+    "slug": "dong-hieu",
+    "oldDistrict": "Tân Kỳ",
+    "oldUnits": [
+      "xã Nghĩa Mỹ",
+      "xã Nghĩa Thuận",
+      "xã Đông Hiếu"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 25,
+    "name": "Xã Đông Lộc",
+    "slug": "dong-loc",
+    "oldDistrict": "Nghi Lộc",
+    "oldUnits": [
+      "xã Khánh Hợp",
+      "xã Nghi Thạch",
+      "xã Thịnh Trường"
+    ],
+    "stages": [
+      "nghi-loc-thinh-truong"
+    ]
+  },
+  {
+    "stt": 26,
+    "name": "Xã Đông Thành",
+    "slug": "dong-thanh",
+    "oldDistrict": "Yên Thành",
+    "oldUnits": [
+      "xã Đô Thành",
+      "xã Phú Thành",
+      "xã Thọ Thành"
+    ],
+    "stages": [
+      "yen-thanh-phu-thanh"
+    ]
+  },
+  {
+    "stt": 21,
+    "name": "Xã Đại Huệ",
+    "slug": "dai-hue",
+    "oldDistrict": "Nam Đàn",
+    "oldUnits": [
+      "xã Nam Anh",
+      "xã Nam Lĩnh",
+      "xã Nam Xuân"
+    ],
+    "stages": []
+  },
+  {
+    "stt": 20,
+    "name": "Xã Đại Đồng",
+    "slug": "dai-dong",
+    "oldDistrict": "Thanh Chương",
+    "oldUnits": [
+      "thị trấn Dùng",
+      "xã Đồng Văn (huyện Thanh Chương)",
+      "xã Thanh Ngọc",
+      "xã Thanh Phong",
+      "xã Đại Đồng"
+    ],
+    "stages": [
+      "thanh-chuong-dung"
+    ]
+  },
+  {
+    "stt": 27,
+    "name": "Xã Đức Châu",
+    "slug": "duc-chau",
+    "oldDistrict": "Diễn Châu",
+    "oldUnits": [
+      "xã Diễn Hồng",
+      "xã Diễn Kỷ",
+      "xã Diễn Phong",
+      "xã Diễn Vạn"
+    ],
+    "stages": []
+  }
+]

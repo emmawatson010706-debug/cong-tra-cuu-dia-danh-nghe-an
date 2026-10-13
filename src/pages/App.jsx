@@ -7,6 +7,7 @@ import { ArrowRight, FileText, Map, Search, Send, Shuffle } from 'lucide-react';
 import { supabase } from '../lib/supabase.js';
 import { PlaceDetailPage } from './PlaceDetailPage.jsx';
 import { VisitorCounter } from '../components/VisitorCounter.jsx';
+import { VietnamFlag, LotusEmblem, DongSonBackground } from '../components/CivicSymbols.jsx';
 
 function norm(v) {
   return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().trim();
@@ -57,6 +58,12 @@ export default function App() {
   }, [q, filter]);
 
   const visible = filtered.slice(0, showAll || q || filter !== 'all' ? 130 : 12);
+
+  // Khi tìm kiếm khớp đúng 1 xã/phường → highlight bản đồ tự động
+  const mapSelectedSlug = useMemo(() => {
+    if (!q || filtered.length !== 1) return null;
+    return filtered[0]?.slug || null;
+  }, [q, filtered]);
 
   const submitFeedback = async (event) => {
     event.preventDefault();
@@ -111,25 +118,44 @@ export default function App() {
     <Layout>
       <section className="home-shell" id="tra-cuu">
         <div className="container">
-          {/* KHUNG LỚN DUY NHẤT VỚI NỀN BẢN ĐỒ NGHỆ AN 3D VÀ KHUNG TÌM KIẾM TRỰC QUAN NỔI BẬT */}
-          <section className="hero-unified-card" id="tra-cuu-hero">
+          {/* KHUNG LỚN DUY NHẤT: NỀN ĐỎ ĐẬM HÀNH CHÍNH, HOA VĂN TRỐNG ĐỒNG, CỜ TỔ QUỐC, BẢN ĐỒ NGHỆ AN 3D */}
+          <section className="hero-unified-card civic-hero-card" id="tra-cuu-hero">
+            {/* Hoa văn trống đồng Đông Sơn in chìm */}
+            <DongSonBackground />
+
+            {/* Khung phù hiệu quốc gia trang trọng */}
+            <div className="civic-national-badge">
+              <VietnamFlag width={30} height={20} animated />
+              <span className="badge-nation-text">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</span>
+              <LotusEmblem size={18} color="#fef08a" />
+            </div>
+
             {/* 3 nút thống kê truy cập trên 1 hàng ngang có hiệu ứng phát sáng mạnh */}
             <VisitorCounter variant="hero" />
 
             <div className="hero-text-content">
-              <h1 className="home-main-title">
-                <span>TRA CỨU ĐỊA DANH</span>
-                <span>XÃ, PHƯỜNG MỚI TẠI <mark>NGHỆ AN</mark></span>
-              </h1>
-              <p className="hero-desc">
-                Cổng tra cứu giúp người dân tìm đúng xã/phường mới, đối chiếu với đơn vị cũ,
-                xem bản đồ toàn tỉnh và mở hồ sơ địa danh riêng của từng địa phương.
+              <div className="civic-title-wrap">
+                <LotusEmblem size={28} color="#f59e0b" />
+                <h1 className="civic-main-title">
+                  <span className="title-glow">Tìm Xã Phường Nghệ An</span>
+                </h1>
+                <LotusEmblem size={28} color="#f59e0b" />
+              </div>
+
+              <div className="civic-slogan-box">
+                <p className="civic-slogan-text">
+                  BẢN ĐỒ ĐỊA GIỚI XÃ PHƯỜNG NGHỆ AN SAU SÁP NHẬP
+                </p>
+              </div>
+
+              <p className="hero-desc civic-desc">
+                Cổng tra cứu chính thống phục vụ nhân dân và cơ quan quản lý tra cứu địa danh mới, đối chiếu ranh giới cũ - mới và mở hồ sơ địa lý toàn tỉnh Nghệ An.
               </p>
             </div>
 
             {/* Khung tra cứu lớn, nổi bật, trực quan - nhìn vào muốn nhập tìm kiếm ngay */}
             <form 
-              className="hero-search-prominent" 
+              className="hero-search-prominent civic-search-bar" 
               onSubmit={(e) => { 
                 e.preventDefault(); 
                 document.getElementById('places')?.scrollIntoView({ behavior: 'smooth' }); 
@@ -140,19 +166,39 @@ export default function App() {
                 <input 
                   value={q} 
                   onChange={e => setQ(e.target.value)} 
-                  placeholder="Nhập tên xã, phường mới hoặc huyện cũ..." 
+                  placeholder="Nhập tên xã, phường mới hoặc huyện cũ để tìm kiếm..." 
                   aria-label="Nhập tên xã/phường, huyện cũ"
                 />
               </div>
-              <button type="submit" className="search-btn-prominent">
+              <button type="submit" className="search-btn-prominent civic-btn-action">
                 <Search size={20} />
-                <span>Tra cứu</span>
+                <span>TRA CỨU NGAY</span>
               </button>
             </form>
+
+            {/* Gợi ý tìm kiếm nhanh */}
+            <div className="quick-tags-container">
+              <span className="quick-tags-label">Gợi ý tìm nhanh:</span>
+              <div className="quick-tags-list">
+                {['TP. Vinh', 'TX. Cửa Lò', 'Nam Đàn', 'Diễn Châu', 'Hưng Nguyên', 'Quỳnh Lưu', 'Yên Thành', 'Thanh Chương'].map(tag => (
+                  <button 
+                    key={tag} 
+                    type="button" 
+                    className="quick-chip-btn"
+                    onClick={() => {
+                      setQ(tag);
+                      document.getElementById('places')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
           </section>
 
           <div id="ban-do" className="home-map-focus">
-            <MapPanel title="" homeOnly />
+            <MapPanel title="" homeOnly selectedSlug={mapSelectedSlug} />
           </div>
 
           <section className="feature-section" id="huong-dan">

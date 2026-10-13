@@ -1,0 +1,111 @@
+/* Administrative history timeline */
+.admin-history-card {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid rgba(13, 106, 91, 0.13);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 252, 248, 0.92));
+  box-shadow: 0 14px 40px rgba(20, 79, 70, 0.08);
+}
+
+.admin-history-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.admin-history-card__eyebrow {
+  margin: 0 0 4px;
+  color: #087666;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.admin-history-card h2 {
+  margin: 0;
+}
+
+.admin-history-card__badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 204, 50, 0.16);
+  color: #946400;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.admin-history-timeline {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.admin-history-step {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.admin-history-step__year {
+  display: grid;
+  place-items: center;
+  min-height: 58px;
+  border-radius: 18px;
+  background: #087666;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(8, 118, 102, 0.18);
+}
+
+.admin-history-step__body {
+  padding: 13px 14px;
+  border: 1px solid rgba(13, 106, 91, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.admin-history-step__body h3 {
+  margin: 0 0 6px;
+}
+
+.admin-history-step__body p {
+  margin: 0;
+}
+
+.admin-history-step__body small {
+  display: block;
+  margin-top: 8px;
+  color: #60716d;
+  font-weight: 700;
+}
+
+.admin-history-step--current .admin-history-step__year {
+  background: #f5b301;
+  color: #153f39;
+}
+
+.admin-history-step--muted .admin-history-step__year {
+  background: #aab8b4;
+}
+
+@media (max-width: 520px) {
+  .admin-history-card {
+    padding: 15px;
+    border-radius: 22px;
+  }
+
+  .admin-history-step {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .admin-history-step__year {
+    min-height: 50px;
+    border-radius: 16px;
+  }
+}

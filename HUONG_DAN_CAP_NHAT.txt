@@ -1,0 +1,35 @@
+BẢN FIX3 - TIMELINE SẮP XẾP HÀNH CHÍNH THEO NQ 1243 VÀ NQ 1678
+
+Mục tiêu:
+- Chỉ sửa phần "Quá trình sắp xếp hành chính".
+- Không sửa giao diện, font, size chữ, màu sắc, bố cục chung.
+- Dữ liệu năm 2025 lấy từ dữ liệu hiện có của 130 địa phương theo Nghị quyết 1678/NQ-UBTVQH15.
+- Dữ liệu năm 2024 đối chiếu theo Nghị quyết 1243/NQ-UBTVQH15.
+- Không dùng tên địa danh hiện hành để dò lớp 2024 nhằm tránh nhầm địa danh trùng tên.
+- Dò lớp 2024 theo đơn vị cũ cấu thành trong oldUnits/formerUnits, đồng thời có kiểm tra huyện/thị xã/thành phố cũ để tránh nhầm như Hưng Phúc, Nghĩa Bình, Diên/Diễn...
+
+File cần dán đè:
+1) src/components/AdministrativeTimeline.jsx
+2) src/data/adminHistory2024.js
+
+Cách cập nhật:
+- Giải nén file zip này.
+- Copy 2 file trên và dán đè vào đúng vị trí trong dự án cũ.
+- Chạy kiểm tra:
+  npm run build
+  npm run dev
+
+Các trang nên test trước khi đưa lên GitHub:
+- /dia-danh/cua-lo
+- /dia-danh/vinh-loc
+- /dia-danh/vinh-phu
+- /dia-danh/hung-nguyen
+- /dia-danh/truong-vinh
+- /dia-danh/thai-hoa
+- /dia-danh/nghia-dan
+
+Ghi chú kiểm tra:
+- Phường Cửa Lò phải có lớp 2024: nhập thị xã Cửa Lò vào thành phố Vinh.
+- Phường Thái Hòa không có lớp 2024 nếu không có căn cứ trực tiếp trong NQ 1243.
+- Không tự gán xã/phường/thị trấn ngoài nội dung nghị quyết và dữ liệu đã đối chiếu.
+- File kiem-tra/admin-timeline-audit-130.json là bảng rà soát 130 địa phương: địa phương nào có lớp 2024, địa phương nào không có lớp 2024.
