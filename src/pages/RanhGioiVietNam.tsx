@@ -349,10 +349,10 @@ export default function RanhGioiVietNam() {
         {/* Tiêu đề trang */}
         <div className="mt-4 text-center font-serif">
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#991b1b]">
-            Ranh Giới Xã Phường Toàn Quốc
+            Bản Đồ Việt Nam Và Ranh Giới Xã Phường Nghệ An
           </h1>
           <p className="mx-auto mt-2 max-w-3xl font-sans text-sm sm:text-base text-[#475569] text-justify sm:text-center leading-relaxed">
-            Hệ thống bản đồ ranh giới hành chính cấp xã, phường, thị trấn trên toàn quốc. Tra cứu trực quan, phân chia màu sắc nhạt cho từng đơn vị, zoom độ phân giải cao và tích hợp tải file bản vẽ kỹ thuật CAD.
+            Hệ thống bản đồ trực quan thể hiện chủ quyền thiêng liêng toàn vẹn lãnh thổ Việt Nam, Biển Đông, hai quần đảo Hoàng Sa - Trường Sa cùng ranh giới hành chính chi tiết 130 xã, phường tỉnh Nghệ An sau sáp nhập 2025. Hỗ trợ tra cứu màu sắc trực quan, zoom độ phân giải cao và tích hợp tải file bản vẽ kỹ thuật CAD.
           </p>
         </div>
 

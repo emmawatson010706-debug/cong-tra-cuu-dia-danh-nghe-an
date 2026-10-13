@@ -110,16 +110,16 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Nút xem bản đồ ranh giới toàn quốc: CHỮ TRẮNG RỰC RỠ TRÊN NỀN ĐỎ, RÕ RÀNG */}
+          {/* Nút xem bản đồ việt nam và ranh giới xã phường nghệ an: CHỮ TRẮNG RỰC RỠ TRÊN NỀN ĐỎ */}
           <div className="relative z-10 mt-5 pt-4 border-t border-[#d97706]/20 flex justify-center">
             <Link
               to="/ranh-gioi-viet-nam"
               style={{ color: "#ffffff", backgroundColor: "#991b1b" }}
-              className="inline-flex items-center justify-center gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-4 py-2.5 sm:px-5 sm:py-3 font-sans text-xs sm:text-sm font-black !text-white shadow-md transition-all transform hover:-translate-y-0.5 border border-[#7f1d1d] max-w-full cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl !bg-[#991b1b] hover:!bg-[#7f1d1d] px-4 py-2.5 sm:px-6 sm:py-3 font-sans text-xs sm:text-sm font-black !text-white shadow-md transition-all transform hover:-translate-y-0.5 border border-[#7f1d1d] max-w-full cursor-pointer"
             >
               <Map className="size-4 shrink-0 !text-white" style={{ color: "#ffffff" }} />
               <span style={{ color: "#ffffff" }} className="!text-white font-black text-center whitespace-normal sm:whitespace-nowrap">
-                Xem Bản Đồ Ranh Giới Xã Phường Toàn Quốc ➔
+                Bản Đồ Việt Nam Và Ranh Giới Xã Phường Nghệ An ➔
               </span>
             </Link>
           </div>
