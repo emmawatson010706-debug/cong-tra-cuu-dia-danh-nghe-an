@@ -20,7 +20,7 @@ export default function SiteHeader() {
             <p className="text-[10px] sm:text-xs font-black uppercase tracking-[0.28em] text-[#92400e] drop-shadow-xs transition-colors group-hover:text-[#b45309]">
               Cổng Thông Tin Tra Cứu
             </p>
-            <h1 className="mt-1 font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#991b1b] leading-tight [text-shadow:0_2px_4px_rgba(153,27,27,0.18)]">
+            <h1 className="mt-1 font-serif text-[17px] sm:text-2xl md:text-3xl font-black tracking-normal text-[#991b1b] leading-tight whitespace-nowrap [text-shadow:0_1px_3px_rgba(153,27,27,0.18)]">
               Địa Danh Xã Phường Nghệ An
             </h1>
           </Link>
